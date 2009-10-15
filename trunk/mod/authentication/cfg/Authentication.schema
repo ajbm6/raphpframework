@@ -1,0 +1,76 @@
+CREATE TABLE IF NOT EXISTS `%objAuthGroupTable` (
+	`%objAuthGroupTableFId` bigint(20) unsigned NOT NULL auto_increment,
+	`%objAuthGroupTableFName` varchar(75) NOT NULL,
+	`%objAuthGroupTableFSEO` varchar(255) NOT NULL,
+	`lft` bigint(20) unsigned NOT NULL,
+	`rgt` bigint(20) unsigned NOT NULL,
+	`date` bigint(20) unsigned NOT NULL,
+		PRIMARY KEY  (`%objAuthGroupTableFId`),
+		UNIQUE KEY `name` (`%objAuthGroupTableFName`),
+		UNIQUE KEY `seo` (`%objAuthGroupTableFSEO`))
+		ENGINE=InnoDB  DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC AUTO_INCREMENT=1;
+
+___RA_SCHEMA_HASH_TAG_
+
+CREATE TABLE IF NOT EXISTS `%objAuthUsersTable` (
+	`%objAuthUsersTableFId` bigint(20) unsigned NOT NULL auto_increment,
+	`%objAuthUsersTableFUName` varchar(50) NOT NULL,
+	`%objAuthUsersTableFUPass` varchar(75) NOT NULL,
+	`%objAuthUsersTableFEML` varchar(255) NOT NULL,
+	`%objAuthUsersTableFPhone` varchar(255) NOT NULL,
+	`%objAuthUsersTableFFName` varchar(255) NOT NULL,
+	`%objAuthUsersTableFLName` varchar(255) NOT NULL,
+	`%objAuthUsersTableFCountry` varchar(2) NOT NULL,
+	`%objAuthUsersTableFCity` varchar(75) NOT NULL,
+	`%objAuthUsersTableFSignature` tinytext NOT NULL,
+	`%objAuthUsersTableFDesc` text NOT NULL,
+	`%objAuthUsersTableFYM` varchar(75) NOT NULL,
+	`%objAuthUsersTableFMSN` varchar(75) NOT NULL,
+	`%objAuthUsersTableFICQ` varchar(75) NOT NULL,
+	`%objAuthUsersTableFAOL` varchar(75) NOT NULL,
+	`%objAuthUsersTableFUGId` bigint(20) unsigned NOT NULL,
+	`%objAuthUsersTableFRegOn` bigint(20) unsigned NOT NULL,
+	`%objAuthUsersTableFLastLog` bigint(20) unsigned NOT NULL,
+	`%objAuthUsersTableFActivated` enum('Y','N') NOT NULL,
+	`%objAuthUsersTableFHash` varchar(255) NOT NULL,
+	`%objAuthUsersTableFAvatar` varchar(255) NOT NULL,
+	`%objAuthUsersTableFIp` varchar(255) NOT NULL,
+  		PRIMARY KEY  (`%objAuthUsersTableFId`),
+  		UNIQUE KEY `username` (`%objAuthUsersTableFUName`),
+  		UNIQUE KEY `email` (`%objAuthUsersTableFEML`),
+  		INDEX (%objAuthUsersTableFUGId),
+			FOREIGN KEY (%objAuthUsersTableFUGId)
+			REFERENCES %objAuthGroupTable(%objAuthGroupTableFId)
+			ON UPDATE CASCADE ON DELETE CASCADE) 
+  		ENGINE=InnoDB  DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC AUTO_INCREMENT=1;
+  		
+___RA_SCHEMA_HASH_TAG_
+
+CREATE TABLE IF NOT EXISTS `%objAuthZonesTable` (
+	`%objAuthZonesTableFId` bigint(20) unsigned NOT NULL auto_increment,
+	`%objAuthZonesTableFName` varchar(255) NOT NULL,
+	`%objAuthZonesTableFDesc` longtext NOT NULL,
+	`%objAuthZonesTableFPrice` varchar(25) NOT NULL,
+	`seo` varchar(255) NOT NULL,
+	`lft` bigint(20) unsigned NOT NULL,
+	`rgt` bigint(20) unsigned NOT NULL,
+	`date` bigint(20) unsigned NOT NULL,
+  		PRIMARY KEY  (`%objAuthZonesTableFId`),
+  		UNIQUE KEY `name` (`%objAuthZonesTableFName`)) 
+  		ENGINE=InnoDB  DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC AUTO_INCREMENT=1;  		
+
+___RA_SCHEMA_HASH_TAG_
+
+CREATE TABLE IF NOT EXISTS `%objAuthZoneMTable` (
+	`%objAuthZoneMTableFId` bigint(20) unsigned NOT NULL auto_increment,
+	`%objAuthZoneMTableFZId` bigint(20) unsigned NOT NULL,
+	`%objAuthZoneMTableFUGId` bigint(20) unsigned NOT NULL,
+	`%objAuthZoneMTableFIUG` enum('Y','N') NOT NULL,
+	`%objAuthZoneMTableFAorD` enum('D','A') NOT NULL,
+	`%objAuthZoneMTableFErase` enum('Y','N') NOT NULL,
+  		PRIMARY KEY  (`%objAuthZoneMTableFId`),
+  		INDEX (%objAuthZoneMTableFZId),
+			FOREIGN KEY (%objAuthZoneMTableFZId)
+			REFERENCES %objAuthZonesTable(%objAuthZonesTableFId)
+			ON UPDATE CASCADE ON DELETE CASCADE) 
+  		ENGINE=InnoDB  DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED AUTO_INCREMENT=1;

@@ -1,0 +1,4 @@
+We enable you to have comments for your articles. We need to know if the users need to be authenticated to comment or if anyone,
+that gets to write down their name, email and website is able to comment. We do recommend to have your users authenticate before
+you give'em access to comment. Warning: this setting, if users are not needed to authenticate, is overidden by the individual 'Can
+Comment' setting set for each individual article ...

@@ -1,0 +1,7 @@
+<div style="font-family: Tahoma; font-size: 11px; line-height: 11px;">
+A comment has been posted by %u. If you further wish to follow on the discussion, you may click the URL we give
+you and you will be redirected to the discussion. Other users will be notified of your comments also, so join the discussion now ...
+    <ul style="list-style-type: square;">
+        <li>%k</li>
+    </ul>
+</div>

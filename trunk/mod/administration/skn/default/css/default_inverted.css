@@ -1,0 +1,782 @@
+@font-face {
+    font-family: "Capture IT";
+    src: URL('../img/KABEL.TTF');
+}
+
+HTML {
+    overflow-y: scroll;
+}
+
+*:focus {
+    outline: none !important;
+}
+
+*:active {
+    outline: none !important;
+}
+
+BODY {
+    background: #040405;
+    color: #202020;
+    font-size: 11px;
+    font-family: Tahoma, Verdana, Arial, sans-serif;
+    background: #999999;
+    margin: 0px !important;
+    padding: 0px !important;
+    width: 100%;
+    height: 100%;
+}
+
+IMG {
+    border: 0px;
+}
+
+A { 
+    color: #303030; 
+    text-decoration: none;
+}
+
+A:hover { 
+    color: #000000;
+}
+
+A:active, A:focus { 
+    outline: none; 
+}
+
+#administrationHead {
+    position: fixed;
+    top: 0px;
+    background: #eeeeee;
+    border-bottom: 1px solid #dddddd;
+    height: 55px;
+    width: 100%;
+    z-index: 10000;
+    margin-left: 0.8%;
+}
+
+#administrationHead H1 {
+    color: #cccccc;
+    font-size: 32px;
+    height: 30px;
+    line-height: 30px;
+    xpadding: 10px 235px 5px;
+    padding: 10px 20% 5px;
+    margin-top: 0px;
+    font-weight: normal;
+    font-family: "Capture IT", "Tempus Sans ITC", "Tahoma", sans-serif;
+}
+
+#administrationHead H1 A {
+    padding: 4px;
+    color: #303030;
+    font-weight: normal;
+    padding-top: 8px;
+    font-family: "Tempus Sans ITC", "Tahoma", sans-serif;
+}
+
+#administrationHead H1 A:hover {
+    text-decoration: underline;
+    padding-top: 8px;
+}
+
+#administrationMenu {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    background-color: #eeeeee;
+    line-height: 24px;
+    padding-left: 0px;
+    width: 13.3%;
+}
+
+#administrationMenu LI A {
+    padding: 0 0 0 10px;
+    width: 93%;
+}
+
+#administrationMenu LI A.current {
+    background-color: #dadada;
+    padding: 0 0 0 35px;
+    
+}
+
+#administrationMenu {
+    background: #eeeeee  URL(../img/logo.png) no-repeat center top;
+    padding-top: 67px;
+    top: 0px;
+    left: 0px;
+    position: fixed;
+    height: 100%;
+    z-index: 8000;
+}
+
+#administrationMenu LI {
+    display: block;
+    text-align: right;
+}
+
+#administrationMenu LI A {
+    border-bottom: 2px solid #dddddd;
+    color: #666;
+    display: block;
+    font-size: 24px;
+    line-height: 28px;
+    padding-left: 0px;
+    position: relative;
+    padding-right: 8px;
+    font-family: "Tempus Sans ITC", "Tahoma", sans-serif;
+}
+
+#administrationMenu LI A.current {
+    border-bottom: 2px solid #dddddd; 
+    color: #000;
+    padding-left: 0px;
+}
+
+#administrationMenu LI A { 
+    background: transparent; 
+}
+
+#administrationMenu LI A.current { 
+    background: #dadada url(../img/indicator.png) no-repeat left center;
+    padding-right: 8px;
+}
+
+#administrationMenu LI A:hover, #administrationMenu LI A.current:hover {
+    background-color: #dddddd;
+    color: #000;
+}
+
+#administrationSubMenu {
+    background: #bbbbbb URL(../img/submenu_background.png) no-repeat 98.5% top;
+    border: 1px dashed #979797;
+    border-bottom: 0px;
+    border-right: 0px;
+    left: 13.3%;
+    min-height: 27px;
+    margin-top: -20px;
+    position: fixed;
+    width: 86.6%;
+    right: 0%;
+    padding: 0;
+    z-index: 9000;
+}
+
+#administrationSubMenu LI {
+    border-left: 1px solid #77777;
+    float: left;
+    font-family: Tahoma;
+    font-size: 11px;
+    line-height: 27px;
+    padding: 0;
+    list-style-type: none;
+    padding-left: 7px;
+    padding-top: 7px;
+}
+
+#administrationSubMenu LI A {
+    color: #000000;
+    padding: 6px 15px 6px;
+    -moz-border-radius-topleft: 4px;
+    -moz-border-radius-topright: 4px;
+}
+
+#administrationSubMenu LI A:hover {
+    background-color: #777777;
+    padding: 6px 15px;
+}
+
+#administrationSubMenu LI A.current {
+    background-color: #999999;
+    color: #101010;
+    padding: 6px 15px 7px;
+}
+
+#administrationSubMenu LI A.current:hover {
+    background-color: #777777;
+    border-bottom: 1px solid #bbbbbb;
+    color: #101010;
+    padding: 6px 15px 6px;
+}
+
+#administrationBody { 
+    margin-left: 14%; 
+    margin-top: 115px;
+    padding-bottom: 15px;
+}
+
+#administrationBody #administrationBody {
+    margin-left:0;
+}
+
+#administrationBody #administrationBody FORM .button {
+    border: 1px solid #666;
+    color: #ccc;
+}
+
+.wrap {
+    margin-left: 0px;
+    margin-right: 0px;
+    max-width: none;
+    padding: 15px;
+    position: relative;
+}
+
+.wrap + .wrap { padding-top: 0; }
+
+.wrap h2 {
+    background-color: #090909;
+    display: block;
+    font-family: Tahoma, Verdana, "Trebuchet MS", sans-serif;
+    margin: -15px -15px 15px -15px;
+    padding: 5px 15px;
+    position: relative;
+}
+
+#administrationWrap {
+    margin-top: -25px;
+    margin-left: -10px;
+}
+
+.wrap:after, #administrationSubMenu:after, #wpcontent:after { 
+    clear: both;
+    display: block;
+    height: 0;
+    visibility: hidden; 
+}
+
+#footer {
+    background-color: #eeeeee;
+    height: 18px;
+    color: #000000;
+    text-align: right;
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    width: 100%;
+    xz-index: 10000;
+}
+
+#footer p {
+    padding-right: 5px;
+    margin-top: 2px;
+}
+
+#footer a {
+    color: #505050;
+}
+
+#footer a:hover {
+    color: #000000;
+}
+
+INPUT, SELECT, TEXTAREA {
+    font-size: 11px;
+    font-family: Tahoma;
+    padding: 4px;
+    margin: 2px;
+    color: #000000;
+    -moz-border-radius: 6px;
+    width: 86.4%;
+    background: #777777 URL(../img/input_background.png) no-repeat right top;
+    border: 1px solid #777777;
+    padding-right: 25px;
+}
+
+INPUT[type=submit] {
+    width: 98.5%;
+    margin-left: auto;
+    margin-right: auto;
+    background: #999999 URL(../img/submit_background.png) no-repeat right 10%;
+    padding-right: 65px;
+    margin-left: 1px;
+    font-size: 24px;
+    border: 1px solid #999999;
+    color: #202020;
+    text-align: right;
+    -moz-border-radius: 6px;
+    font-family: "Tempus Sans ITC", "Tahoma", sans-serif;
+}
+
+LABEL {
+    -moz-border-radius: 6px;
+    width: 8% !important;
+    background: #999999;
+    border: 1px solid #999999;
+    color: #202020;
+    padding: 4px;
+    margin-top: 2px;
+    float: left;
+    display: block;
+    margin-left: 1px;
+}
+
+FIELDSET, .divContainer, .divContainerSecond {
+    background: #888888;
+    border: 1px solid #999999;
+    margin-right: 6px;
+    color: #101010;
+    -moz-border-radius: 6px;
+}
+
+.divContainer {
+    padding: 6px;
+    margin-left: 2px;
+    margin-top: 115px;
+    -moz-border-radius: 6px;
+}
+
+.divContainerSecond {
+    padding: 6px;
+    margin-left: 2px;
+    margin-top: 0px;
+    -moz-border-radius: 6px;
+}
+
+INPUT[type=submit]:hover {
+    border: 1px solid #999999;
+    background: #999999 URL(../img/submit_hover_background.png) no-repeat right 10%;
+    color: #202020;
+    text-align: right;
+}
+
+SELECT {
+    width: 89.4%;
+    padding: 3px;
+    background: #777777;
+    padding-left: 0px;
+}
+
+INPUT[type=checkbox], INPUT[type=radio] {
+    width: 10px;
+    display: block;
+}
+
+INPUT:hover, INPUT:focus, SELECT:hover, SELECT:focus, TEXTAREA:hover, TEXTAREA:focus {
+    background: #999999 URL(../img/input_background.png) no-repeat right top;
+    border: 1px solid #999999;
+}
+
+INPUT[type=submit]:focus {
+    border: 1px solid #999999;
+    background: #999999 URL(../img/submit_hover_background.png) no-repeat right 10%;
+    color: #202020;
+    text-align: right;
+}
+
+SELECT:hover {
+    background: #999999;
+}
+
+#tableTreeNameHeader, .tableTreeName, .tableTreeOdd, #tableTreeEditHeader, .tableTreeEdit,
+#tableTreeEraseHeader, .tableTreeErase, #tableTreeActionHeader, .tableTreeAction {
+    -moz-border-radius: 6px;
+}
+
+.tableTreeName {
+    width: 86.6%;
+    border: 1px solid #999999;
+    padding: 4px;
+    display: block;
+    margin: 2px;
+    float: left;
+    background: #dddddd;
+    color: #000000;
+}
+
+#tableTreeNameHeader, #tableTreeNameHeader:hover {
+    text-align: left;
+    background: #777777 URL(../img/name_background.png) no-repeat right 15%;
+    border: 1px solid #777777;
+    float: left;
+    font-size: 24px;
+    color: #ffffff;
+}
+
+.tableTreeName a {
+    color: #101010;
+    display: block;
+    padding: 2px;
+    margin: -2px;
+}
+
+.actionErase, .actionErase:hover {
+    display: block;
+    float: right;
+    width: 13px;
+    height: 13px;
+    background: URL(../img/erase_background_16px.png) no-repeat center center;
+}
+
+#tableTreeNameHeader a.sortDesc, #tableTreeNameHeader a.sortAsc {
+    float: left;
+    border: 1px solid #aaaaaa;
+    color: #202020;
+    padding: 2px;
+    margin-left: 2px;
+    font-size: 11px;
+    margin-top: 6px;
+    width: 50px;
+}
+
+#tableTreeNameHeader a.sortDesc {
+    background: #999999 URL(../img/arrow_down.png) no-repeat right center;
+}
+
+#tableTreeNameHeader a.sortAsc {
+    margin-right: 5px;
+    margin-left: 5px;
+    background: #999999 URL(../img/arrow_up.png) no-repeat right center;
+}
+
+.tableTreeOdd {
+    background: #bbbbbb;
+    border: 1px solid #bbbbbb;
+}
+
+.tableTreeAction {
+    width: 20%;
+    border: 1px solid #505050;
+    padding: 4px;
+    display: block;
+    margin: 2px;
+    float: left;
+    background: #bbbbbb;
+    color: #101010;
+    text-align: center;
+}
+
+.tableTreeAction:hover {
+    background: #ffffff;
+}
+
+#tableTreeActionHeader {
+    text-align: center;
+    background: #999999 URL(../img/action_background.png) no-repeat left -15%;
+    border: 1px solid #bbbbbb;
+    color: #101010;
+    float: left;
+    font-size: 24px;
+    text-align: right;
+}
+
+.tableTreeEdit {
+    width: 10%;
+    border: 1px solid #505050;
+    padding: 4px;
+    display: block;
+    margin: 2px;
+    float: left;
+    background: #bbbbbb;
+    color: #101010;
+    text-align: center;
+}
+
+#tableTreeEditHeader {
+    text-align: center;
+    background: #999999 URL(../img/edit_background.png) no-repeat left top;
+    border: 1px solid #bbbbbb;
+    color: #101010;
+    float: left;
+    font-size: 24px;
+    text-align: right;
+}
+
+.tableTreeErase {
+    width: 10%;
+    padding: 4px;
+    display: block;
+    margin: 2px;
+    float: left;
+    background: #bbbbbb;
+    border: 1px solid #999999;
+    color: #101010;
+    text-align: center;
+}
+
+.tableTreeErase a {
+    color: #101010;
+    display: block;
+    padding: 2px;
+    margin: -2px;
+}
+
+.tableTreeErase a:hover {
+    background: #dddddd;
+}
+
+#tableTreeEraseHeader {
+    text-align: center;
+    background: #999999 URL(../img/erase_background.png) no-repeat left -15%;
+    border: 1px solid #999999;
+    color: #101010;
+    float: left;
+    font-size: 24px;
+    text-align: right;
+}
+
+.tableSectionHeader {
+    background: #bbbbbb;
+    color: #ffffff;
+    font-size: 24px;
+    border: 1px solid #dddddd;
+    color: #ffffff;
+    padding: 4px;
+    width: 98.5%;
+    margin-left: 2px;
+    text-align: right;
+    -moz-border-radius: 6px;    
+}
+
+.clearFloatLeft {
+    clear: left;
+}
+
+.clearFloatRight {
+    clear: right;
+}
+
+.RA_err_msg_tag {
+    background: #bbbbbb URL(../img/error_background.png) no-repeat 1% 30%;
+    color: #888888;
+    font-size: 32px;
+    border: 1px solid #999999;
+    padding: 4px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    width: 97.7%;
+    text-align: right;
+    -moz-border-radius: 6px;
+}
+
+.RA_err_msg_div {
+    background: #bbbbbb URL(../img/error_background.png) no-repeat 2% -7%;
+    color: #555555;
+    font-size: 32px;
+    border: 1px solid #ffffff;
+    padding: 6px;
+    width: 98.7%;
+    margin-top: 105px;
+    text-align: right;
+}
+
+.RA_err_button_as_LINK {
+    display: block;
+    background: #dddddd;
+    border: 1px solid #ffffff;
+    padding: 6px;
+    font-size: 24px;
+    margin-top: 4px;
+    opacity: 0.55;
+}
+
+.RA_err_button_as_LINK:hover {
+    display: block;
+    background: #ffffff;
+    color: #000000;
+    border: 1px solid #000000;
+    padding: 6px;
+    font-size: 24px;
+    margin-top: 4px;
+}
+
+.RA_info_msg_tag {
+    background: #999999 URL(../img/user_info.png) no-repeat left top;
+    color: #303030;
+    font-size: 14px;
+    border: 1px solid #999999;
+    text-align: right;
+    padding: 4px;
+    padding-left: 64px;
+    width: 92%;
+    margin-left: 1px;
+    -moz-border-radius: 6px;
+}
+
+.RA_file_upload_controller {
+    position: relative;
+    float: right;
+    margin-top: 5px;
+    margin-right: 45px;
+    xmargin-left: 815px !important;
+}
+
+.o2k7Skin, .mceLayout {
+    float: left;
+    margin-left: 2px;
+    margin-top: 2px;
+}
+
+.paginationLink {
+    display: block;
+    float: left;
+    background: #777777;
+    border: 1px solid #999999;
+    padding: 2px;
+    padding-left: 4px;
+    padding-right: 4px;
+    margin-right: 5px;
+    margin-top: -2px;
+}
+
+.currentPage {
+    background: #555555;
+}
+
+.divPagination {
+    padding-top: 6px;
+}
+
+.bigEditInfo {
+    font-size: 64px;
+    float: left;
+}
+
+.checkboxFileController {
+    position: relative;
+    margin-top: -22px;
+    margin-left: 820px !important;
+}
+
+#tooltip {
+    position: absolute;
+    z-index: 100000;
+    margin-left: 120px;
+    border: 1px solid #dddddd;
+    background: #dddddd URL(../img/tooltip_background.png) no-repeat 99% 5px;
+    color: #000000;
+    padding: 5px;
+    padding-right: 70px;
+    min-height: 50px;
+    opacity: 0.75;
+    width: 25%;
+    -moz-border-radius: 6px;
+}
+
+#tooltip h3, #tooltip div { 
+    margin: 0; 
+    font-weight: normal; 
+    font-size: 9px;
+    color: #202020;
+}
+
+.widget-column {
+    margin: 2px;
+    padding: 0;
+    float: left;
+    width: 32.6%;
+    height: auto;
+    list-style: none;
+}
+
+.widget-placeholder {
+    border: 1px dashed #777777;
+    background: #bbbbbb;
+    margin-right: 4px;
+    margin-top: 4px;
+}
+
+.widget {
+    
+}
+
+.widget-header {
+    background: #777777;
+    border: 1px solid #999999;
+    margin-right: 5px;
+    color: #101010;
+    padding: 4px;
+    margin-top: 5px;
+    -moz-border-radius: 6px;
+    text-align: right;
+}
+
+.widget-header img {
+    border: 0px;
+    vertical-align: middle;
+}
+
+.widget-menu {
+    
+}
+
+.widget-menu a {
+    margin: 0 0 0 0.5em;
+}
+
+.widget-editbox {
+
+}
+  
+.widget-content {
+    background: #888888;
+    border: 1px solid #999999;
+    margin-right: 5px;
+    color: #101010;
+    padding: 4px;
+    -moz-border-radius: 6px;
+}
+
+.widget-header:focus, .widget-content:focus {
+    opacity: 0.65;
+}
+
+a#doLogOutLink {
+    display: block;
+    position: absolute;
+    right: 15px;
+    top: 0px;
+    height: 32px;
+    line-height: 30px;
+    border-top: 0px;
+    border: 1px dashed transparent;
+    width: 190px;
+    background: URL(../img/logout_background.png) no-repeat right center;
+    padding-top: 4px;
+}
+
+a#doHomepageLink {
+    display: block;
+    position: absolute;
+    right: 125px;
+    top: 0px;
+    height: 32px;
+    line-height: 30px;
+    border-top: 0px;
+    border: 1px dashed transparent;
+    width: 190px;
+    padding-top: 4px;
+}
+
+a#doSwitcherLink {
+    display: block;
+    position: absolute;
+    right: 250px;
+    top: 0px;
+    height: 32px;
+    line-height: 30px;
+    border-top: 0px;
+    border: 1px dashed transparent;
+    width: 190px;
+    padding-top: 4px;
+}
+
+a#doLogOutLink:hover {
+    background: URL(../img/logout_hover_background.png) no-repeat right center;
+    text-decoration: none !important;
+    height: 32px;
+    padding-top: 4px;
+    color: #101010;
+}
+
+#ajaxLoading {
+    background: URL(../img/ajax.gif) no-repeat center center;
+    width: 100%;
+    height: 50px;
+    display: none;
+}
+
+.sortAsc, .sortDesc {
+    opacity: 0.60;
+}

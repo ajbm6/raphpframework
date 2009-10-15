@@ -1,0 +1,140 @@
+<div class="div_MainBackgroundContainer">
+    <div class="div_MainContainerAutoCentered">
+        <div class="div_LeftContent">
+            <?php $AUD->renderWidget (new S ('widgetList'), new A (Array (
+            'just_play' => new S ('Apasa PLAY ...'),
+            'audio_uploaded_by' => new S ('Incarcat de: '),
+            'audio_uploaded_at' => new S ('La data de: '),
+            'audio_title' => new S ('Titlu: '),
+            'audio_artist' => new S ('Artist: '),
+            'audio_album' => new S ('Album: '),
+            'audio_description' => new S ('Descriere: '),
+            'audio_lyrics' => new S ('Versuri: '),
+            'audio_genre' => new S ('Genul: '),
+            'audio_path_to_item' => new S ('Cale catre fisier: '),
+            'audio_no_description' => new S ('Aceasta piesa audio nu are o descriere, fie a piesei in sine, fie a albumului sau a artistului.
+            Cu orice piesa audio incarcata de utilizatori, noi ii incurajam sa scrie cateva informatii despre piesele audio ce le incarca,
+            dar nu putem garanta ca acest lucru se va intampla de fiecare data. In cazul in care vrei, <a href="mailto: office@24up.ro">ne poti trimite tu</a>
+            o descriere a acesteia.'),
+            'audio_no_lyrics' => new S ('Fie aceasta piesa audio este una instrumentala, fie utilizatorul care a incarcat piesa audio
+            nu a completat versurile. De obicei utilizatorii isi scriu versurile creatiilor pe care le incarca, insa nu intotdeauna.
+             Exista si astfel de cazuri, dar daca vrei, <a href="mailto: office@24up.ro">ne poti trimite tu</a> versurile acesteia.'),
+            'audio_lyrics_need_correction' => new S ('Atentie! Versurile de mai sus pot fi corecte sau nu. Comunitatea 24up! este o comunitate in totalitate
+            moderata de utilizatori, de aceea din cand in cand anumite greseli pot fi sesizate. In cazul in care ai sesizat o greseala in versurile de mai sus
+            si vrei sa-ti aduci contributia <a href="mailto: office@24up.ro">ne poti trimite chiar tu</a> versurile corectate ...'),
+            'audio_description_need_correction' => new S ('Atentie! Descrierea de mai sus poate sa fie corecta sau nu. Comunitatea 24up! este o comunitate in totalitate
+            moderata de utilizatori, de aceea din cand in cand anumite greseli pot fi sesizate. In cazul in care ai sesizat o greseala in descrierea de mai sus
+            si vrei sa-ti aduci contributia <a href="mailto: office@24up.ro">ne poti trimite chiar tu</a> corectarile ...'),
+            'no_audio' => new S ('<h1>N-avem ...</h1><p>Deci momentan nu avem nimic in aceasta categorie.
+            Situatia s-ar putea schimba daca tu vei fi primul care incarca ceva aici, insa momentan asta e, am renuntat. 
+            Nu pot sa-ti gasesc nimic ... Ia da tu click pe altceva, poate cine stie, ai noroc ...</p>')))); ?>
+            
+            <?php $AUD->renderWidget (new S ('widgetComments'), new A (Array (
+            'comment_add' => new S ('Adauga un comentariu'),
+            'comment_submit' => new S ('Comenteaza'),
+            'comment_name' => new S ('Nume'),
+            'comment_email' => new S ('E-Mail'),
+            'comment_website' => new S ('Website'),
+            'comment_message' => new S ('Comentariu'),
+            'error_no_comment' => new S ('Nu ai completat mesajul ...'),
+            'error_no_name' => new S ('Nu ai introdus numele ...'),
+            'error_no_email' => new S ('Nu ai introdus un email ...'),
+            'comment_has_been_added' => new S ('Commentariul tau a fost adaugat si asteapta aprobare. Revino peste cateva
+            momente pentru a verifica daca a fost aprobat sau nu ...')))); ?>
+            
+            <?php if (isset ($_GET[AUDIO_ITEM_URL])): ?> 
+				<div class="div_LeftContentContainer">
+					<h1>Colectie artist</h1>
+					<?php $AUD->renderWidget (new S ('widgetRelatedN'), new A (Array (
+					'audio_n_count' => new S ('6'),
+					'audio_song_title' => new S ('Piesa: '),
+					'audio_song_artist' => new S ('Artist: '),
+					'audio_song_album' => new S ('Album: '),
+					'audio_song_item' => $_GET[AUDIO_ITEM_URL]))); ?>
+				</div>
+				
+				<div class="div_LeftContentContainer">
+                    <h1>La nimereala</h1>
+                    <?php $AUD->renderWidget (new S ('widgetRandomN'), new A (Array (
+                    'audio_song_title' => new S ('Piesa: '),
+                    'audio_song_artist' => new S ('Artist: '),
+                    'audio_song_album' => new S ('Album: '),
+                    'audio_n_count' => new S ('6')))); ?>
+                </div>
+			<?php endif; ?>
+        </div>
+        
+        <div class="div_RightContent">
+            <?php if (isset ($_GET[AUDIO_ITEM_URL])): ?>
+                <?php if ($AUD->checkAudioFileURLIsUnique ($objURL = $_GET[AUDIO_ITEM_URL])->toBoolean () == FALSE): ?>
+                <h1>Utilizator</h1>
+                <div class="div_SidebarContainer" id="div_UserProfileBox">
+                    <?php $ATH->renderWidget (new S ('widgetUserProfileBox'), new A (Array (
+                    'user_id' => $AUD->getAudioFileInfoByURL ($_GET[AUDIO_ITEM_URL], Audio::$objAudioTableFUploaderId),
+                    'registered_on' => new S ('Inregistrat: '),
+                    'country' => new S ('Tara: '),
+                    'signature' => new S ('Semnatura')))); ?>
+                </div>
+                <?php endif; ?>
+            <?php endif; ?>
+            
+            <?php if (isset ($_GET[AUDIO_ITEM_URL])): ?>
+                <h1>Yahooooo!</h1>
+                <div class="div_SidebarContainer" id="div_YahooSidebarBox">
+                <a class="span_YahooLink" href="<?php echo URL::staticURL (new A (Array (FRONTEND_SECTION_URL, AUTHENTICATION_ACTION_URL)),
+                new A (Array (FRONTEND_AUTHENTICATION_URL, 'YahooBBOK'))); ?>">Trimite prietenilor<br />de pe Yahoo sa asculte<br />
+                <?php 
+                        $objURL = $_GET[AUDIO_ITEM_URL]; 
+                ?><span class="span_YahooLink" style="background: #000000; opacity: 0.60; filter: alpha(opacity=60); display: block; font-size: 11px; font-family: Tahoma; padding: 6px;">
+                <em>"<?php echo $AUD->getAudioFileInfoByURL ($objURL, Audio::$objAudioTableFTitle); ?>"</em> de
+                    <strong><?php echo $AUD->getAudioFileInfoByURL ($objURL, Audio::$objAudioTableFArtist); ?></strong>,<br />
+                    din colectia <?php echo $AUD->getAudioFileInfoByURL ($objURL, Audio::$objAudioTableFAlbum); ?>.</span></a>
+                </div>
+            <?php endif; ?>
+            
+            <?php if (isset ($_GET[AUDIO_ITEM_URL])): ?>
+                <?php if ($AUD->checkAudioFileURLIsUnique ($objURL = $_GET[AUDIO_ITEM_URL])->toBoolean () == FALSE): ?>
+                <h1>Embed</h1>
+                <div class="div_SidebarContainer" id="div_DoEmbed">
+                    <?php 
+                        $objURL = $_GET[AUDIO_ITEM_URL]; 
+                        $objId = $AUD->getAudioFileInfoByURL ($objURL, Audio::$objAudioTableFId);
+                        $objAr = $AUD->getAudioFileInfoByURL ($objURL, 
+                        Audio::$objAudioTableFArtist)->entityDecode (ENT_QUOTES);
+                        $objTt = $AUD->getAudioFileInfoByURL ($objURL, 
+                        Audio::$objAudioTableFTitle)->entityDecode (ENT_QUOTES)->doToken ('"', '\'')->doToken (',', '');
+                        $objSf = DOCUMENT_HOST . 'upd/audio/mp3/' . date ('Y/m/d/',
+                (int) $AUD->getAudioFileInfoByURL ($objURL, Audio::$objAudioTableFUploadedDate)->toString ()) . 
+                $AUD->getAudioFileInfoByURL ($objURL, Audio::$objAudioTableFFile);
+                        $objUR = URL::rewriteURL ();
+                    ?>
+                <?php $objDoc = <<<CCDATA
+<script type='text/javascript' src='http://24up.ro/mod/audio/skn/default/jss/audioPlayer.js'></script>
+<p id="p_AudioItemArticle-Id-$objId" class="p_AudioItemArticle"></p>
+<script type="text/javascript">  
+    AudioPlayer.embed ("p_AudioItemArticle-Id-$objId", {
+        soundFile: "$objSf",
+        titles: "Titlu: $objTt",
+        artists: "via 24up - Artist: $objAr"
+    });  
+</script>
+<a href="$objUR" title="$objTt - $objAr">$objTt - $objAr pe 24up</a>
+CCDATA;
+                ?>
+                    <div style="text-align: right; float: right; margin-bottom: 10px;">Daca vrei sa asculte si altii piesa 
+                    <em>"<?php echo $AUD->getAudioFileInfoByURL ($objURL, Audio::$objAudioTableFTitle); ?>"</em> pune acest cod HTML pe BLOGU' tau acum ...</div>
+                    <input type="text" value="<?php echo _S ($objDoc)->entityEncode (ENT_QUOTES); ?>"
+                    style="width: 280px;" />
+                </div>
+                <?php endif; ?>
+            <?php endif; ?>
+            
+            <h1>Genuri</h1>
+            <div class="div_SidebarContainer" id="div_MusicGenre">
+                <?php $AUD->renderWidget (new S ('widgetCategoryList')); ?>
+            </div>
+        </div>
+        
+        <div class="div_CLEAR"></div>
+    </div>
+</div>

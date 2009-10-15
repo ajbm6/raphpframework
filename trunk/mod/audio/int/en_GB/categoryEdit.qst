@@ -1,0 +1,4 @@
+We allow you only to change the name and description of a category. We do not allow you to edit the cateogry hierarchy from here, 
+because that would make a lot of problems appear when the user is unable to view the whole hierarchy at once. If a category exist 
+and you edit the name of the category with one that exists, we will warn you that this cannot be done, as we only allow unique 
+category names around the structure ...

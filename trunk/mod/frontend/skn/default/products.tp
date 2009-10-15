@@ -1,0 +1,30 @@
+<div class="div_MainBackgroundContainer">
+    <div class="div_MainContainerAutoCentered">
+        <div class="div_LeftContent">
+            <?php $PRD->renderWidget (new S ('widgetList'), new A (Array (
+            'product_path_to_item' => new S ('Cale catre produs: '),
+            'product_price' => new S ('Pret'),
+            'product_stock' => new S ('Stoc'),
+            'product_code' => new S ('Cod'),
+            'product_currency' => new S ('RON'),
+            'product_category' => new S ('Categorie'),
+            'product_properties' => new S ('Specificatii produs'),
+			'no_products' => 'Momentan nu exista produse in aceasta categorie. Ne pare rau, insa poti revenii dupa cateva zile si este
+			posibil sa avem ce sa iti aratam aici ...'))); ?>
+            
+            <div class="div_LeftContentContainer">
+                <h1>La nimereala</h1>
+                <?php $PRD->renderWidget (new S ('widgetRandomN'), new A (Array ())); ?>
+            </div>
+        </div>
+
+        <div class="div_RightContent">
+            <h1>Categorii</h1>
+            <div class="div_SidebarContainer" id="div_MusicGenre">
+                <?php $PRD->renderWidget (new S ('widgetCategoryList')); ?>
+            </div>
+        </div>
+        
+        <div class="div_CLEAR"></div>
+    </div>
+</div>

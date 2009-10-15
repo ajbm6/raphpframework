@@ -1,0 +1,43 @@
+    <div class="divContainer">
+    <div class="tableTreeName" id="tableTreeNameHeader">
+        <a class="sortDesc" href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION_SORT)), 
+        new A (Array ('DescByUsername'))); ?>">DESC</a>
+        <a class="sortAsc" href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION_SORT)), 
+        new A (Array ('AscByUsername'))); ?>">ASC</a>
+        User
+    </div>
+    <div class="tableTreeName" id="tableTreeNameHeader">
+        <a class="sortDesc" href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION_SORT)), 
+        new A (Array ('DescByZone'))); ?>">DESC</a>
+        <a class="sortAsc" href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION_SORT)), 
+        new A (Array ('AscByZone'))); ?>">ASC</a>
+        Zone
+    </div>
+    <div class="tableTreeName" id="tableTreeNameHeader">Access type</div>
+    <div class="tableTreeErase" id="tableTreeEraseHeader"><?php echo ADMIN_ACTION_ERASE; ?></div>
+    <?php $doIndex = 0; ?>
+<?php foreach ($zonesMappingsTableForUsers as $k => $v): ?>
+    <a class="tableTreeName<?php if ($doIndex % 2 != 0): ?> tableTreeOdd<?php endif; ?>" 
+    href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION, ADMIN_ACTION_ID)), 
+    new A (Array (ADMIN_ACTION_EDIT, $v[Authentication::$objAuthZoneMTableFId]))); ?>">
+    <?php echo $v['user_or_group_name']; ?>
+    </a>
+    <a class="tableTreeName<?php if ($doIndex % 2 != 0): ?> tableTreeOdd<?php endif; ?>" 
+    href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION, ADMIN_ACTION_ID)), 
+    new A (Array (ADMIN_ACTION_EDIT, $v[Authentication::$objAuthZoneMTableFId]))); ?>">
+    <?php echo $v['zone_name']; ?>
+    </a>
+    <a class="tableTreeName<?php if ($doIndex % 2 != 0): ?> tableTreeOdd<?php endif; ?>" 
+    href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION, ADMIN_ACTION_ID)), 
+    new A (Array (ADMIN_ACTION_EDIT, $v[Authentication::$objAuthZoneMTableFId]))); ?>">
+    <?php if ($v[Authentication::$objAuthZoneMTableFAorD] == 'A') { echo 'ALLOWED'; } else { echo 'DENIED'; } ?>
+    </a>
+    <div class="tableTreeErase">
+        <a href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION, ADMIN_ACTION_ID)), 
+        new A (Array (ADMIN_ACTION_ERASE, $v[Authentication::$objAuthZoneMTableFId]))); ?>">
+        <?php echo ADMIN_ACTION_ERASE; ?></a>
+    </div>
+    <div class="clearFloatLeft"></div>
+    <?php $doIndex++; ?>
+<?php endforeach; ?>
+    </div>

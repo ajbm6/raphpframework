@@ -1,0 +1,13 @@
+<div class="div_TextsCategoryTextListContainer">
+	<?php foreach ($objCategoryArray as $k => $v): ?>
+		<div class="div_TextsCategoryTextsList">
+			<a href="<?php echo URL::rewriteURL (new A (Array (TEXTS_TEXTS_URL, FRONTEND_SECTION_URL)),
+			new A (Array ($v[Texts::$objTextTableFSEO], $objCategory))); ?>" class="a_TextsCategoryTextsList"
+			title="<?php echo $v[Texts::$objTextTableFTitle]; ?>">
+				<h1 class="h1_TextsCategoryTextsList" title="<?php echo $v[Texts::$objTextTableFTitle]; ?>">
+					<?php echo $v[Texts::$objTextTableFTitle]; ?>
+				</h1>
+			</a>
+		</div>
+	<?php endforeach; ?>
+</div>

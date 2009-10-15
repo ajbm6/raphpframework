@@ -1,0 +1,48 @@
+<?php if ($objCommentIsOk->toLength ()->toInt () != 0): ?>
+	<div class="div_TextsCommentsOk">
+		<?php echo $objCommentIsOk; ?>
+	</div>
+<?php endif; ?>
+<div class="div_TextsCommentsListContainer">
+	<?php foreach ($objComments as $k => $v): ?>
+	<div class="div_TextsSingleComment" id="<?php echo $v[Texts::$objCommentsTableFId]; ?>">
+		<div class="div_TextsSingleCommentAuthor">
+			<?php
+			if ((int) $v[Texts::$objCommentsTableFRUId]->toString () == 0) {
+				echo $v[Texts::$objCommentsTableFName];
+			} else {
+				// Query the authentication ...
+				echo $ATH->getUserInfoById ($v[Texts::$objCommentsTableFRUId], Authentication::$objAuthUsersTableFUName);
+			}
+			?>
+		</div>
+		
+		<div class="div_TextsSingleCommentDate">
+			<?php echo date ($STG->getConfigKey (new S ('settings_default_date_format')),
+			(int) $v[Texts::$objCommentsTableFDate]->toString ()); ?>
+		</div>
+		
+		<div class="div_TextsSingleCommentMessage">
+		  <?php if ($ATH->getUserInfoById ($v[Texts::$objCommentsTableFRUId], 
+            Authentication::$objAuthUsersTableFAvatar)->toLength ()->toInt () != 0): ?>
+            <div style="width: 75px; height: 75px; float: right; margin-left: 10px;">
+                <img src="upd/users/avatars/128_128_<?php echo $ATH
+                ->getUserInfoById ($v[Texts::$objCommentsTableFRUId], Authentication::$objAuthUsersTableFAvatar); ?>"
+                align="right" style="border: 2px solid #444444; 
+                margin: 10px; margin-top: 3px; margin-bottom: 0px; width: 75px; height: 75px;" />
+            </div>
+            <?php endif; ?>
+            <?php if ($ATH->getUserInfoById ($v[Texts::$objCommentsTableFRUId], 
+            Authentication::$objAuthUsersTableFAvatar)->toLength ()->toInt () == 0): ?>
+                <img src="upd/users/avatars/no_avatar.png"
+                align="right" style="border: 2px solid #444444; 
+                margin: 10px; margin-top: 3px; padding-top: 3px; margin-bottom: 0px; width: 75px; height: 75px;" />
+            <?php endif; ?>
+            <div clas="div_CLEAR"></div>
+            <div style="width: 510px;">
+                <?php echo $v[Texts::$objCommentsTableFComment]->entityDecode (ENT_QUOTES); ?>
+            </div>
+		</div>
+	</div>
+	<?php endforeach; ?>
+</div>

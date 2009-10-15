@@ -1,0 +1,18 @@
+?><div class="widget-header">Texts :: Latest 10 articles</div>
+<div class="widget-content">
+    Bellow, we give you the recent 10 (ten) texts that have been written. Clicking on any of the links will redirect you to the
+    editing interface for that text ...
+    <?php
+        $TXT = MOD::activateModule (new FilePath ('mod/texts'), new B (TRUE));
+        $objKV = $TXT->getTexts (new S ('ORDER BY %objTextTableFId DESC LIMIT 0, 10'));
+        $objK = new A (Array (ADMIN_PAGE, ADMIN_SUBPAGE, ADMIN_ACTION, ADMIN_ACTION_ID));
+    ?>
+    
+    <ul>
+    <?php foreach ($objKV as $k => $v): ?>
+        <?php  $objV = new A (Array (MANAGE_TEXTS, MANAGE_TEXTS, ADMIN_ACTION_EDIT, 
+        $v[Texts::$objTextTableFId])); ?>
+        <li><a href="<?php echo URL::staticURL ($objK, $objV); ?>"><?php echo $v[Texts::$objTextTableFTitle]; ?></a></li>
+    <?php endforeach; ?>
+    </ul>
+</div>

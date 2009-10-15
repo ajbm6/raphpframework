@@ -1,0 +1,4 @@
+You can use this form to add the required lyrics. The combination of Title/Album/Artist must be unique, as we don't actually keep a
+record or RDBMS of artist/albums and singles, which means that we relly on a combination of factors to determine if the lyric you
+edit is unique or not. For example we take these three variables and generate an unique identifier. If that unique identifier is
+found in our database it means that the lyric is already there ...

@@ -1,0 +1,36 @@
+<div class="div_TopHeader">
+    <div class="div_TopHeaderAutoCentered">
+        <a id="aHref_Upload" href="<?php echo $objURLUpload; ?>">Upload</a>
+        <?php $ATH->renderWidget (new S ('userLogIn'), new A (Array ('welcome_there' => new S ('Bine ai revenit, '),
+        'log_out' => new S ('[deconectare]'),
+        'log_in' => new S ('Autentificare'),
+        'log_in_username' => new S ('Utilizator'),
+        'log_in_password' => new S ('Parola'),
+        'log_in_failed' => new S ('Utilizator sau parola gresita ...'),
+        'register' => new S ('Inregistrare')))); ?>
+        <div class="div_CLEAR"></div>
+    </div>
+</div>
+<div class="div_TopHeaderLogoContainerAndMenu">
+    <div class="div_TopHeaderAutoCentered">
+        <div class="div_LeftAlignedLogo">
+            <a href="<?php echo $objURLHome; ?>"><img src="<?php echo $objURLImageDir; ?>logo.png" 
+            alt="<?php echo PROJECT_NAME; ?>" /></a>
+        </div>
+        <div class="div_RightAlignedMenu">
+            <a title='Audio' id="aHref_Audio" href="<?php echo $objURLAudio; ?>">Audio</a>
+            <a title='Versuri' id="aHref_Lyrics" href="<?php echo $objURLLyrics; ?>">Versuri</a>
+            <a title='Foto' id="aHref_Foto" href="#" onclick="return false;">Foto</a>
+            <a title='Video' id="aHref_Video" href="#" onclick="return false;">Video</a>
+            <a title='Ultimele noutati' id="aHref_News" href="<?php echo $objURLNews; ?>">Noutati</a>
+            <a title='Contact' id="aHref_Contact" href="<?php echo $objURLContact; ?>">Contact</a>
+        </div>
+        <?php $AUD->renderForm (new S ('audioSearchOnFrontend'), new A (Array (
+            'search_submit' => new S ('Cauta'),
+            'error_empty_search' => new S ('Nu ai completat cautarea'),
+            'search_title' => new S ('Denumire')))); ?>
+            
+        <?php $AUD->renderWidget (new S ('widgetRandomItem'), new A (Array ('audio_random' => new S ('Aleator')))); ?>
+        <div class="div_CLEAR"></div>
+    </div>
+</div>

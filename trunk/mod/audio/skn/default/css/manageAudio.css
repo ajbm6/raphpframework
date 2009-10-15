@@ -1,0 +1,11 @@
+#administrationHead {
+    background: #888888 URL(../img/audio_background.png) no-repeat 15% 5px;
+}
+
+.tableTreeName {
+    width: 13.3%;
+}
+
+.sortDesc, .sortAsc {
+    width: 40px !important;
+}

@@ -1,0 +1,33 @@
+<?php if (count ($objAr) == 0): ?>
+<div class="div_AudioListNoAudioDefined">
+    <?php echo $objWidgetArray['no_audio']; ?>
+</div>
+<?php endif; ?>
+<div class="div_AudioListContainer">
+	<?php /* FOREACH ... on each */ ?>
+    <?php foreach ($objAr as $k => $v): ?>
+        <div id="div_AudioListContainerItem-Id-<?php echo $v[Audio::$objAudioTableFId]; ?>" class="div_AudioListContainerItem">
+            <a title="<?php echo $v[Audio::$objAudioTableFTitle], $v[Audio::$objAudioTableFArtist]; ?>"
+            href="<?php echo URL::staticURL (new A (Array (AUDIO_ITEM_URL, FRONTEND_SECTION_URL)),
+            new A (Array ($v[Audio::$objAudioTableFSEO], FRONTEND_AUDIO_URL))); ?>"
+            id="a_AudioListItem-Id-<?php echo $v[Audio::$objAudioTableFId]; ?>" class="a_AudioListContainerItem">
+                <h1 title="<?php echo $v[Audio::$objAudioTableFTitle], $v[Audio::$objAudioTableFArtist]; ?>" 
+                id="h1_AudioListItem-Id-<?php echo $v[Audio::$objAudioTableFId]; ?>" class="h1_AudioListArticleItemTitle">
+                    <?php if ($v[Audio::$objAudioTableFArtwork]->toLength ()->toInt () != 0): ?>
+                        <img src="upd/audio/mp3/<?php echo date ('Y/m/d/', (int) $v[Audio::$objAudioTableFUploadedDate]
+                        ->toString ()); ?>128_128_<?php echo $v[Audio::$objAudioTableFArtwork]; ?>"
+                        alt="<?php echo $v[Audio::$objAudioTableFArtist]; ?>" class="img_AudioItemArticleTitleArtwork"/>
+                    <?php endif; ?>
+                    
+                    <?php if ($v[Audio::$objAudioTableFArtwork]->toLength ()->toInt () == 0): ?>
+                        <div class="div_AudioItemArticleTitleArtwork" /></div>
+                    <?php endif; ?>
+                    <?php echo $v[Audio::$objAudioTableFTitle]; ?>,<br />
+                    <?php echo $v[Audio::$objAudioTableFArtist]; ?>,<br />
+                    <?php echo $v[Audio::$objAudioTableFAlbum]; ?>  
+                    <div class="div_CLEAR"></div>
+                </h1>
+            </a>
+        </div>
+    <?php endforeach; ?>
+</div>

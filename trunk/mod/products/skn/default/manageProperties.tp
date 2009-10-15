@@ -1,0 +1,41 @@
+    <div class="divContainer">
+    <div class="tableTreeName" id="tableTreeNameHeader">
+        <a class="sortDesc" href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION_SORT)), 
+        new A (Array ('DescByKey'))); ?>">DESC</a>
+        <a class="sortAsc" href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION_SORT)), 
+        new A (Array ('AscByKey'))); ?>">ASC</a>
+        Property
+    </div>
+    
+    <div class="tableTreeName" id="tableTreeNameHeader">
+        <a class="sortDesc" href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION_SORT)), 
+        new A (Array ('DescByVar'))); ?>">DESC</a>
+        <a class="sortAsc" href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION_SORT)), 
+        new A (Array ('AscByVar'))); ?>">ASC</a>
+        Value
+    </div>
+    
+    <div class="tableTreeErase" id="tableTreeEraseHeader"><?php echo ADMIN_ACTION_ERASE; ?></div>
+    <?php $doIndex = 0; ?>
+<?php foreach ($propertyTable as $k => $v): ?>
+    <a class="tableTreeName<?php if ($doIndex % 2 != 0): ?> tableTreeOdd<?php endif; ?>" 
+    href="<?php echo URL::rewriteLink (new A (Array (PRODUCTS_ACTION_PROPERTY, PRODUCTS_ID_PROPERTY)), 
+    new A (Array (ADMIN_ACTION_EDIT, $v[Products::$objProductsPropertyTableFId]))); ?>">
+        <?php echo $v[Products::$objProductsPropertyTableFKey]; ?>
+    </a>
+    
+    <a class="tableTreeName<?php if ($doIndex % 2 != 0): ?> tableTreeOdd<?php endif; ?>" 
+    href="<?php echo URL::rewriteLink (new A (Array (PRODUCTS_ACTION_PROPERTY, PRODUCTS_ID_PROPERTY)), 
+    new A (Array (ADMIN_ACTION_EDIT, $v[Products::$objProductsPropertyTableFId]))); ?>">
+        <?php echo $v[Products::$objProductsPropertyTableFVar]; ?>
+    </a>
+    
+    <a class="tableTreeErase" 
+    href="<?php echo URL::rewriteLink (new A (Array (PRODUCTS_ACTION_PROPERTY, PRODUCTS_ID_PROPERTY)), 
+    new A (Array (ADMIN_ACTION_ERASE, $v[Products::$objProductsPropertyTableFId]))); ?>">
+        <?php echo ADMIN_ACTION_ERASE; ?>
+    </a>
+    <div class="clearFloatLeft"></div>
+    <?php $doIndex++; ?>
+<?php endforeach; ?>
+    </div>

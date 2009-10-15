@@ -1,0 +1,5 @@
+<div class="widget-header">Article :: Statistics</div>
+<div class="widget-content">
+    You currently have %a articles, out of which %p are Published, %d are Draft, 
+    %r are awaiting your review and %s are set as Sticky ...
+</div>

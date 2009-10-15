@@ -1,0 +1,3 @@
+Users are organized in groups. Why? Because we need to allow massive groups
+of users some defined access to parts of the application. For that, users can be a part of a group and if by chance they need
+extra power by our system of ACLs we give you that possibility ...

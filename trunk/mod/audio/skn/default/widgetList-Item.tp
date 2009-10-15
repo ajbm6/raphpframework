@@ -1,0 +1,149 @@
+<?php
+	/* Get some requirements ... */
+    $objId = $AUD->getAudioFileInfoByURL ($objURL, Audio::$objAudioTableFId);
+    $objTt = $AUD->getAudioFileInfoByURL ($objURL, Audio::$objAudioTableFTitle);
+    $objAt = $AUD->getAudioFileInfoByURL ($objURL, Audio::$objAudioTableFArtist);
+    $objAb = $AUD->getAudioFileInfoByURL ($objURL, Audio::$objAudioTableFAlbum);
+?>
+<div class="div_AudioItemPathToItem">
+    <?php echo $objWidgetArray['audio_path_to_item']; ?><?php foreach ($objPathToItem as $k => $v): ?>
+    <?php $objCat = CLONE $v[Audio::$objCategoryTableFName]; ?>
+    <?php $objCat = MPTT::mpttRemoveUnique ($objCat); ?>
+    <a title="<?php echo $objCat; ?>" href="<?php echo URL::staticURL (new A (Array (AUDIO_CATEGORY_URL, FRONTEND_SECTION_URL)),
+    new A (Array (URL::getURLFromString ($v[Audio::$objCategoryTableFName]), FRONTEND_AUDIO_URL))); ?>">
+        <strong><?php echo $objCat; ?></strong>
+    </a> :: 
+    <?php endforeach; ?><br />
+    <strong><?php echo $AUD->getAudioFileInfoByURL ($objURL, Audio::$objAudioTableFTitle), '</strong>, <strong>',
+    $AUD->getAudioFileInfoByURL ($objURL, Audio::$objAudioTableFArtist), '</strong>, <strong>',
+    $AUD->getAudioFileInfoByURL ($objURL, Audio::$objAudioTableFAlbum);
+    ?></strong>
+</div>
+<div id="div_AudioItemArticleContainer-Id-<?php echo $objId; ?>" class="div_AudioItemArticleContainer">
+    <div id="div_AudioItemArticleTitle-Id-<?php echo $objId; ?>" class="div_AudioItemArticleTitle">
+		<?php if ($AUD->getAudioFileInfoByURL ($objURL, 
+		Audio::$objAudioTableFArtwork)->toLength ()->toInt () != 0): ?>
+       	<a class="raFancyBox a_AudioItemArtwork" 
+		href="upd/audio/mp3/<?php echo date ('Y/m/d/', (int) $AUD->getAudioFileInfoByURL ($objURL, Audio::$objAudioTableFUploadedDate)
+        ->toString ()); ?>800_600_<?php echo $AUD->getAudioFileInfoByURL ($objURL, Audio::$objAudioTableFArtwork); ?>">
+        	<img src="upd/audio/mp3/<?php echo date ('Y/m/d/', (int) $AUD->getAudioFileInfoByURL ($objURL, 
+			Audio::$objAudioTableFUploadedDate)->toString ()); ?>128_128_<?php echo $AUD
+			->getAudioFileInfoByURL ($objURL, Audio::$objAudioTableFArtwork); ?>" 
+			alt="<?php echo $objAt; ?>" class="img_AudioItemArticleTitleArtwork" />
+        </a>
+       	<?php endif; ?>
+            
+        <?php if ($AUD->getAudioFileInfoByURL ($objURL, 
+		Audio::$objAudioTableFArtwork)->toLength ()->toInt () == 0): ?>
+        	<div class="div_AudioItemArticleTitleArtwork" /></div>
+        <?php endif; ?>
+            
+        <h1 title="<?php echo $objTt, $objAt, $objAb; ?>" 
+		id="h1_AudioItemArticleTitle-Id-<?php echo $objId; ?>" class="h1_AudioItemArticleTitle">
+            <?php echo $objTt; ?>,<br />
+            <?php echo $objAt; ?>,<br />
+            <?php echo $objAb; ?>
+        </h1>
+        
+        <div class="div_CLEAR"></div>
+    </div>
+    
+    <div id="div_AudioItemArticlePlayer-Id-<?php echo $objId; ?>" class="div_AudioItemArticlePlayer">
+        <h1 class="h1_AudioPressPlay"><?php echo $objWidgetArray['just_play']; ?></h1>
+            <div class="div_AudioItem"><p id="p_AudioItem" class="p_AudioItemArticle"></p></div>
+        </div>
+    
+    <script type="text/javascript">  
+        AudioPlayer.embed ("p_AudioItem", {
+            soundFile: "<?php echo DOCUMENT_HOST . 'upd/audio/mp3/' . date ('Y/m/d/',
+            (int) $AUD->getAudioFileInfoByURL ($objURL, Audio::$objAudioTableFUploadedDate)->toString ()) . 
+            $AUD->getAudioFileInfoByURL ($objURL, Audio::$objAudioTableFFile); ?>",
+            titles: "<?php echo $objWidgetArray['audio_title']; ?><?php echo $AUD->getAudioFileInfoByURL ($objURL, 
+            Audio::$objAudioTableFTitle)->entityDecode (ENT_QUOTES)->doToken ('"', '\'')->doToken (',', ''); ?>",
+            artists: "<?php echo $objWidgetArray['audio_artist']; ?><?php echo $AUD->getAudioFileInfoByURL ($objURL, 
+            Audio::$objAudioTableFArtist)->entityDecode (ENT_QUOTES)->doToken ('"', '\'')->doToken (',', ''); ?>"
+        });  
+    </script>
+    
+    <div id="div_AudioItemArticleInfo-Id-<?php echo $objId; ?>" class="div_AudioItemArticleInfo">
+        <ul id="ul_AudioItemArticleInfo-Id-<?php echo $objId; ?>" class="ul_AudioItemArticleInfo">
+            <li class="li_AudioItemArticleInfo" id="li_AudioItemArticleInfoUploader-Id-<?php echo $objId; ?>">
+                <?php echo $objWidgetArray['audio_uploaded_by']; ?>
+                <?php echo $ATH->getUserInfoById ($AUD->getAudioFileInfoByURL ($objURL, 
+				Audio::$objAudioTableFUploaderId), Authentication::$objAuthUsersTableFUName); ?>
+            </li>
+            
+            <li class="li_AudioItemArticleInfo" id="li_AudioItemArticleInfoUploadedAt-Id-<?php echo $objId; ?>">
+                <?php echo $objWidgetArray['audio_uploaded_at']; ?>
+                <?php echo date ($STG->getConfigKey (new S ('settings_default_date_format')),
+                (int) $AUD->getAudioFileInfoByURL ($objURL, Audio::$objAudioTableFUploadedDate)->toString ()); ?>
+            </li>
+            
+            <li class="li_AudioItemArticleInfo" id="li_AudioItemArticleInfoTitle-Id-<?php echo $objId; ?>">
+                <?php echo $objWidgetArray['audio_title']; ?>
+                <?php echo $objTt; ?>
+            </li>
+            
+            <li class="li_AudioItemArticleInfo" id="li_AudioItemArticleInfoArtist-Id-<?php echo $objId; ?>">
+                <?php echo $objWidgetArray['audio_artist']; ?>
+                <?php echo $objAt; ?>
+            </li>
+            
+            <li class="li_AudioItemArticleInfo" id="li_AudioItemArticleInfoAlbum-Id-<?php echo $objId; ?>">
+                <?php echo $objWidgetArray['audio_album']; ?>
+                <?php echo $objAb; ?>
+            </li>
+            
+            <li class="li_AudioItemArticleInfo" id="li_AudioItemArticleInfoCategory-Id-<?php echo $objId; ?>">
+                <?php echo $objWidgetArray['audio_genre']; ?>
+                <?php echo MPTT::mpttRemoveUnique ($AUD
+                ->getCategoryInfoById ($AUD->getAudioFileInfoByURL ($objURL, 
+                Audio::$objAudioTableFCategoryId), Audio::$objCategoryTableFName)); ?>
+            </li>
+        </ul>
+    </div>    
+    
+    <h1 title="<?php echo $objAt, ', ', $objAb; ?>" class="h1_AudioDescription">
+		<?php echo $objWidgetArray['audio_description']; ?><br />
+        <?php echo $objAt; ?><br />
+		<?php echo $objAb; ?>
+    </h1>
+    <div class="div_AudioItemArticleDescription" id="div_AudioItemArticleDescription-Id-<?php echo $objId; ?>">
+        <?php $objDSC = $AUD->getAudioFileInfoByURL ($objURL, Audio::$objAudioTableFDescription)
+        ->entityDecode (ENT_QUOTES)->stripTags ('<a><strong><b><i><u><p><br>'); ?> 
+        
+        <?php if ($objDSC->toLength ()->toInt () == 0): ?>
+            <p style="text-align: left; ">
+				<?php echo $objWidgetArray['audio_no_description']; ?>
+			</p>
+        <?php endif; ?>
+        <?php if ($objDSC->toLength ()->toInt () != 0): ?>
+            <?php echo $objDSC; ?>
+        <?php endif; ?>
+        <p class="p_AudioItemArticleDescription">
+			<?php echo $objWidgetArray['audio_description_need_correction']; ?>
+		</p>
+    </div>
+    
+    <h1 title="<?php echo $objTt, ', ', $objAb; ?>" class="h1_AudioLyrics">
+		<?php echo $objWidgetArray['audio_lyrics']; ?><br />
+        <?php echo $objTt; ?><br />
+        <?php echo $objAb; ?>
+    </h1>
+    <div class="div_AudioItemArticleLyrics"  id="div_AudioItemArticleLyrics-Id-<?php echo $objId; ?>">
+        <?php $objLRC = $AUD->getAudioFileInfoByURL ($objURL, Audio::$objAudioTableFLyrics)
+        ->entityDecode (ENT_QUOTES)->stripTags ('<p><br>'); ?> 
+        
+        <?php if ($objLRC->toLength ()->toInt () == 0): ?>
+            <p style="text-align: left; ">
+				<?php echo $objWidgetArray['audio_no_lyrics']; ?>
+			</p>
+        <?php endif; ?>
+        <?php if ($objLRC->toLength ()->toInt () != 0): ?>
+            <?php echo $objLRC; ?>
+        <?php endif; ?>
+        <p class="p_AudioItemArticleLyrics">
+			<?php echo $objWidgetArray['audio_lyrics_need_correction']; ?>
+		</p>
+    </div>
+</div>

@@ -1,0 +1,5 @@
+<ul>
+    <li>Message: [%ERR_EMSG%]</li>
+    <li>File: [%ERR_FILE%]</li>
+    <li>Line: [%ERR_LINE%]</li>
+</ul>

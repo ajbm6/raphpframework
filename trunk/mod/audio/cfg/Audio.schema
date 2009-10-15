@@ -1,0 +1,63 @@
+CREATE TABLE IF NOT EXISTS `%objCategoryTable` (
+	`%objCategoryTableFId` bigint(20) unsigned NOT NULL auto_increment,
+	`%objCategoryTableFName` varchar(75) NOT NULL,
+	`%objCategoryTableFSEO` varchar(255) NOT NULL,
+	`%objCategoryTableFDescription` text NOT NULL,
+	`lft` bigint(20) unsigned NOT NULL,
+	`rgt` bigint(20) unsigned NOT NULL,
+	`date` bigint(20) unsigned NOT NULL,
+  		PRIMARY KEY  (`%objCategoryTableFId`),
+  		UNIQUE KEY `name` (`%objCategoryTableFName`),
+  		UNIQUE KEY `seo` (`%objCategoryTableFSEO`)) 
+  		ENGINE=InnoDB  DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC AUTO_INCREMENT=1;
+
+___RA_SCHEMA_HASH_TAG_
+
+CREATE TABLE IF NOT EXISTS `%objAudioTable` (
+	`%objAudioTableFId` bigint(20) unsigned NOT NULL auto_increment,
+	`%objAudioTableFFile` varchar(255) NOT NULL,
+	`%objAudioTableFTitle` varchar(255) NOT NULL,
+	`%objAudioTableFSEO` varchar(255) NOT NULL,
+	`%objAudioTableFCategoryId` bigint(20) unsigned NOT NULL,
+	`%objAudioTableFArtist` varchar(255) NOT NULL,
+	`%objAudioTableFAlbum` varchar(255) NOT NULL,
+	`%objAudioTableFLyrics` longtext NOT NULL,
+	`%objAudioTableFDescription` longtext NOT NULL,
+	`%objAudioTableFViews` bigint(20) unsigned NOT NULL,
+	`%objAudioTableFUploaderId` bigint(20) unsigned NOT NULL,
+	`%objAudioTableFUploadedDate` bigint(20) unsigned NOT NULL,
+	`%objAudioTableFApproved` enum('Y','N') NOT NULL default 'N',
+	`%objAudioTableFCanComment` enum('Y','N') NOT NULL default 'N',
+	`%objAudioTableFArtwork` varchar(255) NOT NULL,
+  		PRIMARY KEY  (`%objAudioTableFId`),
+  		UNIQUE KEY `seo` (`%objAudioTableFSEO`),
+  		INDEX (%objAudioTableFCategoryId, %objAudioTableFUploaderId),
+    		FOREIGN KEY (%objAudioTableFCategoryId) 
+    		REFERENCES %objCategoryTable(%objCategoryTableFId)
+    		ON UPDATE CASCADE ON DELETE CASCADE,
+    		FOREIGN KEY (%objAudioTableFUploaderId)
+    		REFERENCES %objAuthenticationUserTable(%objAuthenticationUserTableFId)
+    		ON UPDATE CASCADE ON DELETE CASCADE) 
+  		ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
+
+___RA_SCHEMA_HASH_TAG_
+
+CREATE TABLE IF NOT EXISTS `%objCommentsTable` (
+	`%objCommentsTableFId` bigint(20) unsigned NOT NULL auto_increment,
+	`%objCommentsTableFName` varchar(255) NOT NULL,
+	`%objCommentsTableFEML` varchar(255) NOT NULL,
+	`%objCommentsTableFURL` varchar(255) NOT NULL,
+	`%objCommentsTableFComment` text NOT NULL,
+	`%objCommentsTableFApproved` enum('Y','N') NOT NULL default 'N',
+	`%objCommentsTableFDate` bigint(20) unsigned NOT NULL,
+	`%objCommentsTableFRUId` bigint(20) unsigned NOT NULL default '0',
+	`%objCommentsTableFAudioFileId` bigint(20) unsigned NOT NULL,
+		PRIMARY KEY  (`%objCommentsTableFId`),
+		INDEX (%objCommentsTableFAudioFileId, %objCommentsTableFRUId),
+			FOREIGN KEY (%objCommentsTableFAudioFileId)
+			REFERENCES %objAudioTable(%objAudioTableFId)
+			ON UPDATE CASCADE ON DELETE CASCADE,
+			FOREIGN KEY (%objCommentsTableFRUId)
+			REFERENCES %objAuthenticationUserTable(%objAuthenticationUserTableFId)
+			ON UPDATE CASCADE ON DELETE CASCADE) 
+		ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;

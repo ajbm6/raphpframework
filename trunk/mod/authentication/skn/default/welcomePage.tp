@@ -1,0 +1,44 @@
+<?php $objWidgetCounter = 0; ?>
+    <div class="widget-column" id="widget-column-1">
+    <?php foreach ($objWidgets as $k => $v): ?>
+        <?php if ($k % 3 == 0): ?>
+        <div class="widget movable collapsable" id="theWidget-<?php echo $objWidgetCounter; ?>">
+            <?php if ($v['wEVAL']->toBoolean () == TRUE) { ?>
+               <?php EVAL ($v['wtext']->entityDecode (ENT_QUOTES)); ?>
+            <?php } else { ?>
+               <?php ECHO ($v['wtext']->entityDecode (ENT_QUOTES)); ?>
+            <?php } ?>
+        </div>
+        <?php endif; ?>
+        <?php $objWidgetCounter++; ?>
+    <?php endforeach; ?>
+    </div>
+    <div class="widget-column" id="widget-column-2">
+    <?php foreach ($objWidgets as $k => $v): ?>
+        <?php if ($k % 3 == 1): ?>
+        <div class="widget movable collapsable" id="theWidget-<?php echo $objWidgetCounter; ?>">
+            <?php if ($v['wEVAL']->toBoolean () == TRUE) { ?>
+               <?php EVAL ($v['wtext']->entityDecode (ENT_QUOTES)); ?>
+            <?php } else { ?>
+               <?php ECHO ($v['wtext']->entityDecode (ENT_QUOTES)); ?>
+            <?php } ?>
+        </div>
+        <?php endif; ?>
+        <?php $objWidgetCounter++; ?>
+    <?php endforeach; ?>
+    </div>
+    <div class="widget-column" id="widget-column-3">
+    <?php foreach ($objWidgets as $k => $v): ?>
+        <?php if ($k % 3 == 2): ?>
+        <div class="widget movable collapsable" id="theWidget-<?php echo $objWidgetCounter; ?>">
+            <?php if ($v['wEVAL']->toBoolean () == TRUE) { ?>
+               <?php EVAL ($v['wtext']->entityDecode (ENT_QUOTES)); ?>
+            <?php } else { ?>
+               <?php ECHO ($v['wtext']->entityDecode (ENT_QUOTES)); ?>
+            <?php } ?>
+        </div>
+        <?php endif; ?>
+        <?php $objWidgetCounter++; ?>
+    <?php endforeach; ?>
+    </div>
+<div style="clear: both;"></div>

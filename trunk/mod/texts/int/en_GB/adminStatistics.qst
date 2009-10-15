@@ -1,0 +1,4 @@
+<div class="widget-header">Texts :: Statistics</div>
+<div class="widget-content">
+    You currently have %t texts defined. These texts are actually pages you have defined. These pages are organized in %c categories.
+</div>

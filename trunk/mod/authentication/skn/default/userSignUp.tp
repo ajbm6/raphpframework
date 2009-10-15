@@ -1,0 +1,14 @@
+<?php if ($objShowForm->toBoolean () == TRUE): ?>
+    <div class="div_AuthenticationFormSignUpText">
+        <?php echo $ATH->getConfigKey (new S ('authentication_page_register_message'))->entityDecode (ENT_QUOTES); ?>
+    </div>
+    
+    <div class="div_AuthenticationFormSignUp">
+        <?php echo $ATH->renderForm (new S ('userSignUp'), $objWidgetArray); ?>
+    </div>
+<?php endif; ?>
+<?php if ($objShowForm->toBoolean () == FALSE): ?>
+    <div class="div_AuthenticationFormSignUpOk">
+        <?php echo $ATH->getConfigKey (new S ('authentication_page_register_ok_message'))->entityDecode (ENT_QUOTES); ?>
+    </div>
+<?php endif; ?>

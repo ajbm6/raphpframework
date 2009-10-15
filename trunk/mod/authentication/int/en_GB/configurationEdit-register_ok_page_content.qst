@@ -1,0 +1,4 @@
+The page where the register form redirects, needs to have a message. You can edit that message from here, and it will show in the 
+proper place where it was invoked! Usually, on this page you will notify the user that you have emailed him some information or 
+what action he needs to take in order to complete the registering mechanism ... Inform your users what they must do, in order to help
+them complete their registration with your application ...

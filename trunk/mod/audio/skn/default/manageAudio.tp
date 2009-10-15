@@ -1,0 +1,103 @@
+    <div class="divContainer">
+    <div class="tableTreeName" id="tableTreeNameHeader">
+        <a class="sortDesc" href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION_SORT)), 
+        new A (Array ('DescByTitle'))); ?>">DESC</a>
+        <a class="sortAsc" href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION_SORT)), 
+        new A (Array ('AscByTitle'))); ?>">ASC</a>
+        Ttl
+    </div>
+    
+    <div class="tableTreeName" id="tableTreeNameHeader">
+        <a class="sortDesc" href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION_SORT)), 
+        new A (Array ('DescByArtist'))); ?>">DESC</a>
+        <a class="sortAsc" href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION_SORT)), 
+        new A (Array ('AscByArtist'))); ?>">ASC</a>
+        Art
+    </div>
+    
+    <div class="tableTreeName" id="tableTreeNameHeader">
+        <a class="sortDesc" href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION_SORT)), 
+        new A (Array ('DescByAlbum'))); ?>">DESC</a>
+        <a class="sortAsc" href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION_SORT)), 
+        new A (Array ('AscByAlbum'))); ?>">ASC</a>
+        Alb
+    </div>
+    
+    <div class="tableTreeName" id="tableTreeNameHeader">
+        <a class="sortDesc" href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION_SORT)), 
+        new A (Array ('DescByUploadedDate'))); ?>">DESC</a>
+        <a class="sortAsc" href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION_SORT)), 
+        new A (Array ('AscByUploadedDate'))); ?>">ASC</a>
+        Dte
+    </div>
+    
+    <div class="tableTreeName" id="tableTreeNameHeader">
+        <a class="sortDesc" href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION_SORT)), 
+        new A (Array ('DescByCategory'))); ?>">DESC</a>
+        <a class="sortAsc" href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION_SORT)), 
+        new A (Array ('AscByCategory'))); ?>">ASC</a>
+        Ctg
+    </div>
+    
+    <div class="tableTreeName" id="tableTreeNameHeader">
+        <a class="sortDesc" href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION_SORT)), 
+        new A (Array ('DescByApproved'))); ?>">DESC</a>
+        <a class="sortAsc" href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION_SORT)), 
+        new A (Array ('AscByApproved'))); ?>">ASC</a>
+        Apr
+    </div>
+    
+    <div class="tableTreeErase" id="tableTreeEraseHeader"><?php echo ADMIN_ACTION_ERASE; ?></div>
+    <div class="clearFloatLeft"></div>
+    <?php $doIndex = 0; ?>
+<?php foreach ($articleTable as $k => $v): ?>
+    <a class="tableTreeName<?php if ($doIndex % 2 != 0): ?> tableTreeOdd<?php endif; ?>" 
+    href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION, ADMIN_ACTION_ID)), 
+    new A (Array (ADMIN_ACTION_EDIT, $v[Audio::$objAudioTableFId]))); ?>">
+    <?php echo $v[Audio::$objAudioTableFTitle]->entityDecode (ENT_QUOTES)->doSubStr (0, 22),
+	_SP, _DTE; ?></a>
+    
+    <a class="tableTreeName<?php if ($doIndex % 2 != 0): ?> tableTreeOdd<?php endif; ?>" 
+    href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION, ADMIN_ACTION_ID)), 
+    new A (Array (ADMIN_ACTION_EDIT, $v[Audio::$objAudioTableFId]))); ?>">
+    <?php echo $v[Audio::$objAudioTableFArtist]->doSubStr (0, 22),
+	_SP, _DTE; ?></a>
+    
+    <a class="tableTreeName<?php if ($doIndex % 2 != 0): ?> tableTreeOdd<?php endif; ?>" 
+    href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION, ADMIN_ACTION_ID)), 
+    new A (Array (ADMIN_ACTION_EDIT, $v[Audio::$objAudioTableFId]))); ?>">
+    <?php echo $v[Audio::$objAudioTableFAlbum]->doSubStr (0, 22),
+	_SP, _DTE; ?></a>
+    
+    <a class="tableTreeName<?php if ($doIndex % 2 != 0): ?> tableTreeOdd<?php endif; ?>" 
+    href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION, ADMIN_ACTION_ID)), 
+    new A (Array (ADMIN_ACTION_EDIT, $v[Audio::$objAudioTableFId]))); ?>">
+    <?php echo date ($STG->getConfigKey (new S ('settings_default_date_format')), 
+    (int) $v[Audio::$objAudioTableFUploadedDate]->toString ()); ?></a>
+    
+    <a class="tableTreeName<?php if ($doIndex % 2 != 0): ?> tableTreeOdd<?php endif; ?>" 
+    href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION, ADMIN_ACTION_ID)), 
+    new A (Array (ADMIN_ACTION_EDIT, $v[Audio::$objAudioTableFId]))); ?>">
+    <?php echo MPTT::mpttRemoveUnique ($ART->getCategoryInfoById ($v[Audio::$objAudioTableFCategoryId], 
+    Audio::$objCategoryTableFName))->doSubStr (0, 25), _SP, _DTE; ?></a>
+    
+    <a class="tableTreeName<?php if ($doIndex % 2 != 0): ?> tableTreeOdd<?php endif; ?>" 
+    href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION, ADMIN_ACTION_ID)), 
+    new A (Array (ADMIN_ACTION_EDIT, $v[Audio::$objAudioTableFId]))); ?>">
+    <?php switch ($v[Audio::$objAudioTableFApproved]) {
+        case 'Y':
+            echo 'Yes';
+            break;
+            
+        case 'N':
+            echo 'No';
+            break;
+        }
+    ?></a>
+
+    <a class="tableTreeErase" href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION, ADMIN_ACTION_ID)), 
+    new A (Array ('Erase', $v[Audio::$objAudioTableFId]))); ?>"><?php echo ADMIN_ACTION_ERASE; ?></a>
+    <?php $doIndex++; ?>
+    <div class="clearFloatLeft"></div>
+<?php endforeach; ?>
+    </div>

@@ -1,0 +1,1323 @@
+* { 
+	margin: 0px; 
+	padding: 0px;
+}
+
+*:focus { 
+    outline: 0px;
+}
+
+HTML {
+    overflow-y: scroll;
+}
+
+BODY {
+	font-family: Tahoma, Verdana, Arial, sans-serif;
+	font-size: 11px;
+	color: #DFDFDF;
+	background: #000000;
+}
+
+FORM {
+    padding-top: 4px; 
+}
+
+FIELDSET {
+    margin-top: 0px;
+    border: 1px solid #111111;
+    background: #171717;
+    padding: 8px;
+    margin: 4px;
+    border-radius: 10px;
+    position: relative;
+    border-radius: 10px;
+    -moz-border-radius: 10px; 
+    -webkit-border-radius: 10px;
+    -khtml-border-radius: 10px;
+    -ms-border-radius: 10px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+LEGEND {
+    position: absolute;
+    color: #737373;
+    top: -.5em;
+    left: .2em;
+}
+
+LABEL {
+    width: 20%;
+    float: left;
+    background: #111111;
+    border: 1px solid #222222;
+    color: #EFEFEF;
+    margin: 1px;
+    padding: 2px;
+    padding-left: 10px;
+    margin-left: 2px;
+    text-align: right;
+    border-radius: 10px;
+    -moz-border-radius: 10px; 
+    -webkit-border-radius: 10px;
+    -khtml-border-radius: 10px;
+    -ms-border-radius: 10px;
+}
+
+INPUT, 
+SELECT, 
+TEXTAREA {
+    width: 74.5%;
+    font-family: Tahoma;
+    font-size: 11px;
+    color: #EFEFEF;
+    margin-left: 2px;
+    margin-top: 1px;
+    padding: 2px;
+    border: 1px solid #111111;
+    background: #050505;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -khtml-border-radius: 10px;
+    -ms-border-radius: 10px;
+}
+
+INPUT:hover, INPUT:focus, SELECT:hover, SELECT:focus, TEXTAREA:hover, TEXTAREA:focus {
+    background: #111111;
+    border: 1px solid #222222;
+}
+
+SELECT {
+    width: 75.5%;
+    padding: 2px;
+    font-family: Tahoma;
+    font-size: 11px;
+}
+
+OPTION {
+    padding-left: 4px;
+}
+
+INPUT[type=submit] {
+    width: 99%;
+    background: #111111 URL(../img/submit_background.png) no-repeat right 5px;
+    border: 1px solid #222222;
+    color: #FFFFFF;
+    font-family: "Tempus Sans ITC", "Jokerman", "Tahoma", "Courier New", sans-serif;
+    font-size: 48px;
+    text-align: right;
+    padding-right: 65px;
+    margin-left: 2px;
+    margin-bottom: 4px;
+}
+
+INPUT[type=submit]:hover, INPUT[type=submit]:focus {
+	background: #222222 URL(../img/submit_hover_background.png) no-repeat right 10%;;
+	color: #000000;
+}
+
+.RA_err_msg_tag {
+	border-radius: 10px;
+    -moz-border-radius: 10px; border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -khtml-border-radius: 10px;
+    -ms-border-radius: 10px;
+    background: #DD0011;
+    border: 1px solid #DD0011;
+    font-size: 24px;
+    color: #FFFFFF;
+    text-align: right;
+    padding: 4px;
+    margin: 2px;
+    width: 97%;
+    opacity: 0.35;
+    filter: alpha(opacity=35);
+}
+
+H1 {
+	font-size: 24px;
+	line-height: 24px;
+	font-family: "Tempus Sans ITC", "Tahoma", "Courier New", sans-serif;
+	color: #AFAFAF;
+}
+
+HR {
+	margin-top: 4px;
+	margin-bottom: 4px;
+}
+
+UL {
+	margin-left: 30px; 
+	padding: 0px; 
+	list-style: square;
+}
+
+A {
+	text-decoration: none;
+	color: #AFAFAF;
+}
+
+A:hover {
+	text-decoration: none;
+	color: #EFEFEF;
+}
+
+A IMG {
+	border: none;
+}
+
+.div_TopHeader {
+    min-height: 48px;
+    background: #111111;
+}
+
+.div_TopHeaderAutoCentered {
+	margin-left: auto;
+    margin-right: auto;
+    width: 940px;
+}
+
+.div_TopHeaderLogoContainerAndMenu {
+    height: 140px;
+    padding-top: 10px;
+    background: #2D2D2D;
+}
+
+.div_MainBackgroundContainer {
+    background: #232323;
+    height: 100%;
+    min-height: 500px;
+}
+
+.div_MainContainerAutoCentered {
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	width: 940px;
+}
+
+.div_TopHeaderAutoCentered {
+	margin-left: auto;
+    margin-right: auto;
+    width: 940px;
+}
+
+.div_CLEAR {
+    clear: both;
+}
+
+.div_LeftContent {
+    float: left;
+    width: 630px;
+}
+
+.div_LeftContent H1 {
+	font-size: 32px;
+	background: #171717;
+	color: #FAFAFA;
+	text-align: right;
+	border-radius: 10px;
+	-moz-border-radius: 10px; 
+    -webkit-border-radius: 10px;
+    -khtml-border-radius: 10px;
+    -ms-border-radius: 10px;
+	padding: 12px;
+	font-weight: normal;
+	font-variant: small-caps;
+	margin-bottom: 5px;
+}
+
+.div_RightContent {
+	float: right;
+	width: 310px;
+}
+
+.div_ContainerFooter {
+    height: 80px;
+    width: 940px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background: #000000;
+    text-align: right;
+    color: #DFDFDF;
+    font-variant: small-caps;
+}
+
+.div_SidebarContainer {
+    width: 260px;
+    background: #171717;
+    border-radius: 10px;
+    -moz-border-radius: 10px; 
+    -webkit-border-radius: 10px;
+    -khtml-border-radius: 10px;
+    -ms-border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 30px;
+    margin-left: 20px;
+}
+
+.div_LeftAlignedLogo {
+	float: left;
+	width: 250px;
+	margin-left: 70px;
+}
+
+.div_RightAlignedMenu {
+    width: 625px;
+    float: right;
+    xmargin-top: -11px;
+    background: URL(../img/menu_background.png) repeat-x;
+    padding-left: 8px;
+    margin-right: -30px;
+}
+
+.div_RightAlignedMenu A {
+    display: block;
+    float: left;
+    margin-left: 3px;
+    border-top: 1px solid #000000;
+}
+
+.div_LeftContent P {
+    padding: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.div_ArticlesListItemExcerpt {
+	padding: 10px;
+    padding-top: 0px;
+    padding-bottom: 5px;
+}
+
+.div_ArticlesItemArticleContent, 
+.div_categoryListNoTextsDefined, 
+.div_contactWidget P {
+	padding: 10px;
+    padding-top: 0px;
+    padding-bottom: 5px;
+}
+
+.div_ArticlesItemArticleContent P {
+    padding-top: 0px;
+    padding-bottom: 10px;
+}
+
+.div_ArticlesItemArticleMeta, 
+.div_AudioItemArticleInfo, 
+.div_AudioItemArticleDescription, 
+.div_AudioItemArticleLyrics, 
+.div_LyricsItemArticleInfo, 
+.div_LyricsItemArticleDescription, 
+.div_LyricsItemArticleLyrics,
+.div_YahooInviteUsers, 
+.div_AudioItemPathToItem, 
+.div_LyricsItemPathToItem,
+.div_ProductsItemPathToItem {
+	background: #171717;
+    color: #FAFAFA;
+    border-radius: 10px;
+    -moz-border-radius: 10px; 
+    -webkit-border-radius: 10px;
+    -khtml-border-radius: 10px;
+    -ms-border-radius: 10px;
+    padding: 12px;
+    padding-right: 128px;
+    font-weight: normal;
+    font-variant: small-caps;
+    margin-bottom: 5px;
+}
+
+.h1_ArticlesListArticleItemTitle:hover {
+    background: #333333;
+}
+
+.h1_ArticlesListArticleItemTitle A {
+    display: block;
+}
+
+.div_contactWidgetForm {
+    margin-left: 10px;
+}
+
+.div_RightContent H1 {
+    font-weight: normal;
+    text-align: right;
+    color: #FFFFFF;
+    opacity: 0.30;
+    filter: alpha(opacity=30);
+    font-size: 48px;
+    margin-top: 10px;
+    position: relative;
+    z-index: 99999;
+}
+
+.div_FooterRightAlignedTrademark {
+    float: right;
+    width: 300px;
+    background: transparent;
+    padding: 6px;
+    padding-top: 0px;
+    color: #AFAFAF;
+}
+
+.div_AuthenticationFormLoggedIn {
+    float: left;
+    font-size: 24px;
+    font-family: "Tempus Sans ITC", "Jokerman", "Tahoma", "Courier New", sans-serif;
+    padding: 10px;
+    padding-right: 0px;
+    padding-top: 20px;
+}
+
+.div_AuthenticationFormNotLoggedIn {
+    width: 440px;
+    float: left;
+    padding: 10px;
+    margin-left: -20px;
+    margin-top: 10px;
+}
+
+.div_AuthenticationFormLoggedIn {
+	margin-top: 10px;
+}
+
+.div_AuthenticationFormNotLoggedIn LABEL {
+    background: #222222;
+    border: 1px solid #111111;
+}
+
+.div_AuthenticationFormNotLoggedIn INPUT {
+	width: 320px;
+    background: #333333;
+    border: 1px solid #222222;
+    color: #FFFFFF;
+}
+
+.div_AuthenticationFormNotLoggedIn INPUT[type=submit] {
+    width: 438px;
+    background: #222222 URL(../img/submit_background.png) no-repeat right 5px;;
+    border: 1px solid #111111;
+    font-size: 32px;
+    font-family: "Tempus Sans ITC","Jokerman", "Tahoma", "Courier New", sans-serif;
+    color: #DFDFDF;
+}
+
+.div_AuthenticationFormNotLoggedIn INPUT[type=submit]:hover {
+    width: 458px;
+    background: #333333 URL(../img/submit_hover_background.png) no-repeat right 5px;;
+    border: 1px solid #222222;
+}
+
+#aHref_Upload {
+    display: block;
+    float: right;
+    min-height: 48px;
+    padding: 4px;
+    margin: 4px;
+    padding-top: 4px;
+    width: 454px;
+    height: 120px;
+    text-align: left;
+    background: transparent URL(../img/big_arrow_up.png) no-repeat center right;
+	background: transparent URL(../img/arrow_leaf.png) no-repeat 98% 10px;
+    border: 1px solid transparent;
+    font-size: 104px;
+    font-family: "Jokerman", "Tahoma", "Courier New", sans-serif;
+    color: #DFDFDF;
+    padding-right: 52px;
+    border-radius: 10px;
+    -moz-border-radius: 10px; 
+    -webkit-border-radius: 10px;
+    -khtml-border-radius: 10px;
+    -ms-border-radius: 10px;
+    margin-right: -20px;
+}
+
+#aHref_Upload:hover {
+	background: #333333 URL(../img/big_arrow_up.png) no-repeat center right;
+	background: #333333 URL(../img/arrow_leaf.png) no-repeat  98% 10px;
+    border: 1px solid #222222;
+    border-radius: 10px;
+    -moz-border-radius: 10px; 
+   	-webkit-border-radius: 10px;
+    -khtml-border-radius: 10px;
+    -ms-border-radius: 10px;
+}
+
+#aHref_Audio {
+	display: block;
+    width: 100px;
+    min-height: 33px;
+    padding-top: 2px;
+    text-align: center;
+    background: URL(../img/m2.png);
+    font-size: 24px;
+    font-family: "Jokerman", "Tahoma", "Courier New", sans-serif;
+    color: #FFFFFF;
+}
+
+#aHref_Foto {
+    display: block;
+    width: 100px;
+    min-height: 33px;
+    padding-top: 2px;
+    text-align: center;
+    background: URL(../img/m3.png);
+    font-size: 24px;
+    font-family: "Jokerman", "Tahoma", "Courier New", sans-serif;
+    color: #FFFFFF;
+}
+
+#aHref_Video {
+    display: block;
+    width: 100px;
+    min-height: 33px;
+    padding-top: 2px;
+    text-align: center;
+    background: URL(../img/m4.png);
+    font-size: 24px;
+    font-family: "Jokerman", "Tahoma", "Courier New", sans-serif;
+    color: #FFFFFF;
+}
+
+#aHref_News {
+    display: block;
+    width: 100px;
+    min-height: 33px;
+    padding-top: 2px;
+    text-align: center;
+    background: URL(../img/m5.png);
+    font-size: 24px;
+    font-family: "Jokerman", "Tahoma", "Courier New", sans-serif;
+    color: #FFFFFF;
+}
+
+#aHref_Lyrics {
+	display: block;
+    width: 100px;
+    min-height: 33px;
+    padding-top: 2px;
+    text-align: center;
+    background: URL(../img/m6.png);
+    font-size: 24px;
+    font-family: "Jokerman", "Tahoma", "Courier New", sans-serif;
+    color: #FFFFFF;
+}
+
+#aHref_Contact {
+    display: block;
+    width: 100px;
+    min-height: 33px;
+    padding-top: 2px;
+    text-align: center;
+    background: URL(../img/m6.png);
+    font-size: 24px;
+    font-family: "Jokerman", "Tahoma", "Courier New", sans-serif;
+    color: #FFFFFF;
+}
+
+.div_FooterLeftAligned {
+    float: left;
+    width: 600px;
+    text-align: left;
+}
+
+.div_FooterSocialLinks {
+	float: left;
+    width: 600px;
+    text-align: left;
+    margin-top: 12px;
+}
+
+.div_FooterSocialLinks A {
+    margin-left: 5px;
+}
+
+#div_MusicGenre {
+    background: #171717 URL(../img/genre.png) no-repeat bottom right;
+}
+
+#div_NewsCategory {
+    background: #171717 URL(../img/news.png) no-repeat bottom right;
+}
+
+.div_AudioItemArticlePlayer {
+    background: #252525;
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 25px;
+    xwidth: 570px;
+    margin-top: 10px;
+    xopacity: 0.60;
+    xfilter: alpha(opacity=60);
+}
+
+.div_AudioItemArticleLyrics,
+.div_LyricsItemArticleLyrics {
+    text-align: center;
+}
+
+.h1_AudioDescription, 
+.h1_AudioLyrics,
+.h1_LyricsLyrics {
+    font-family: "Tempus Sans ITC","Jokerman", "Tahoma", "Courier New", sans-serif;
+    font-size: 32px;
+    font-variant: normal !important;
+    text-align: left !important;
+    background: #171717 URL(../img/arrow_down.png) no-repeat top left;
+    display: block;
+}
+
+.div_AudioItemArticleContainer H1,
+.div_LyricsItemArticleContainer H1 {
+	font-family: "Tempus Sans ITC","Jokerman", "Tahoma", "Courier New", sans-serif;
+    font-size: 32px;
+}
+
+.div_AudioItemArticlePlayer {
+	background: #171717 URL(../img/audio_player.png) no-repeat center right !important;
+    text-align: left !important;
+    font-size: 24px !important;
+    min-height: 128px;
+    -moz-border-radius: 10px; border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -khtml-border-radius: 10px;
+    -ms-border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.h1_AudioPressPlay {
+	background: transparent !important;
+
+	text-align: left !important;
+	font-size: 32px !important;
+}
+
+.div_AudioItem,
+.div_LyricsItem {
+	margin-left: auto;
+	margin-right: auto;
+	width: 570px;
+	opacity: 0.60;
+    filter: alpha(opacity=60);
+    padding: 6px;
+    padding-bottom: 0px;
+}
+
+#p_AudioItem {
+	
+}
+
+.div_AudioItemArticleInfo,
+.div_LyricsItemArticleInfo {
+    background: #171717 URL(../img/information.png) no-repeat top right;
+    min-height: 128px;
+}
+
+.div_AudioItemArticleLyrics, 
+.div_AudioItemArticleDescription,
+.div_LyricsItemArticleLyrics,
+.div_LyricsItemArticleDescription {
+    font-variant: normal;
+}
+
+.div_AudioItemArticleLyrics,
+.div_LyricsItemArticleLyrics {
+	background: #171717 URL(../img/lyrics.png) no-repeat top right;
+	min-height: 128px;
+}
+
+.div_AudioItemArticleDescription,
+.div_LyricsItemArticleDescription {
+    background: #171717 URL(../img/description.png) no-repeat top right;
+    min-height: 128px;
+}
+
+.RA_file_upload_controller {
+    position: relative;
+    float: right;
+    width: 10px;
+    margin-top: -15px;
+    margin-right: 125px;
+}
+
+.o2k7Skin, .mceLayout {
+    float: left;
+    margin-left: 4px !important;
+    margin-top: 4px !important;
+    font-size: 11px !important;
+    font-family: Tahoma !important;
+}
+
+.img_AudioItemArticleTitleArtwork {
+    float: left;
+    width: 128px;
+    height: 128px;
+    border: 2px solid #000000;
+    margin: 6px;
+    background: URL(../img/audio_no_artwork.png) no-repeat center center;
+}
+
+.div_AudioItemArticleTitleArtwork {
+    float: left;
+    width: 128px;
+    height: 128px;
+    margin: 6px;
+    margin-left: 8px;
+    background: URL(../img/audio_no_artwork.png) no-repeat center center;
+}
+
+.a_AudioItemArticleTitle,
+.a_LyricsItemArticleTitle {
+	float: right;
+	width: 460px;
+}
+
+.div_AudioListContainerItem H1,
+.div_LyricsListContainerItem H1 {
+	font-family: "Tempus Sans ITC","Jokerman", "Tahoma", "Courier New", sans-serif;
+    font-size: 32px;
+}
+
+.div_AudioListContainerItem A H1,
+.div_LyricsListContainerItem A H1 {
+	display: block;
+}
+
+.div_AudioListContainerItem A H1:hover,
+.div_LyricsListContainerItem A H1:hover {
+    background: #353535 URL(../img/play.png) no-repeat bottom right;
+}
+
+.div_LeftContentContainer H1 {
+	font-family: "Tempus Sans ITC","Jokerman", "Tahoma", "Courier New", sans-serif;
+    font-size: 48px;
+}
+
+.div_LeftContentContainer, 
+.div_faqPageLinkList, 
+.div_ProductsItemContainer, 
+.div_ProductsItemProperties,
+.div_ProductsItemImages, 
+.div_ProductsList {
+	background: #171717;
+	margin-bottom: 20px;
+	padding: 15px;
+	border-radius: 10px;
+	-moz-border-radius: 10px; 
+    -webkit-border-radius: 10px;
+    -khtml-border-radius: 10px;
+    -ms-border-radius: 10px;
+}	
+
+.div_AudioLast10Item, 
+.div_AudioRandomNItem, 
+.div_LyricsLast10Item, 
+.div_LyricsRandomNItem,
+.div_ProductsItemImageAndInfoContainer, 
+.div_ProductsListItemContainer {
+    float: left;
+    width: 160px;
+    padding: 6px;
+    background: transparent;
+    border: 2px solid transparent;
+    -moz-border-radius: 10px; border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -khtml-border-radius: 10px;
+    -ms-border-radius: 10px;
+}
+
+.div_AudioLast10Item:hover, 
+.div_AudioRandomNItem:hover, 
+.div_LyricsLast10Item:hover, 
+.div_LyricsRandomNItem:hover,
+.div_ProductsItemImageAndInfoContainer:hover,
+.div_ProductsListItemContainer:hover {
+    background: #222222;
+    border: 2px solid #111111;
+}
+
+.div_AudioLast10ItemInfoContainer, 
+.div_AudioRandomNItemInfoContainer,
+.div_LyricsLast10ItemInfoContainer, 
+.div_LyricsRandomNItemInfoContainer, 
+.div_ProductsItemImageInfoContainer,
+.div_ProductsListItemInfoContainer {
+    font-size: 11px;
+    width: 128px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.div_AudioLast10ItemImageContainer, 
+.div_AudioRandomNItemImageContainer,
+.div_LyricsLast10ItemImageContainer, 
+.div_LyricsRandomNItemImageContainer, 
+.div_ProductsItemImageContainer,
+.div_ProductsListItemImageContainer {
+	width: 128px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.img_AudioItemArticleTitleArtworkLast10, 
+.img_AudioItemArticleTitleArtworkRandomN,
+.img_LyricsItemArticleTitleArtworkLast10, 
+.img_LyricsItemArticleTitleArtworkRandomN, 
+.img_ProductsItemImage,
+.img_ProductsListItemImageContainer {
+	width: 128px;
+    height: 120px;
+    border: 2px solid #000000;
+    background: URL(../img/audio_no_artwork.png) no-repeat center center;
+}
+
+.div_AudioItemArticleTitleArtworkLast10, 
+.div_AudioItemArticleTitleArtworkRandomN,
+.div_LyricsItemArticleTitleArtworkLast10, 
+.div_LyricsItemArticleTitleArtworkRandomN {
+    width: 128px;
+    height: 128px;
+    border: 0px solid #000000;
+    margin-left: 8px;
+    background: URL(../img/audio_no_artwork.png) no-repeat center center;
+}
+
+.div_AudioLast10AutoCentered, 
+.div_AudioRandomNAutoCentered, 
+.div_LyricsLast10AutoCentered, 
+.div_LyricsRandomNAutoCentered,
+.div_ProductsItemImagesAutoCentered, 
+.div_ProductsListAutoCentered {
+    width: 540px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.divPagination {
+	font-family: "Tempus Sans ITC","Jokerman", "Tahoma", "Courier New", sans-serif;
+    font-size: 28px;
+}
+
+.paginationLink {
+	float: left;
+    padding: 6px;
+    margin: 2px;
+    background: #111111;
+    border: 2px solid #111111;
+    -moz-border-radius: 10px; border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -khtml-border-radius: 10px;
+    -ms-border-radius: 10px;
+}
+
+.paginationLink:hover {
+    float: left;
+    padding: 6px;
+    margin: 2px;
+    background: #333333;
+    border: 2px solid #333333;
+    -moz-border-radius: 10px; border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -khtml-border-radius: 10px;
+    -ms-border-radius: 10px;
+}
+
+.currentPage {
+	background: #333333;
+    border: 2px solid #333333;
+}
+
+.clearFloatLeft {
+    clear: left;
+}
+
+#audioSearchOnFrontend {
+	margin-top: 10px !important;
+	float: right;
+	width: 470px;
+}
+
+#audioSearchOnFrontend INPUT[type=submit] {
+    font-size: 32px;
+}
+
+.a_AuthenticationAbsolutePositionedRibbon {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background: URL('../img/ribbon.gif') center center;
+    width: 150px;
+    height: 150px;
+}
+
+.div_LeftContent FIELDSET {
+    background: #171717;
+    color: #FAFAFA;
+    -moz-border-radius: 10px; border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -khtml-border-radius: 10px;
+    -ms-border-radius: 10px;
+    padding: 12px;
+    width: 600px;
+    font-weight: normal;
+    font-variant: small-caps;
+    margin-bottom: 5px;
+}
+
+.div_AudioSingleComment,
+.div_LyricsSingleComment, 
+.div_TextsSingleComment {
+	background: #171717 URL(../img/comments.png) no-repeat top left;
+    color: #FAFAFA;
+    -moz-border-radius: 10px; border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -khtml-border-radius: 10px;
+    -ms-border-radius: 10px;
+    padding: 12px;
+    width: 605px;
+    font-weight: normal;
+    font-variant: small-caps;
+    margin-bottom: 5px;
+}
+
+.div_AudioSingleCommentAuthor,
+.div_LyricsSingleCommentAuthor, 
+.div_TextsSingleCommentAuthor {
+    text-align: right;
+    font-size: 16px;
+}
+
+.div_AudioSingleCommentDate,
+.div_LyricsSingleCommentDate, 
+.div_TextsSingleCommentDate {
+    text-align: right;
+    border-bottom: 2px solid #444444;
+    padding-bottom: 2px;
+    font-size: 16px;
+    width: 550px;
+    float: right;
+}
+
+.div_AudioSingleCommentMessage,
+.div_LyricsSingleCommentMessage, 
+.div_TextsSingleCommentMessage {
+    font-variant: normal;
+    padding: 6px;
+    clear: both;
+    min-height: 100px;
+}
+
+.div_AudioCommentsOk, 
+.div_LyricsCommentsOk,
+.div_TextsCommentsOk {
+	background: #500000;
+	opacity: 0.60;
+	filter: alpha(opacity=60);
+    color: #FAFAFA;
+    -moz-border-radius: 10px; border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -khtml-border-radius: 10px;
+    -ms-border-radius: 10px;
+    padding: 12px;
+    width: 605px;
+    font-weight: normal;
+    text-align: right;
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+
+.div_AuthenticationProfileBoxInfo {
+   float: right;
+   width: 190px;
+   text-align: right;
+}
+
+.div_AuthenticationProfileBoxUsername {
+    font-size: 24px;
+    font-family: "Tempus Sans ITC", "Tahoma", sans-serif;
+}
+
+.div_AuthenticationProfileBoxSignature {
+	margin-top: 5px;
+}
+
+.div_AuthenticationProfileBoxSignature P {
+	margin-top: 2px;
+	padding-top: 2px;
+	border-top: 2px solid #AAAAAA;
+}
+
+#audio_file_title {
+	width: 74%;	
+}
+
+.h1_AudioItemArticleTitle,
+.h1_LyricsItemArticleTitle {
+   min-height: 120px;
+}
+
+.div_YahooInviteUsers {
+	background: #171717 URL(../img/yahoo_invite.png) no-repeat 10px 10px;
+    color: #FAFAFA;
+    border-radius: 10px;
+    -moz-border-radius: 10px; 
+    -webkit-border-radius: 10px;
+    -khtml-border-radius: 10px;
+    -ms-border-radius: 10px;
+    padding: 12px;
+    font-weight: normal;
+    font-variant: small-caps;
+    margin-bottom: 5px;
+	font-size: 48px;
+	font-family: "Tempus Sans ITC", "Tahoma", sans-serif;
+	text-align: right;
+}
+
+.div_YahooInviteUsers P {
+    margin-left: 100px;
+}
+
+.div_YahooHaveInvited {
+    background: #171717 URL(../img/yahoo_invite.png) no-repeat 10px 10px;
+    color: #FAFAFA;
+    border-radius: 10px;
+    -moz-border-radius: 10px; 
+    -webkit-border-radius: 10px;
+    -khtml-border-radius: 10px;
+    -ms-border-radius: 10px;
+    padding: 12px;
+    font-weight: normal;
+    margin-bottom: 5px;
+    text-align: right;
+}
+
+.div_YahooInviteUsers P {
+    margin-left: 100px;
+}
+
+#div_YahooSidebarBox {
+	background: #171717 URL(../img/yahoo_invite.png) no-repeat 0px 95px;
+    color: #FAFAFA;
+    border-radius: 10px;
+    -moz-border-radius: 10px; 
+    -webkit-border-radius: 10px;
+    -khtml-border-radius: 10px;
+    -ms-border-radius: 10px;
+    padding: 12px;
+    font-weight: normal;
+    margin-bottom: 5px;
+    text-align: right;
+    font-size: 32px;
+    margin-bottom: 30px;
+    font-family: "Tempus Sans ITC", "Tahoma", sans-serif;
+    width: 310px;
+}
+
+.div_RightContent H1 {
+    font-family: "Tempus Sans ITC", "Jokerman", "Tahoma", sans-serif;
+    font-size: 72px;
+}
+
+.div_ArticlesSingleComment {
+    background: #171717 URL(../img/comments.png) no-repeat top left;
+    color: #FAFAFA;
+    -moz-border-radius: 10px; border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -khtml-border-radius: 10px;
+    -ms-border-radius: 10px;
+    padding: 12px;
+    width: 605px;
+    font-weight: normal;
+    font-variant: small-caps;
+    margin-bottom: 5px;
+}
+
+.div_ArticlesSingleCommentAuthor {
+    text-align: right;
+    font-size: 16px;
+}
+
+.div_ArticlesSingleCommentDate {
+    text-align: right;
+    border-bottom: 2px solid #444444;
+    padding-bottom: 2px;
+    font-size: 16px;
+    width: 550px;
+    float: right;
+}
+
+.div_ArticlesSingleCommentMessage {
+    font-variant: normal;
+    padding: 6px;
+    clear: both;
+    min-height: 100px;
+}
+
+.div_ArticlesCommentsOk {
+    background: #500000;
+    opacity: 0.60;
+    filter: alpha(opacity=60);
+    color: #FAFAFA;
+    -moz-border-radius: 10px; border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -khtml-border-radius: 10px;
+    -ms-border-radius: 10px;
+    padding: 12px;
+    width: 605px;
+    font-weight: normal;
+    text-align: right;
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+
+.h1_AudioDescription, 
+.h1_AudioLyrics,
+.h1_LyricsDescription, 
+.h1_LyricsLyrics {
+    background: #171717 URL(../img/arrow_down.png) no-repeat 10px -12px !important;
+    min-height: 90px;
+    text-align: right !important;
+}
+
+.h1_AudioDescription:hover, 
+.h1_AudioLyrics:hover,
+.h1_LyricsDescription:hover, 
+.h1_LyricsLyrics:hover {
+    background: #353535 URL(../img/arrow_down.png) no-repeat 10px -12px !important;
+    min-height: 90px;
+    text-align: right !important;
+    cursor: pointer;
+}
+
+.p_AudioItemArticleLyrics, 
+.p_AudioItemArticleDescription,
+.p_LyricsItemArticleLyrics, 
+.p_LyricsItemArticleDescription {
+	margin-top: 5px;
+    border: 1px solid #222222;
+    padding: 10px;
+    text-align: left;
+    padding-right: 70px !important;
+    background: #111111 URL(../img/user_info.png) no-repeat top right;
+}
+
+.img_AudioItemArticleTitleArtworkLast10, 
+.img_AudioItemArticleTitleArtworkRandomN, 
+.img_AudioItemArticleTitleArtwork,
+.img_ProductsListItemImageContainer {
+    opacity: 0.60;
+    filter: alpha(opacity=60);
+}
+
+.h1_categoryTextTitle, 
+.div_contactWidget H1, 
+.h1_ArticlesListArticleItemTitle, 
+.h1_ArticlesItemArticleTitle, 
+.div_AudioUploadFormTopMessage H1, 
+.div_AuthenticationFormSignUpText H1, 
+.div_AuthenticationFormSignUpOk H1,
+.div_AuthenticationActivateByHash H1, 
+.div_AudioListNoAudioDefined H1, 
+.h1_faqPageLinkList {
+    font-size: 32px !important;
+    text-align: left !important;
+    font-family: "Tempus Sans ITC";
+    background: #171717 URL(../img/user_info.png) no-repeat 98% 6px !important;
+}
+
+#audioSearchOnFrontend, 
+#audioRandomItem {
+    width: 250px;
+    float: left;
+    margin-left: 10px;
+}
+
+#audioSearchOnFrontend LABEL {
+    width: 50px;
+	padding: 4px;
+}
+
+#audioSearchOnFrontend INPUT[type=text] {
+    width: 242px;
+	padding: 4px;
+}
+
+#audioSearchOnFrontend {
+    margin-left: 40px;
+	width: 320px;
+}
+
+#audioRandomItem {
+    margin-top: 10px;
+}
+
+.div_AudioItemArticleDescription, 
+.div_AudioItemArticleLyrics {
+    display: none;
+}
+
+.div_MainBackgroundContainer {
+    background: URL(../img/stripe_background-2.png);
+}
+
+.div_faqPageLinkListQuestion {
+    text-align: right;
+    font-size: 32px;
+    border-bottom: 3px solid #444444;
+}
+
+.div_faqPageLinkListBackToTop A {
+    display: block;
+    text-align: right;
+    border: 1px solid #333333;
+    background: #444444;
+    padding: 6px;
+}
+
+.div_faqPageLinkListQuestion H1 {
+    padding: 0px;
+    padding-top: 10px;
+}
+
+.no_DISPAY {
+    display: none;
+}
+
+.h1_ProductsItemTitle {
+    text-align: left !important;
+}
+
+.div_ProductsItemDescription, 
+.div_ProductsItemMeta {
+	width: 60%;
+	background: #222222;
+	border: 1px solid #333333;
+	float: left;
+}
+
+.div_ProductsItemDescription {
+	min-height: 88px;
+}
+
+.div_ProductsItemMeta {
+	border: 0px;
+	background: transparent;
+    float: right;
+    width: 38%;    
+}
+
+.div_ProductsItemMetaKey, 
+.div_ProductsItemMetaVar, 
+.div_ProductsItemPropertyKey, 
+.div_ProductsItemPropertyVar {
+    float: left;
+    width: 140px;
+    background: #222222;
+    border: 1px solid #333333;
+    padding: 6px;
+    margin-bottom: 4px;
+    margin-right: 4px;
+}
+
+.div_ProductsItemMetaKey {
+    width: 50px;
+}
+
+.ul_ArticlesCategoryList {
+    margin-top: 10px;
+}
+
+.div_ProductsItemInfo {
+    width: 77%;
+    float: right;
+    min-height: 128px;
+    margin-bottom: 6px;
+}
+
+.div_ProductsItemImageContainer {
+    width: 130px;
+    float: left;
+    min-height: 128px;
+    margin-bottom: 6px;
+}
+
+.img_ProductsItemImageTopContainer {
+    width: 128px;
+    height: 128px;
+    border: 2px solid #000000;
+    opacity: 0.60;
+    filter: alpha(opacity=60);
+}
+
+.div_ProductsItemPropertyKey, 
+.div_ProductsItemPropertyVar {
+    width: 46.8%;
+}
+
+.img_ProductsItemImage {
+    margin-left: 15px !important;
+    opacity: 0.60;
+    filter: alpha(opacity=60);
+}
+
+.div_AuthenticationProfileBoxImage {
+	opacity: 0.50;
+	filter: alpha(opacity=50);
+	float: left;
+}
+
+#div_UserProfileBox {
+    background: #171717;
+}
+
+#div_DoEmbed {
+    background: #171717;
+}
+
+.div_FooterRightFloatingBadge {
+	margin: 0px;
+	padding: 0px;
+}
+
+.div_FooterRightFloatingBadge A {
+    position: relative;
+    display: block;
+    background: URL(../img/footerribbon.png);
+    width: 230px;
+    height: 230px;
+	margin: 0px;
+	padding: 0px;
+    float: right;
+    top: -260px;
+    right: 2%;
+    margin-bottom: -220px;
+    opacity: 0.50;
+    filter: alpha(opacity=50);
+}
+
+#divForInput_lyrics_search_keyword LABEL {
+    font-size: 22px;
+    padding: 6px;
+    font-weight: normal;
+}
+
+#divForInput_lyrics_search_keyword INPUT {
+    font-size: 22px;
+    padding: 6px;
+    font-weight: normal;
+}
+
+#widgetSearch {
+    margin-bottom: 8px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid #666666;
+}

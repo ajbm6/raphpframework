@@ -1,0 +1,5 @@
+<div class="widget-header">Article :: Comments :: Statistics</div>
+<div class="widget-content">
+    You currently have %c comments for your articles, out of which %a are approved comments while %u are not. You may wish to
+    moderate pending comments and publish them ...
+</div>

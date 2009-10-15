@@ -1,0 +1,11 @@
+<div class="divContainer"><?php echo CONTACT_VIEW_FROM ?><br />
+    <?php echo $CNT->getMessageInfoById ($objGETId, Contact::$objContactTableFEMAIL); ?></div>
+<div class="divContainerSecond"><?php echo CONTACT_VIEW_SUBJECT ?><br />
+    <?php echo $CNT->getSubjectInfoById ($CNT->getMessageInfoById ($objGETId, 
+Contact::$objContactTableFSubjectId), Contact::$objContactSubjectFTitle); ?></div>
+<div class="divContainerSecond"><?php echo CONTACT_VIEW_MESSAGE ?><br />
+    <?php echo $CNT->getMessageInfoById ($objGETId, Contact::$objContactTableFMessage)->entityDecode (ENT_QUOTES); ?></div>
+<div class="divContainerSecond"><?php echo CONTACT_VIEW_COMMENT ?><br />
+    <?php echo $CNT->getMessageInfoById ($objGETId, Contact::$objContactTableFComment); ?></div>
+<div class="divContainerSecond"><?php echo CONTACT_VIEW_RESOLVED ?><br />
+    <?php echo $CNT->getMessageInfoById ($objGETId, Contact::$objContactTableFResolved); ?></div>

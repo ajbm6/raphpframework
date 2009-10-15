@@ -1,0 +1,58 @@
+<?php if (count ($objAr) == 0): ?>
+	<div class="div_ProductsListNotDefined">
+    	<?php echo $objWidgetArray['no_products']; ?>
+	</div>
+<?php endif; ?>
+<?php $objI = 0; ?>
+<div class="div_ProductsList">
+    <div class="div_ProductsListAutoCentered">
+        <?php foreach ($objAr as $k => $v): ?>
+		<?php
+			// Get images for each product ... but do that HERE ...
+			$objImagesForPrd = $PRD->getImagesByProductURL ($v[Products::$objProductsTableFSEO]);
+			if ($objImagesForPrd->doCount ()->toInt () == 0) {
+				// Nope, he doesn't ...
+				$objPrdHasImg = new B (FALSE);
+			} else {
+				// Yes, he does ...
+				$objPrdHasImg = new B (TRUE);
+			}
+		?>
+            <?php if ($objI % 3 == 0): ?>
+                <div class="div_CLEAR"></div>
+            <?php endif; ?>
+            
+            <div class="div_ProductsListItemContainer">
+                <div class="div_ProductsListItemImageContainer">
+					<?php if ($objPrdHasImg->toBoolean () == TRUE): ?>
+						<a title="<?php echo $v[Products::$objProductsTableFName]; ?>"
+						href="<?php echo URL::staticURL (new A (Array (PRODUCTS_ITEM_URL, FRONTEND_SECTION_URL)),
+						new A (Array ($v[Products::$objProductsTableFSEO], FRONTEND_PRODUCTS_URL))); ?>"
+						id="a_ProductsListItemLink-Id-<?php echo $v[Products::$objProductsTableFId]; ?>"
+						class="a_ProductsListItemLink">
+							<img alt="<?php echo $objImagesForPrd[0][Products::$objProductsIMGTableFTitle]; ?>"
+							src="<?php echo 'upd/products/images/', $v[Products::$objProductsTableFId], '/128_128_', 
+							$objImagesForPrd[0][Products::$objProductsIMGTableFURL]; ?>" 
+							class="img_ProductsListItemImageContainer" />
+						</a>
+					<?php endif; ?>
+                </div>
+                
+                <div class="div_ProductsListItemInfoContainer">
+                    <a title="<?php echo $v[Products::$objProductsTableFName]; ?>"
+                    href="<?php echo URL::staticURL (new A (Array (PRODUCTS_ITEM_URL, FRONTEND_SECTION_URL)),
+                    new A (Array ($v[Products::$objProductsTableFSEO], FRONTEND_PRODUCTS_URL))); ?>"
+                    id="a_ProductsListItemLink-Id-<?php echo $v[Products::$objProductsTableFId]; ?>"
+                    class="a_ProductsListItemLink">
+                        <?php echo $v[Products::$objProductsTableFName]; ?>,
+						<?php echo $objWidgetArray['product_code']; ?>: <?php echo $v[Products::$objProductsTableFCode]; ?>,
+						<?php echo $objWidgetArray['product_price'];?>: <?php echo $v[Products::$objProductsTableFPrice]; ?>
+                    </a>
+                </div>
+            </div>
+            <?php $objI++; ?>
+        <?php endforeach; ?>
+
+        <div class="div_CLEAR"></div>
+    </div>
+</div>

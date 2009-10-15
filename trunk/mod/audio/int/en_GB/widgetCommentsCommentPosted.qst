@@ -1,0 +1,9 @@
+<div style="font-family: Tahoma; font-size: 11px; line-height: 11px;">
+A comment has been posted by %u. You can visit the administration interface to approve or unapprove this comment, after checking
+that the user has respected the community guidelines. We give you the details of this comment, so you can find it in the backend:
+    <ul style="list-style-type: square;">
+        <li>%t</li>
+        <li>%a</li>
+        <li>%b</li>
+    </ul>
+</div>

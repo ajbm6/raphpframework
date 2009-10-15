@@ -1,0 +1,24 @@
+<ul class="ul_textsCategoryList">
+    <?php $objSavedDepth = 0; ?>
+    <?php foreach ($objCategoryList as $k => $v): ?>
+        <?php if ((int) $v['depth']->toString () > $objSavedDepth): ?>
+            <li style="list-style-type: none;"><ul class="ul_textsCategorySubList">
+        <?php $objSavedDepth = (int) $v['depth']->toString (); endif; ?>
+        
+        <?php if ((int) $v['depth']->toString () < $objSavedDepth): ?>
+            </ul></li>
+        <?php $objSavedDepth = (int) $v['depth']->toString (); endif; ?>
+        
+        <li class="li_textsCategoryListItem" title="<?php echo $v[Texts::$objCategoryTableFName]; ?>">
+            <a href="<?php echo URL::staticURL (new A (Array (FRONTEND_SECTION_URL)), 
+            new A (Array ($TXT->getCategoryInfoById ($v[Texts::$objCategoryTableFId], Texts::$objCategoryTableFSEO)))); ?>" 
+            title="<?php echo $v[Texts::$objCategoryTableFName]; ?>">
+            <?php echo $v[Texts::$objCategoryTableFName]; ?></a>
+        </li>
+    <?php endforeach; ?>
+    <?php if ($objSavedDepth > 0): ?>
+        <?php for ($i = $objSavedDepth; $i > 0; --$i): ?>
+            </ul></li>
+        <?php endfor; ?>
+    <?php endif; ?>
+</ul>

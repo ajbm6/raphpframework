@@ -1,0 +1,3 @@
+Zones are specific areas of "executable PHP code", or in simple terms: "parts of the application" that require special access to
+them to get executed for the current logged in user. It's a way for example to delimit "free users" from "paying users", thus giving
+paying users a few advantages that free users don't get, in an independent manner ...

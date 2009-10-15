@@ -1,0 +1,31 @@
+<?php if ($objShowForm->toBoolean () == TRUE): ?>
+    <div class="div_AuthenticationFormNotLoggedIn">
+        <?php echo $ATH->renderForm (new S ('userLogIn'), $objWidgetArray); ?>
+    </div>
+    
+    <a title='<?php echo AUTHENTICATION_REGISTER_URL; ?>' class="a_AuthenticationAbsolutePositionedRibbon"
+    href="<?php echo URL::staticURL (new A (Array (FRONTEND_SECTION_URL, AUTHENTICATION_ACTION_URL)),
+    new A (Array (FRONTEND_AUTHENTICATION_URL, AUTHENTICATION_REGISTER_URL))); ?>">&nbsp;</a>
+<?php endif; ?>
+<?php if ($objShowForm->toBoolean () == FALSE): ?>
+    <div class="div_AuthenticationFormLoggedIn">
+        <?php if ($ATH->getCurrentUserInfoById (Authentication::$objAuthUsersTableFAvatar)->toLength ()->toInt () != 0): ?>
+            <img src="upd/users/avatars/128_128_<?php echo $ATH
+            ->getCurrentUserInfoById (Authentication::$objAuthUsersTableFAvatar); ?>"
+            align="left" style="border: 2px solid #444444; 
+            margin: 10px; margin-top: 3px; margin-bottom: 0px; width: 75px; height: 75px;" />
+        <?php endif; ?>
+        <?php if ($ATH->getCurrentUserInfoById (Authentication::$objAuthUsersTableFAvatar)->toLength ()->toInt () == 0): ?>
+            <div style="border: 2px solid #444444; 
+            margin: 10px; margin-top: 3px; margin-bottom: 0px; width: 75px; height: 75px; float: left;"></div>
+        <?php endif; ?>
+        <?php echo $objWidgetArray['welcome_there']; ?>
+        <a class="div_AuthenticationUserProfileLink"
+        href="<?php echo URL::staticURL (new A (Array (FRONTEND_SECTION_URL, AUTHENTICATION_ACTION_URL)),
+        new A (Array (FRONTEND_AUTHENTICATION_URL, AUTHENTICATION_PROFILE_URL))); ?>" 
+        title="<?php echo $ATH->getCurrentUserInfoById (Authentication::$objAuthUsersTableFUName); ?>">
+        <?php echo $ATH->getCurrentUserInfoById (Authentication::$objAuthUsersTableFUName); ?>.<br />
+        <a href="<?php echo URL::staticURL (new A (Array (FRONTEND_SECTION_URL, AUTHENTICATION_ACTION_URL)),
+        new A (Array (FRONTEND_AUTHENTICATION_URL, AUTHENTICATION_LOGOUT_URL))); ?>"><?php echo $objWidgetArray['log_out']; ?></a>
+    </div>
+<?php endif; ?>

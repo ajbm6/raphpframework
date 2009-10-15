@@ -1,0 +1,40 @@
+<div class="div_MainBackgroundContainer">
+    <div class="div_MainContainerAutoCentered">
+        <div class="div_LeftContent">
+            <?php $ART->renderWidget (new S ('widgetList'), new A (Array ('written_by' => new S ('Scris de: '),
+            'written_in' => new S ('In categoria: '),
+            'read_n' => new S ('Citit de: '),
+            'read_times' => new S (' persoane'),
+            'posted_on' => new S ('In data de: '), 
+            'updated_on' => new S ('Ultima modificare: '),
+            'previous_article' => new S ('Anterior: '),
+            'next_article' => new S ('Urmator: '),
+            'tags' => new S ('Tag: '),
+            'no_articles' => new S ('<h1>Ooops! Aici e buba ...</h1>
+            <p>Nu exista nici un articol in aceasta categorie, din pacate ... Revino in cateva zile si promitem
+            sa avem ceva de scris si aici. Intre timp ai o tona de chestii de facut decat sa te benoclezi p-aci. Hai ... pa!</p>')))); ?>
+            
+            <?php $ART->renderWidget (new S ('widgetComments'), new A (Array (
+            'comment_add' => new S ('Adauga un comentariu'),
+            'comment_submit' => new S ('Comenteaza'),
+            'comment_name' => new S ('Nume'),
+            'comment_email' => new S ('E-Mail'),
+            'comment_website' => new S ('Website'),
+            'comment_message' => new S ('Comentariu'),
+            'error_no_comment' => new S ('Nu ai completat mesajul ...'),
+            'error_no_name' => new S ('Nu ai introdus numele ...'),
+            'error_no_email' => new S ('Nu ai introdus un email ...'),
+            'comment_has_been_added' => new S ('Commentariul tau a fost adaugat si asteapta aprobare. Revino peste cateva
+            momente pentru a verifica daca a fost aprobat sau nu ...'),
+            'comment_need_authentication' => new S ('Pentru a putea comenta, este necesar sa te autentifici. Foloseste formularul de inregistrare pentru a deveni un membru al comunitatii noastre!')))); ?>
+        </div>
+        <div class="div_RightContent">
+            <h1>Categorii</h1>
+            <div class="div_SidebarContainer" id="div_NewsCategory">
+                <?php $ART->renderWidget (new S ('widgetCategoryList')); ?>
+            </div>
+        </div>
+        
+        <div class="div_CLEAR"></div>
+    </div>
+</div>

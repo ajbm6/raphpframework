@@ -1,0 +1,4 @@
+After a zone is created either automatically (by the system) or by the user (if allowed) - the only thing you can to is to actually
+edit its name, price or description. Changing the hierarchy tree is not supported due to (weird) changes in permissions ... We do
+allow you to edit the price of a zone (to provide services based on that zone) and the description - in the case that you have a lot
+of zones that you forget about what they are ...

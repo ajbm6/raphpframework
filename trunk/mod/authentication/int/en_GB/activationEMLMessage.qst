@@ -1,0 +1,7 @@
+<div style="font-family: Tahoma; font-size: 11px; line-height: 11px;">
+Hello there, %u. You've just made an account on our website and we want you to activate your subscription by clicking the link we've
+sent you with this email. It's a way of confirmining that you are a real person which we can trust. If the above link doesn't work,
+then copy and paste it into your browser. Here's the link:
+<ul style="list-style-type: square">
+    <li>Activate this: %a</li>
+</ul>

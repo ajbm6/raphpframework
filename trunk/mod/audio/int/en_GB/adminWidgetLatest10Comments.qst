@@ -1,0 +1,23 @@
+?><div class="widget-header">Audio :: Latest 10 comments</div>
+<div class="widget-content">
+    Bellow, we give you the recent 10 (ten) comments written by your users. Clicking on either of the links will redirect you the
+    the comment approval form, where you can review the comment and decide if you allow it or not ...
+    <?php
+        $AUD = MOD::activateModule (new FilePath ('mod/audio'), new B (TRUE));
+        $STG = MOD::activateModule (new FilePath ('mod/settings'), new B (TRUE));
+        $objKV = $AUD->getComments (new S ('ORDER BY %objCommentsTableFId DESC LIMIT 0, 10'));
+        $objK = new A (Array (ADMIN_PAGE, ADMIN_SUBPAGE, ADMIN_ACTION, ADMIN_ACTION_ID));
+    ?>
+    
+    <ul>
+    <?php foreach ($objKV as $k => $v): ?>
+        <?php  $objV = new A (Array (AUDIO_MANAGE_AUDIO, AUDIO_MANAGE_COMMENTS, ADMIN_ACTION_EDIT, 
+        $v[Audio::$objCommentsTableFId])); ?>
+        <li><a href="<?php echo URL::staticURL ($objK, $objV); ?>"><?php echo date ($STG
+        ->getConfigKey (new S ('settings_default_date_format')),
+        (int) $v[Audio::$objCommentsTableFDate]->toString ()); ?>,<br />on: 
+        <?php echo $AUD->getAudioFileInfoById ($v[Audio::$objCommentsTableFAudioFileId], Audio::$objAudioTableFTitle); ?>
+        </a></li>
+    <?php endforeach; ?>
+    </ul>
+</div>

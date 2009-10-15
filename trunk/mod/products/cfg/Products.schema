@@ -1,0 +1,64 @@
+CREATE TABLE IF NOT EXISTS `%objCategoryTable` (
+	`%objCategoryTableFId` bigint(20) unsigned NOT NULL auto_increment,
+	`%objCategoryTableFName` varchar(255) NOT NULL,
+	`%objCategoryTableFSEO` varchar(255) NOT NULL,
+	`%objCategoryTableFDescription` longtext NOT NULL,
+	`%objCategoryTableFDate` bigint(20) unsigned NOT NULL,
+	`lft` bigint(20) unsigned NOT NULL,
+	`rgt` bigint(20) unsigned NOT NULL,
+		PRIMARY KEY  (`%objCategoryTableFId`),
+		UNIQUE KEY `name` (`%objCategoryTableFName`),
+		UNIQUE KEY `seo` (`%objCategoryTableFSEO`)) 
+		ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
+
+___RA_SCHEMA_HASH_TAG_
+
+CREATE TABLE IF NOT EXISTS `%objProductsTable` (
+	`%objProductsTableFId` bigint(20) unsigned NOT NULL auto_increment,
+	`%objProductsTableFCode` varchar(255) NOT NULL,
+	`%objProductsTableFName` varchar(255) NOT NULL,
+	`%objProductsTableFSEO` varchar(255) NOT NULL,
+	`%objProductsTableFDescription` longtext NOT NULL,
+	`%objProductsTableFURL` varchar(255) NOT NULL,
+	`%objProductsTableFPDF` varchar(255) NOT NULL,
+	`%objProductsTableFPrice` float NOT NULL,
+	`%objProductsTableFStoc` bigint(20) unsigned NOT NULL,
+	`%objProductsTableFCategoryId` bigint(20) unsigned NOT NULL,
+		PRIMARY KEY  (`%objProductsTableFId`),
+		UNIQUE KEY `code` (`%objProductsTableFCode`),
+		UNIQUE KEY `name` (`%objProductsTableFName`),
+		UNIQUE KEY `seo` (`%objProductsTableFSEO`),
+		INDEX (%objProductsTableFCategoryId),
+    		FOREIGN KEY (%objProductsTableFCategoryId) 
+    		REFERENCES %objCategoryTable(%objCategoryTableFId)
+    		ON UPDATE CASCADE ON DELETE CASCADE) 
+		ENGINE=InnoDB  DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC AUTO_INCREMENT=1;
+
+___RA_SCHEMA_HASH_TAG_
+
+CREATE TABLE IF NOT EXISTS `%objProductsIMGTable` (
+	`%objProductsIMGTableFId` bigint(20) unsigned NOT NULL auto_increment,
+	`%objProductsIMGTableFProdId` bigint(20) unsigned NOT NULL,
+	`%objProductsIMGTableFTitle` varchar(255) NOT NULL,
+	`%objProductsIMGTableFURL` varchar(255) NOT NULL,
+	`%objProductsIMGTableFCaption` tinytext NOT NULL,
+		PRIMARY KEY  (`%objProductsIMGTableFId`),
+		INDEX (%objProductsIMGTableFProdId),
+    		FOREIGN KEY (%objProductsIMGTableFProdId) 
+    		REFERENCES %objProductsTable(%objProductsTableFId)
+    		ON UPDATE CASCADE ON DELETE CASCADE) 
+		ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
+
+___RA_SCHEMA_HASH_TAG_
+
+CREATE TABLE IF NOT EXISTS `%objProductsPropertyTable` (
+	`%objProductsPropertyTableFId` bigint(20) unsigned NOT NULL auto_increment,
+	`%objProductsPropertyTableFPId` bigint(20) unsigned NOT NULL,
+	`%objProductsPropertyTableFKey` varchar(255) NOT NULL,
+	`%objProductsPropertyTableFVar` longtext NOT NULL,
+		PRIMARY KEY  (`%objProductsPropertyTableFId`),
+		INDEX (%objProductsPropertyTableFPId),
+    		FOREIGN KEY (%objProductsPropertyTableFPId) 
+    		REFERENCES %objProductsTable(%objProductsTableFId)
+    		ON UPDATE CASCADE ON DELETE CASCADE) 
+		ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;

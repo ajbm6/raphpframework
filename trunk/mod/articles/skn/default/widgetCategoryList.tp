@@ -1,0 +1,35 @@
+<?php // Start at DEPTH = 0 ...; ?>
+<?php $objSavedDepth = 0; ?>
+<ul class="ul_ArticlesCategoryList">
+    <?php // Do a FOREACH ... for each; ?>
+    <?php foreach ($objCategoryList as $k => $v): ?>
+        <?php // If the depth > CURRENT, then NEW UL; ?>
+        <?php if ((int) $v['depth']->toString () > $objSavedDepth): ?>
+            <li style="list-style-type: none;"><ul class="ul_ArticlesCategorySubList">
+        <?php $objSavedDepth = (int) $v['depth']->toString (); endif; ?>
+        <?php // If the depth < CURRENT, then END UL; ?>
+        <?php if ((int) $v['depth']->toString () < $objSavedDepth): ?>
+            </ul></li>
+        <?php $objSavedDepth = (int) $v['depth']->toString (); endif; ?>
+        <?php $objCat = CLONE $v[Articles::$objCategoryTableFName]; ?>
+        <?php $objCat = MPTT::mpttRemoveUnique ($objCat); ?>
+
+        <li title="<?php echo FRONTEND_PERMALINK, $objCat; ?>" 
+        id="li_ArticlesCategoryListItem-Id-<?php echo $v[Articles::$objCategoryTableFId]; ?>"
+        class="li_ArticlesCategoryListItem">
+            <a title="<?php echo FRONTEND_PERMALINK, $objCat; ?>" 
+            href="<?php echo URL::staticURL (new A (Array (ARTICLES_CATEGORY_URL, FRONTEND_SECTION_URL)), 
+            new A (Array ($ART->getCategoryInfoById ($v[Articles::$objCategoryTableFId], 
+            Articles::$objCategoryTableFSEO), FRONTEND_ARTICLE_URL))); ?>"
+            id="a_ArticlesCategoryListItem-Id-<?php echo $v[Articles::$objCategoryTableFId]; ?>"
+			class="a_ArticlesCategoryListItem">
+                <?php echo MPTT::mpttRemoveUnique ($v[Articles::$objCategoryTableFName]); ?>
+            </a>
+        </li>
+    <?php endforeach; ?>
+    <?php if ($objSavedDepth > 0): ?>
+        <?php for ($i = $objSavedDepth; $i > 0; --$i): ?>
+            </ul></li>
+        <?php endfor; ?>
+    <?php endif; ?>
+</ul>

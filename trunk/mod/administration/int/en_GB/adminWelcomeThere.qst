@@ -1,0 +1,6 @@
+<div class="widget-header">Welcome there %u</div>
+<div class="widget-content">
+    Welcome %u to the administration interface. On this page we will show you
+    some of the most common statistics, depending on the modules defined with your application. From here onwards you can check what
+    has recently happened since you last visited us ...
+</div>

@@ -1,0 +1,94 @@
+<?php
+	/* Get some requirements ... */
+	$objId = $ART->getArticleInfoByURL ($objURL, Articles::$objArticleTableFId);
+	$objTt = $ART->getArticleInfoByURL ($objURL, Articles::$objArticleTableFTitle);
+?>
+<div class="div_ArticlesItemArticleContainer">
+    <div id="div_ArticlesItemArticleTitle-Id-<?php echo $objId; ?>" class="div_ArticlesItemArticleTitle">
+        <h1 title="<?php echo $objTt; ?>" id="h1_ArticlesItemArticleTitle-Id-<?php echo $objId; ?>" class="h1_ArticlesItemArticleTitle">
+            <?php echo $objTt; ?>
+        </h1>
+    </div>
+    
+    <div id="div_ArticlesItemArticleContent-Id-<?php echo $objId; ?>" class="div_ArticlesItemArticleContent">
+        <?php echo $ART->getArticleInfoByURL ($objURL, 
+        Articles::$objArticleTableFContent)->entityDecode (ENT_QUOTES); ?>
+    </div>
+    
+    <div id="div_ArticlesItemArticleMeta-Id-<?php echo $objId; ?>" class="div_ArticlesItemArticleMeta">
+        <ul id="ul_ArticlesItemArticleMeta-Id-<?php echo $objId; ?>" class="ul_ArticlesItemMeta">
+            <li title="<?php echo $objWidgetArray['written_by'], $ATH->getUserInfoById ($ART->getArticleInfoByURL ($objURL, 
+            Articles::$objArticleTableFAuthorId), Authentication::$objAuthUsersTableFUName); ?>" 
+            class="li_ArticlesItemMetaAuthor">
+                <?php echo $objWidgetArray['written_by'], $ATH->getUserInfoById ($ART->getArticleInfoByURL ($objURL, 
+                Articles::$objArticleTableFAuthorId), Authentication::$objAuthUsersTableFUName); ?>
+            </li>
+            
+            <li title="<?php echo $objWidgetArray['posted_on'], date ($STG->getConfigKey (new S ('settings_default_date_format')),
+            (int) $ART->getArticleInfoByURL ($objURL, Articles::$objArticleTableFDatePublished)->toString ()); ?>" 
+            class="li_ArticlesItemMetaDate">
+                <?php echo $objWidgetArray['posted_on'], date ($STG->getConfigKey (new S ('settings_default_date_format')),
+                (int) $ART->getArticleInfoByURL ($objURL, Articles::$objArticleTableFDatePublished)->toString ()); ?>
+            </li>
+            
+            <li title="<?php echo $objWidgetArray['updated_on'], date ($STG->getConfigKey (new S ('settings_default_date_format')),
+            (int) $ART->getArticleInfoByURL ($objURL, Articles::$objArticleTableFDateUpdated)->toString ()); ?>" 
+            class="li_ArticlesItemMetaDate">
+                <?php echo $objWidgetArray['updated_on'], date ($STG->getConfigKey (new S ('settings_default_date_format')),
+                (int) $ART->getArticleInfoByURL ($objURL, Articles::$objArticleTableFDateUpdated)->toString ()); ?>
+            </li>
+            
+            <li class="li_ArticlesItemMetaCategory">
+                <?php echo $objWidgetArray['written_in']; ?>
+                <a title="<?php echo MPTT::mpttRemoveUnique ($ART->getCategoryInfoById ($ART->getArticleInfoByURL ($objURL, 
+                Articles::$objArticleTableFCategoryId), Articles::$objCategoryTableFName)); ?>" 
+                href="<?php echo URL::staticURL (new A (Array (ARTICLES_CATEGORY_URL, FRONTEND_SECTION_URL)),
+                new A (Array ($ART->getCategoryInfoById ($ART->getArticleInfoByURL ($objURL, 
+                Articles::$objArticleTableFCategoryId), Articles::$objCategoryTableFSEO), FRONTEND_ARTICLE_URL))); ?>">
+                    <?php echo MPTT::mpttRemoveUnique ($ART->getCategoryInfoById ($ART->getArticleInfoByURL ($objURL, 
+                    Articles::$objArticleTableFCategoryId), Articles::$objCategoryTableFName)); ?>
+                </a>
+            </li>
+            
+            <li class="li_ArticlesItemMetaRead">
+                <?php echo $objWidgetArray['read_n'], $ART->getArticleInfoByURL ($objURL, 
+				Articles::$objArticleTableFViews), $objWidgetArray['read_times']; ?>
+            </li>
+
+            <?php 
+                // Show previous only if it exists ...
+                $objArt = $ART->getPreviousArticleInfoByURL ($objURL, Articles::$objArticleTableFTitle); 
+            ?>
+            <?php if ($objArt instanceof S): ?>
+            <li class="li_ArticlesItemPreviousArticle">
+                <?php echo $objWidgetArray['previous_article']; ?>
+                <a title="<?php echo FRONTEND_PERMALINK, $objArt; ?>"
+                href="<?php echo URL::staticURL (new A (Array (ARTICLES_ARTICLES_URL, FRONTEND_SECTION_URL)), 
+                new A (Array ($ART->getPreviousArticleInfoByURL ($objURL, Articles::$objArticleTableFSEO), FRONTEND_ARTICLE_URL))); ?>">
+                    <?php echo $objArt; ?>
+                </a>
+            </li>
+            <?php endif; ?>
+
+            <?php
+                // Show next only if it exists ...
+                $objArt = $ART->getNextArticleInfoByURL ($objURL, Articles::$objArticleTableFTitle);
+            ?>
+            <?php if ($objArt instanceof S): ?>
+            <li class="li_ArticlesItemNextArticle">
+                <?php echo $objWidgetArray['next_article']; ?>
+                <a title="<?php echo FRONTEND_PERMALINK, $objArt; ?>"
+                href="<?php echo URL::staticURL (new A (Array (ARTICLES_ARTICLES_URL, FRONTEND_SECTION_URL)),
+                new A (Array ($ART->getNextArticleInfoByURL ($objURL, Articles::$objArticleTableFSEO), FRONTEND_ARTICLE_URL))); ?>">
+                    <?php echo $objArt; ?>
+                </a>
+            </li>
+            <?php endif; ?>
+
+            <li class="li_ArticlesItemTags">
+                <?php echo $objWidgetArray['tags']; ?>
+                <?php echo $ART->getArticleInfoByURL ($objURL, Articles::$objArticleTableFTags); ?>
+            </li>
+        </ul>
+    </div>
+</div>

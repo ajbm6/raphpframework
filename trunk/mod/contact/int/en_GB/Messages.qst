@@ -1,0 +1,4 @@
+Messages that are received through the contact form are saved here, so you
+can view them, or erase them afterwards. We save contact messages because, beside sending them to the configured email, there is
+a chance you accidently delete those messages or you do not receive them. Thus, having a back-up here is a good option ... Use
+this module to configure the way you are contacted through your application ...

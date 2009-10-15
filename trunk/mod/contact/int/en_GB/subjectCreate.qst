@@ -1,0 +1,4 @@
+Subjects are show on the contact form, as a SELECT box, from where users can choose for what purpose they can contact you. You can
+use these subjects for example, to create filters in your EMAIL client, to categorise contact messages (based on subject) ... You
+should define as much subjects as you'd like to be contacted for and also add a 'for anything else' subject if you can't think of
+anything more your users would wanna contact you for ...

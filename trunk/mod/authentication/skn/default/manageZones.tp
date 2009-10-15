@@ -1,0 +1,23 @@
+    <div class="divContainer">
+    <div class="tableTreeName" id="tableTreeNameHeader">
+    <a class="sortDesc" href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION_SORT)), 
+    new A (Array ('DescByZone'))); ?>">DESC</a>
+    <a class="sortAsc" href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION_SORT)), 
+    new A (Array ('AscByZone'))); ?>">ASC</a>Zone</div>
+    <div class="tableTreeErase" id="tableTreeEraseHeader"><?php echo ADMIN_ACTION_ERASE; ?></div>
+    <?php $doIndex = 0; ?>
+<?php foreach ($zonesTable as $k => $v): ?>
+    <a class="tableTreeName<?php if ($doIndex % 2 != 0): ?> tableTreeOdd<?php endif; ?>"
+    href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION, ADMIN_ACTION_ID)), 
+    new A (Array (ADMIN_ACTION_EDIT, $v[Authentication::$objAuthZonesTableFId]))); ?>">
+    <?php echo str_repeat ('##', (int) $v['depth']->toString ()), _SP,
+    $v[Authentication::$objAuthZonesTableFName]; ?>
+    </a>
+    <a class="tableTreeErase" 
+    href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION, ADMIN_ACTION_ID)), 
+    new A (Array (ADMIN_ACTION_ERASE, $v[Authentication::$objAuthZonesTableFId]))); ?>">
+    <?php echo ADMIN_ACTION_ERASE; ?></a>
+    <div class="clearFloatLeft"></div>
+    <?php $doIndex++; ?>
+<?php endforeach; ?>
+    </div>

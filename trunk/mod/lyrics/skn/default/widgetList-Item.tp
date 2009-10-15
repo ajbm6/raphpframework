@@ -1,0 +1,30 @@
+<?php
+    /* Get some requirements ... */
+    $objId = $LRQ->getLyricInfoByURL ($objURL, Lyrics::$objLyricsTableFId);
+    $objTt = $LRQ->getLyricInfoByURL ($objURL, Lyrics::$objLyricsTableFTitle);
+    $objAt = $LRQ->getLyricInfoByURL ($objURL, Lyrics::$objLyricsTableFArtist);
+    $objAb = $LRQ->getLyricInfoByURL ($objURL, Lyrics::$objLyricsTableFAlbum);
+?>
+<div id="div_LyricsItemArticleContainer-Id-<?php echo $objId; ?>" class="div_LyricsItemArticleContainer">
+    <h1 title="<?php echo $objTt, ', ', $objAb; ?>" class="h1_LyricsLyrics">
+        <?php echo $objWidgetArray['lyrics']; ?><br />
+        <?php echo $objTt; ?><br />
+        <?php echo $objAb; ?>
+    </h1>
+    <div class="div_LyricsItemArticleLyrics"  id="div_LyricsItemArticleLyrics-Id-<?php echo $objId; ?>">
+        <?php $objLRC = $LRQ->getLyricInfoByURL ($objURL, Lyrics::$objLyricsTableFLyrics)
+        ->entityDecode (ENT_QUOTES)->stripTags ('<p><br>'); ?> 
+        
+        <?php if ($objLRC->toLength ()->toInt () == 0): ?>
+            <p style="text-align: left; ">
+                <?php echo $objWidgetArray['no_lyrics']; ?>
+            </p>
+        <?php endif; ?>
+        <?php if ($objLRC->toLength ()->toInt () != 0): ?>
+            <?php echo $objLRC; ?>
+        <?php endif; ?>
+        <p class="p_LyricsItemArticleLyrics">
+            <?php echo $objWidgetArray['lyrics_need_correction']; ?>
+        </p>
+    </div>
+</div>

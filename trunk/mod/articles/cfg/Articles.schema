@@ -1,0 +1,64 @@
+CREATE TABLE IF NOT EXISTS `%objCategoryTable` (
+	`%objCategoryTableFId` bigint(20) unsigned NOT NULL auto_increment,
+	`%objCategoryTableFName` varchar(75) NOT NULL,
+	`%objCategoryTableFSEO` varchar(255) NOT NULL,
+	`%objCategoryTableFDescription` text NOT NULL,
+	`%objCategoryTableFDate` bigint(20) unsigned NOT NULL,
+	`lft` bigint(20) unsigned NOT NULL,
+	`rgt` bigint(20) unsigned NOT NULL,
+		PRIMARY KEY  (`%objCategoryTableFId`),
+		UNIQUE KEY `name` (`%objCategoryTableFName`),
+		UNIQUE KEY `seo` (`%objCategoryTableFSEO`)) 
+		ENGINE=InnoDB  DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC AUTO_INCREMENT=1;
+		        
+___RA_SCHEMA_HASH_TAG_
+
+CREATE TABLE IF NOT EXISTS `%objArticleTable` (
+    `%objArticleTableFId` bigint(20) unsigned NOT NULL auto_increment,
+    `%objArticleTableFTitle` varchar(255) NOT NULL,
+    `%objArticleTableFSEO` varchar(255) NOT NULL,
+    `%objArticleTableFExcerpt` tinytext NOT NULL,
+    `%objArticleTableFTags` text NOT NULL,
+    `%objArticleTableFContent` longtext NOT NULL,
+    `%objArticleTableFDatePublished` bigint(20) unsigned NOT NULL,
+    `%objArticleTableFDateUpdated` bigint(20) unsigned NOT NULL,
+    `%objArticleTableFState` tinyint(2) NOT NULL default '1',
+    `%objArticleTableFViews` bigint(20) unsigned NOT NULL,
+    `%objArticleTableFAuthorId` bigint(20) unsigned NOT NULL default '1',
+    `%objArticleTableFCategoryId` bigint(20) unsigned NOT NULL default '1',
+    `%objArticleTableFCanComment` enum('Y','N') NOT NULL default 'Y',
+    	PRIMARY KEY  (`%objArticleTableFId`),
+    	UNIQUE KEY `title` (`%objArticleTableFTitle`),
+    	UNIQUE KEY `seo` (`%objArticleTableFSEO`),
+    	UNIQUE KEY `date_published` (`%objArticleTableFDatePublished`),
+    	UNIQUE KEY `date_updated` (`%objArticleTableFDateUpdated`),
+    	INDEX (%objArticleTableFCategoryId, %objArticleTableFAuthorId),
+    		FOREIGN KEY (%objArticleTableFCategoryId) 
+    		REFERENCES %objCategoryTable(%objCategoryTableFId)
+    		ON UPDATE CASCADE ON DELETE CASCADE,
+    		FOREIGN KEY (%objArticleTableFAuthorId)
+    		REFERENCES %objAuthenticationUserTable(%objAuthenticationUserTableFId)
+    		ON UPDATE CASCADE ON DELETE CASCADE)
+    	ENGINE=InnoDB  DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC AUTO_INCREMENT=1;
+
+___RA_SCHEMA_HASH_TAG_
+
+CREATE TABLE IF NOT EXISTS `%objCommentsTable` (
+	`%objCommentsTableFId` bigint(20) unsigned NOT NULL auto_increment,
+	`%objCommentsTableFName` varchar(255) NOT NULL,
+	`%objCommentsTableFEML` varchar(255) NOT NULL,
+	`%objCommentsTableFURL` varchar(255) NOT NULL,
+	`%objCommentsTableFComment` text NOT NULL,
+	`%objCommentsTableFApproved` enum('Y','N') NOT NULL default 'N',
+	`%objCommentsTableFDate` bigint(20) unsigned NOT NULL,
+	`%objCommentsTableFRUId` bigint(20) unsigned NOT NULL default '0',
+	`%objCommentsTableFArticleId` bigint(20) unsigned NOT NULL,
+		PRIMARY KEY  (`%objCommentsTableFId`),
+		INDEX (%objCommentsTableFArticleId, %objCommentsTableFRUId),
+			FOREIGN KEY (%objCommentsTableFArticleId)
+			REFERENCES %objArticleTable(%objArticleTableFId)
+			ON UPDATE CASCADE ON DELETE CASCADE,
+			FOREIGN KEY (%objCommentsTableFRUId)
+			REFERENCES %objAuthenticationUserTable(%objAuthenticationUserTableFId)
+			ON UPDATE CASCADE ON DELETE CASCADE)
+		ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;

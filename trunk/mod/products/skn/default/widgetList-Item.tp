@@ -1,0 +1,111 @@
+<?php
+    $objID = $PRD->getProductInfoByURL ($objURL, Products::$objProductsTableFId);
+    $objTT = $PRD->getProductInfoByURL ($objURL, Products::$objProductsTableFName);
+    $objCD = $PRD->getProductInfoByURL ($objURL, Products::$objProductsTableFCode);
+    $objCT = MPTT::mpttRemoveUnique ($PRD->getCategoryInfoById ($PRD->getProductInfoByURL ($objURL, 
+    Products::$objProductsTableFCategoryId), Products::$objCategoryTableFName));
+?>
+<div class="div_ProductsItemPathToItem">
+    <?php echo $objWidgetArray['product_path_to_item']; ?><?php foreach ($objPathToItem as $k => $v): ?>
+    <a title="<?php echo $v[Products::$objCategoryTableFName]; ?>"
+    href="<?php echo URL::staticURL (new A (Array (PRODUCTS_CATEGORY_URL, FRONTEND_SECTION_URL)),
+    new A (Array ($v[Products::$objCategoryTableFSEO], FRONTEND_PRODUCTS_URL))); ?>">
+        <strong><?php echo MPTT::mpttRemoveUnique ($v[Products::$objCategoryTableFName]); ?></strong>
+    </a> :: 
+    <?php endforeach; ?><br />
+    <strong><?php echo $objTT; ?></strong>
+</div>
+<div class="div_ProductsItemContainer">
+    <div class="div_ProductsItemInfo">
+        <h1 title="<?php echo $objTT; ?>" id="h1_ProductsItemTitle-Id-<?php echo $objID; ?>" class="h1_ProductsItemTitle">
+            <?php echo $objTT; ?>,<br />
+            <?php echo $objWidgetArray['product_category']; ?>: <?php echo $objCT; ?>,<br />
+            <?php echo $objWidgetArray['product_code']; ?>: <?php echo $objCD; ?>
+        </h1>
+    </div>
+    
+    <div class="div_ProductsItemImageContainer">
+        <a id="a_ProductTopImage" href="#"><img src="<?php echo 'upd/products/images/', $objID, '/128_128_', 
+        $objItemImages[0][Products::$objProductsIMGTableFURL]; ?>" 
+        alt="<?php echo $objItemImages[0][Products::$objProductsIMGTableFTitle]; ?>"
+        class="img_ProductsItemImageTopContainer" /></a>
+    </div>
+    <div class="div_CLEAR"></div>
+    
+    <div class="div_ProductsItemDescription">
+        <?php echo $PRD->getProductInfoByURL ($objURL, Products::$objProductsTableFDescription)->entityDecode (ENT_QUOTES); ?>
+    </div>
+    
+    <div class="div_ProductsItemMeta">
+        <div class="div_ProductsItemMetaKey">
+            <?php echo $objWidgetArray['product_price']; ?>
+        </div>
+        <div class="div_ProductsItemMetaVar">
+            <?php echo $PRD->getProductInfoByURL ($objURL, Products::$objProductsTableFPrice); ?>
+            <?php echo $objWidgetArray['product_currency']; ?>
+        </div>
+        <div class="div_CLEAR"></div>
+        
+        <div class="div_ProductsItemMetaKey">
+            <?php echo $objWidgetArray['product_stock']; ?>
+        </div>
+        <div class="div_ProductsItemMetaVar">
+            <?php echo $PRD->getProductInfoByURL ($objURL, Products::$objProductsTableFStoc); ?>
+        </div>
+        <div class="div_CLEAR"></div>
+        
+        <div class="div_ProductsItemMetaKey">
+            <?php echo $objWidgetArray['product_code']; ?>
+        </div>
+        <div class="div_ProductsItemMetaVar">
+            <?php echo $objCD; ?>
+        </div>
+        <div class="div_CLEAR"></div>
+    </div>
+
+    <div class="div_CLEAR"></div>
+</div>
+
+<div class="div_ProductsItemProperties">
+    <h1><?php echo $objWidgetArray['product_properties']; ?></h1>
+    <?php foreach ($objItemPpties as $k => $v): ?>
+        <div class="div_ProductsItemPropertyKey">
+            <?php echo $v[Products::$objProductsPropertyTableFKey]; ?>
+        </div>
+        <div class="div_ProductsItemPropertyVar">
+            <?php echo $v[Products::$objProductsPropertyTableFVar]; ?>
+        </div>
+        <div class="div_CLEAR"></div>
+    <?php endforeach; ?>
+</div>
+
+<div class="div_ProductsItemImages" id="div_ProductItemImages">
+    <div class="div_ProductsItemImagesAutoCentered">
+        <?php $objI = 0; ?>
+        <?php foreach ($objItemImages as $k => $v): ?>
+            <?php if ($objI % 3 == 0): ?>
+                <div class="div_CLEAR"></div>
+            <?php endif; ?>
+            
+            <div class="div_ProductsItemImageAndInfoContainer">
+                <div class="div_ProductsItemImageContainer">
+                    <a href="<?php echo 'upd/products/images/', $objID, '/800_600_',
+                    $v[Products::$objProductsIMGTableFURL]; ?>" class="a_ProductsImgGroup" 
+                    rel="a_ProductsImgGroup[<?php echo $objID; ?>]">
+                        <img src="<?php echo 'upd/products/images/', $objID, '/128_128_',
+                        $v[Products::$objProductsIMGTableFURL]; ?>"
+                        alt="<?php echo $v[Products::$objProductsIMGTableFTitle]; ?>"
+                        class="img_ProductsItemImage" />
+                    </a>
+                </div>
+                
+                <div class="div_ProductsItemImageInfoContainer">
+                    <p><?php echo $v[Products::$objProductsIMGTableFTitle]; ?>,<br />
+                    <?php echo $v[Products::$objProductsIMGTableFCaption]; ?></p>
+                </div>
+            </div>
+            <?php $objI++; ?>
+        <?php endforeach; ?>
+        <div class="div_CLEAR"></div>
+    </div>
+</div>

@@ -1,0 +1,65 @@
+    <div class="divContainer">
+    <div class="tableTreeName" id="tableTreeNameHeader">
+    <a class="sortDesc" href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION_SORT)), 
+    new A (Array ('DescByTitle'))); ?>">DESC</a>
+    <a class="sortAsc" href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION_SORT)), 
+    new A (Array ('AscByTitle'))); ?>">ASC</a>
+    Ttl</div>
+    
+    <div class="tableTreeName" id="tableTreeNameHeader">
+    <a class="sortDesc" href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION_SORT)), 
+    new A (Array ('DescByArtist'))); ?>">DESC</a>
+    <a class="sortAsc" href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION_SORT)), 
+    new A (Array ('AscByArtist'))); ?>">ASC</a>
+    Art</div>
+    
+    <div class="tableTreeName" id="tableTreeNameHeader">
+    <a class="sortDesc" href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION_SORT)), 
+    new A (Array ('DescByAlbum'))); ?>">DESC</a>
+    <a class="sortAsc" href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION_SORT)), 
+    new A (Array ('AscByAlbum'))); ?>">ASC</a>
+    Alb</div>
+    
+    <div class="tableTreeName" id="tableTreeNameHeader">
+    <a class="sortDesc" href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION_SORT)), 
+    new A (Array ('DescByDateAdded'))); ?>">DESC</a>
+    <a class="sortAsc" href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION_SORT)), 
+    new A (Array ('AscByDateAdded'))); ?>">ASC</a>
+    Dte</div>
+    
+    <div class="tableTreeErase" id="tableTreeEraseHeader"><?php echo ADMIN_ACTION_ERASE; ?></div>
+    <?php $doIndex = 0; ?>
+<?php foreach ($lyricTable as $k => $v): ?>
+    <a class="tableTreeName<?php if ($doIndex % 2 != 0): ?> tableTreeOdd<?php endif; ?>" 
+    href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION, ADMIN_ACTION_ID)), 
+    new A (Array (ADMIN_ACTION_EDIT, $v[Lyrics::$objLyricsTableFId]))); ?>">
+    <?php echo $v[Lyrics::$objLyricsTableFTitle]->doSubStr (0, 24), _SP, _DTE; ?>
+    </a>
+    
+    <a class="tableTreeName<?php if ($doIndex % 2 != 0): ?> tableTreeOdd<?php endif; ?>" 
+    href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION, ADMIN_ACTION_ID)), 
+    new A (Array (ADMIN_ACTION_EDIT, $v[Lyrics::$objLyricsTableFId]))); ?>">
+    <?php echo $v[Lyrics::$objLyricsTableFArtist]->doSubStr (0, 24), _SP, _DTE; ?>
+    </a>
+    
+    <a class="tableTreeName<?php if ($doIndex % 2 != 0): ?> tableTreeOdd<?php endif; ?>" 
+    href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION, ADMIN_ACTION_ID)), 
+    new A (Array (ADMIN_ACTION_EDIT, $v[Lyrics::$objLyricsTableFId]))); ?>">
+    <?php echo $v[Lyrics::$objLyricsTableFAlbum]->doSubStr (0, 24), _SP, _DTE; ?>
+    </a>
+    
+    <a class="tableTreeName<?php if ($doIndex % 2 != 0): ?> tableTreeOdd<?php endif; ?>" 
+    href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION, ADMIN_ACTION_ID)), 
+    new A (Array (ADMIN_ACTION_EDIT, $v[Lyrics::$objLyricsTableFId]))); ?>">
+    <?php echo date ($STG->getConfigKey (new S ('settings_default_date_format')), 
+    (int) $v[Lyrics::$objLyricsTableFDateAdded]->toString ()); ?>
+    </a>
+    
+    <a class="tableTreeErase" 
+    href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION, ADMIN_ACTION_ID)), 
+    new A (Array (ADMIN_ACTION_ERASE, $v[Lyrics::$objLyricsTableFId]))); ?>">
+    <?php echo ADMIN_ACTION_ERASE; ?></a>
+    <div class="clearFloatLeft"></div>
+    <?php $doIndex++; ?>
+<?php endforeach; ?>
+    </div>

@@ -1,0 +1,4 @@
+Groups can be mapped to zones and an access flag can be given to them. For example, they can be denied or allowed in a zone, which
+would give'em the possibility to use a specific feature of your application or not. You can create such mappings here and changes
+will be instant ... Try to be carefull when you edit permissions as you may make some of your users mad of un-announced changes and
+bugs that can appear due to changes on a LIVE application ...

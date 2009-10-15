@@ -1,0 +1,33 @@
+<div class="div_MainBackgroundContainer">
+    <div class="div_MainContainerAutoCentered">
+        <div class="div_LeftContent">
+            <?php if ($objUserYML->toBoolean () == TRUE): ?>
+                <div class="div_YahooInviteUsers">
+                    <p>Invitatiile au fost trimise prietenilor tai.<hr />
+                    Invitations have been sent to your friends.</p>
+            </div>
+            <?php endif; ?>
+            <?php if ($objUserYML->toBoolean () == FALSE): ?>
+            <div class="div_YahooInviteUsers">
+                <p><a href="<?php echo $objAuthURL; ?>">Click aici pentru a-ti invita prietenii de pe Yahoo</a><hr />
+                <a href="<?php echo $objAuthURL; ?>">Click here to invite your friends on Yahoo</a></p>
+                <p style="font-size: 11px; font-family: Tahoma; text-align: left; font-variant: normal;">
+                <ul style="font-size: 11px; font-family: Tahoma; text-align: left; font-variant: normal;">
+                <li>RO: In respectul fata de confidentialitatea ta, vei fi redirectat catre o pagina Yahoo, Inc. - unde vei putea sa
+                    te autentifici in deplina siguranta. Dupa autentificare, vei fi redirectat inapoi catre noi ...</li>
+                <li>EN: In respect to your privacy, you will be redirect to an Yahoo, Inc page - where you will be able to authenticate
+                    yourself in total safety. After you authenticate, you will be redirected back to us ...</li>
+                </p>
+            </div>
+            <?php endif; ?>
+        </div>
+        <div class="div_RightContent">
+            <h1>Genuri</h1>
+            <div class="div_SidebarContainer" id="div_MusicGenre">
+                <?php $AUD->renderWidget (new S ('widgetCategoryList')); ?>
+            </div>
+        </div>
+        
+        <div class="div_CLEAR"></div>
+    </div>
+</div>

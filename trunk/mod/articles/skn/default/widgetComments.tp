@@ -1,0 +1,61 @@
+<?php if ($objCommentIsOk->toLength ()->toInt () != 0): ?>
+    <div class="div_ArticlesCommentsOk">
+        <?php echo $objCommentIsOk; ?>
+    </div>
+<?php endif; ?>
+
+<?php if ($objShowFrm->toBoolean () == FALSE): ?>
+    <div class="div_ArticlesCommentsOk div_ArticlesCommentNeedAuthenticationOrDisabled">
+        <?php echo $objWidgetArray['comment_need_authentication']; ?>
+    </div>
+<?php endif; ?>
+
+<div class="div_ArticlesCommentsListContainer">
+	<?php /* FOREACH ... on each ... */ ?>
+    <?php foreach ($objComments as $k => $v): ?>
+    <div id="div_ArticlesSingleComment-Id-<?php echo $v[Audio::$objCommentsTableFId]; ?>"
+	class="div_ArticlesSingleComment">
+        <div class="div_ArticlesSingleCommentAuthor">
+            <?php
+				/* Differentiate between our users and anonymous ... */
+            	if ((int) $v[Audio::$objCommentsTableFRUId]
+				->toString () == 0) {
+					// Show his name ...
+                	echo $v[Audio::$objCommentsTableFName];
+            	} else {
+                	// Get from query ...
+                	echo $ATH->getUserInfoById ($v[Audio::$objCommentsTableFRUId], 
+                	Authentication::$objAuthUsersTableFUName);
+            	}
+            ?>
+        </div>
+        
+        <div class="div_ArticlesSingleCommentDate">
+            <?php echo date ($STG->getConfigKey (new S ('settings_default_date_format')),
+            (int) $v[Audio::$objCommentsTableFDate]->toString ()); ?>
+        </div>
+        
+        <div class="div_ArticlesSingleCommentMessage">
+            <?php if ($ATH->getUserInfoById ($v[Audio::$objCommentsTableFRUId], 
+            Authentication::$objAuthUsersTableFAvatar)->toLength ()->toInt () != 0): ?>
+            <div style="width: 75px; height: 75px; float: right; margin-left: 10px;">
+                <img src="upd/users/avatars/128_128_<?php echo $ATH
+                ->getUserInfoById ($v[Audio::$objCommentsTableFRUId], Authentication::$objAuthUsersTableFAvatar); ?>"
+                align="right" style="border: 2px solid #444444; 
+                margin: 10px; margin-top: 3px; margin-bottom: 0px; width: 75px; height: 75px;" />
+            </div>
+            <?php endif; ?>
+            <?php if ($ATH->getUserInfoById ($v[Audio::$objCommentsTableFRUId], 
+            Authentication::$objAuthUsersTableFAvatar)->toLength ()->toInt () == 0): ?>
+                <div style="border: 2px solid #444444; 
+                margin: 10px; margin-top: 3px; margin-bottom: 0px; width: 75px; height: 75px; float: right;"></div>
+            <?php endif; ?>
+            <div clas="div_CLEAR"></div>
+            <div style="width: 510px;">
+                <?php echo $v[Audio::$objCommentsTableFComment]
+				->entityDecode (ENT_QUOTES); ?>
+            </div>
+        </div>
+    </div>
+    <?php endforeach; ?>
+</div>

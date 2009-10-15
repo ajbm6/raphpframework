@@ -1,0 +1,5 @@
+<div class="widget-header">Contact :: Statistics</div>
+<div class="widget-content">    
+    You currently have %m contact messages and %s subjects. Out of those %m contact messages %r are marked as resolved 
+    while %u are not ... Go to the Contact module to review those messages that await your attention ...
+</div>

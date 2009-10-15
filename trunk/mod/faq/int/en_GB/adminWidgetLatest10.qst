@@ -1,0 +1,18 @@
+?><div class="widget-header">Faq :: Latest 10 faqs</div>
+<div class="widget-content">
+    Bellow, we give you the recent 10 (ten) articles that have been written. Clicking on any of the links will redirect you to the
+    editing interface for that article ...
+    <?php
+        $FAQ = MOD::activateModule (new FilePath ('mod/faq'), new B (TRUE));
+        $objKV = $FAQ->getFaqs (new S ('ORDER BY %objFaqTableFId DESC LIMIT 0, 10'));
+        $objK = new A (Array (ADMIN_PAGE, ADMIN_SUBPAGE, ADMIN_ACTION, ADMIN_ACTION_ID));
+    ?>
+    
+    <ul>
+    <?php foreach ($objKV as $k => $v): ?>
+        <?php  $objV = new A (Array (MANAGE_FAQ, MANAGE_FAQ, ADMIN_ACTION_EDIT, 
+        $v[Faq::$objFaqTableFId])); ?>
+        <li><a href="<?php echo URL::staticURL ($objK, $objV); ?>"><?php echo $v[Faq::$objFaqTableFQuestion]; ?></a></li>
+    <?php endforeach; ?>
+    </ul>
+</div>
