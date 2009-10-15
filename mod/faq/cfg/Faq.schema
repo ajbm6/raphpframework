@@ -1,0 +1,9 @@
+CREATE TABLE IF NOT EXISTS `%objFaqTable` (
+	`%objFaqTableFId` bigint(20) unsigned NOT NULL auto_increment,
+	`%objFaqTableFQuestion` varchar(255) NOT NULL,
+	`%objFaqTableFSEO` varchar(255) NOT NULL,
+	`%objFaqTableFAnswer` longtext NOT NULL,
+		PRIMARY KEY  (`%objFaqTableFId`),
+		UNIQUE KEY `question` (`%objFaqTableFQuestion`),
+		UNIQUE KEY `seo` (`%objFaqTableFSEO`)) 
+		ENGINE=InnoDB  DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC AUTO_INCREMENT=1;

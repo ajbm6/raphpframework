@@ -1,0 +1,5 @@
+<div class="widget-header">Products :: Statistics</div>
+<div class="widget-content">
+    You currently have %p items defined in your Products module, defined in %c
+    categories. Adding more items will allow you to sell more ...
+</div>

@@ -1,0 +1,4 @@
+Besides letting just the users upload audio files, we also allow you to have such a possibility. At some point in time, you may wish
+to be able to upload audio files from the backend, files that will be shown to the users. If you need the possibility to edit such
+files we allow you to do that from this form ... Warning, that changing the title, artist or album will change the auto-generated URL
+to fit the new information, which can cause changes or fluctuations in SEO ranking ...

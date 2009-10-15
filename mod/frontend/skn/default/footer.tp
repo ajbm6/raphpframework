@@ -1,0 +1,92 @@
+<div class="div_ContainerFooter">
+    <div class="div_FooterLeftAligned">
+        <a href="<?php echo $objURLPP; ?>">Politica de confidentialitate</a>&nbsp;|&nbsp;
+        <a href="<?php echo $objURLTerms; ?>">Termeni si conditii</a>&nbsp;|&nbsp;
+        <a href="<?php echo $objURLDisclaimer; ?>">Act de renuntare</a>&nbsp;|&nbsp;
+        <a href="<?php echo $objURLFaq; ?>">FAQ</a>&nbsp;|&nbsp;
+        <a href="<?php echo $objURLContact; ?>">Contact</a>
+        
+        <div class="div_FooterSocialLinks">
+            <!-- Yahooooo -->
+            <a href="ymsgr:im?+&amp;msg=<?php echo 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI']; ?>">
+                <img src="<?php echo $objURLImageDir; ?>yahoo.png" alt="Yahoo IM" />
+            </a>
+            
+            <!-- Facebooook -->
+            <script type="text/javascript">function fbs_click () {u=location.href;t=document.title;
+            window.open('http://www.facebook.com/sharer.php?u='+encodeURIComponent(u)+'&amp;t='+encodeURIComponent(t),'sharer',
+            'toolbar=0,status=0,width=626,height=436');return false;}</script>
+            <a href="http://www.facebook.com/share.php?u=<?php echo 'http://' . $_SERVER['SERVER_NAME']; ?>&lt;txp:page_url /&gt;" 
+            onclick="return fbs_click()">
+                <img src="<?php echo $objURLImageDir; ?>facebook.png" alt="Facebook Submit" />
+            </a>
+            
+            <!-- Twiiiiiiiteeer -->
+            <a href="http://twitter.com/home?status=Listening to: <?php echo URL::rewriteURL (); ?>">
+                <img src="<?php echo $objURLImageDir; ?>twitter.png" alt="Twitter ME ..." />
+            </a>
+
+            <!-- Feed Burner -->
+            <a href="http://feeds.feedburner.com/24up" title="FeedBurner">
+                <img src="<?php echo $objURLImageDir; ?>feedburner.png" alt="FeedBurner" />
+            </a>
+
+            <!-- Furl (old Diigo) -->
+            <a href="http://www.diigo.com" onclick="var s=document.createElement('script');s.type='text/javascript';s.src='http://www.diigo.com/javascripts/webtoolbar/diigolet_b_h_b.js';document.body.appendChild(s);return false;">
+            <img style="border:none" alt="diigo it" src="<?php echo $objURLImageDir; ?>diigo.png" /></a>        
+        </div>
+    </div>
+    <script type="text/javascript">
+        var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+        document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+        try {
+            var pageTracker = _gat._getTracker("UA-9324288-1");
+            pageTracker._trackPageview();
+        } catch(err) {}
+    </script>
+    <div class="div_FooterRightAlignedTrademark">
+        24up . RO (C) 2008&nbsp;-&nbsp;2009, All rights reserved;<br />
+        Developed by <a href="http://www.kitsoftware.ro/">KIT Software</a> on the
+        <a href="http://www.raphpframework.ro/">RA PHP Framework</a>;<br />
+        Generat in: <?php echo $objGenerationTime; ?>;<br /><br />
+        <div style="margin-left: -52px; width: 350px;">
+            <a href="http://validator.w3.org/check?uri=referer">
+            <img src="frm/img/valid-xhtml10.png"
+            alt="Valid XHTML 1.0 Strict" height="31" width="88" /></a>
+            &nbsp;&nbsp;
+            <a href="http://www.w3.org/WAI/WCAG1AAA-Conformance"
+            title="Explanation of Level Triple-A Conformance">
+            <img height="32" width="88" 
+            src="frm/img/wcag1AAA.png"
+            alt="Level Triple-A conformance icon, 
+            W3C-WAI Web Content Accessibility Guidelines 1.0" /></a>
+            
+            &nbsp;&nbsp;
+        </div>
+    </div>
+    <div class="div_CLEAR"></div>
+	<?php /* ?>
+    <!-- Start of StatCounter Code -->
+    <script type="text/javascript">
+    var sc_project=4819758; 
+    var sc_invisible=1; 
+    var sc_partition=54; 
+    var sc_click_stat=1; 
+    var sc_security="94045ecf"; 
+    </script>
+    
+    <script type="text/javascript" src="http://www.statcounter.com/counter/counter.js"></script>
+    <div class="no_DISPAY"><div class="statcounter">
+        <a title="hits counter" 
+        href="http://www.statcounter.com/free_hit_counter.html">
+            <img class="statcounter" src="http://c.statcounter.com/4819758/0/94045ecf/1/" alt="hits counter" />
+        </a>
+    </div></div>
+    <!-- End of StatCounter Code -->
+	<?php */ ?>
+</div>
+<div class="div_FooterRightFloatingBadge">
+	<a href="http://www.kitsoftware.ro">&nbsp;</a>
+</div>

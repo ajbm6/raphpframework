@@ -1,0 +1,46 @@
+<?php
+    $objId = $_GET[ADMIN_ACTION_ID];
+    $objURL = $AUD->getAudioFileInfoById ($_GET[ADMIN_ACTION_ID], Audio::$objAudioTableFSEO);
+?>
+<div class="divContainerSecond">
+    <div style="float: left; width: 150px;">
+        <?php if ($AUD->getAudioFileInfoByURL ($objURL, Audio::$objAudioTableFArtwork)->toLength ()->toInt () != 0): ?>
+            <a class="raFancyBox" href="../upd/audio/mp3/<?php echo date ('Y/m/d/',
+            (int) $AUD->getAudioFileInfoByURL ($objURL, Audio::$objAudioTableFUploadedDate)
+            ->toString ()); ?>800_600_<?php echo $AUD->getAudioFileInfoByURL ($objURL, Audio::$objAudioTableFArtwork); ?>">
+                <img src="../upd/audio/mp3/<?php echo date ('Y/m/d/',
+                (int) $AUD->getAudioFileInfoByURL ($objURL, Audio::$objAudioTableFUploadedDate)
+                ->toString ()); ?>128_128_<?php echo $AUD->getAudioFileInfoByURL ($objURL, Audio::$objAudioTableFArtwork); ?>"
+                alt="<?php echo $AUD->getAudioFileInfoByURL ($objURL, Audio::$objAudioTableFArtist); ?>"
+                class="img_AudioItemArticleTitleArtwork"
+                style="border: 2px solid #000000;" />
+            </a>
+        <?php endif; ?>
+    </div>
+    
+    <div style="float: left; width: 80%;">
+        <h1 style="font-weight: normal; font-family: Tempus Sans ITC; text-align: left; margin-top: 0px;">
+        <?php echo $AUD->getAudioFileInfoByURL ($objURL, Audio::$objAudioTableFTitle); ?>,<br />
+        <?php echo $AUD->getAudioFileInfoByURL ($objURL, Audio::$objAudioTableFArtist); ?>,<br />
+        <?php echo $AUD->getAudioFileInfoByURL ($objURL, Audio::$objAudioTableFAlbum); ?></h1>
+        
+        <h1 class="h1_AudioPressPlay">
+            <div id="div_AudioItemArticlePlayer-Id-<?php echo $objId; ?>" class="div_AudioItemArticlePlayer">
+                <p id="p_AudioItemArticle-Id-<?php echo $objId; ?>" class="p_AudioItemArticle"></p>
+            </div>
+        </h1>
+        
+        <script type="text/javascript">  
+            AudioPlayer.embed ("p_AudioItemArticle-Id-<?php echo $objId; ?>", {
+                soundFile: "<?php echo DOCUMENT_HOST . 'upd/audio/mp3/' . date ('Y/m/d/',
+                (int) $AUD->getAudioFileInfoByURL ($objURL, Audio::$objAudioTableFUploadedDate)->toString ()) . 
+                $AUD->getAudioFileInfoByURL ($objURL, Audio::$objAudioTableFFile); ?>",
+                titles: "<?php echo $AUD->getAudioFileInfoByURL ($objURL, 
+                Audio::$objAudioTableFTitle)->entityDecode (ENT_QUOTES)->doToken ('"', '\'')->doToken (',', ''); ?>",
+                artists: "<?php echo $AUD->getAudioFileInfoByURL ($objURL, 
+                Audio::$objAudioTableFArtist)->entityDecode (ENT_QUOTES); ?>"
+            });  
+        </script>
+    </div>
+    <div style="clear: both;"></div>
+</div>

@@ -1,0 +1,8 @@
+<div class="div_AudioUploadFormTopMessage">
+	<?php echo $objContent->entityDecode (ENT_QUOTES); ?>
+</div>
+<?php if ($objShowForm->toBoolean () == TRUE): ?>
+    <div class="div_AudioUploadForm">
+        <?php $AUD->renderForm (new S ('uploadForm'), $objWidgetArray); ?>
+    </div>
+<?php endif; ?>

@@ -1,0 +1,64 @@
+<?php if ($objInC->toBoolean () == TRUE): ?>
+	<?php if (count ($objStk) != 0 || count ($objArt) != 0): ?>
+		<div class="div_ArticlesCategoryDescription">
+			<h1><?php echo MPTT::mpttRemoveUnique ($ART->getCategoryInfoByURL ($objCat, 
+			Articles::$objCategoryTableFName)); ?></h1>
+			<?php echo $ART->getCategoryInfoByURL ($objCat, 
+			Articles::$objCategoryTableFDescription)
+			->entityDecode (ENT_QUOTES); ?>
+		</div><br />
+	<?php endif; ?>
+<?php endif; ?>
+<?php if (count ($objStk) == 0 && count ($objArt) == 0): ?>
+	<div class="div_ArticlesListNoArticlesDefined">
+    	<?php echo $objWidgetArray['no_articles']; ?>
+	</div>
+<?php endif; ?>
+
+<div class="div_ArticlesListStickyContainer">
+    <?php foreach ($objStk as $k => $v): ?>
+		<?php
+			/* Get some requirements ... */
+			$objId = $v[Articles::$objArticleTableFId];
+			$objTt = $v[Articles::$objArticleTableFTitle];
+		?>
+        <div id="div_ArticlesListItem-Id-<?php echo $objId; ?>" class="div_ArticlesListContainerItem">
+            <h1 title="<?php echo $objTt; ?>" id="h1_ArticlesListItem-Id-<?php echo $objId; ?>" class="h1_ArticlesListArticleItemTitle">
+                <a title="<?php echo FRONTEND_PERMALINK, $objTt; ?>"
+                id="a_ArticlesListItem-Id-<?php echo $objId; ?>"
+                href="<?php echo URL::staticURL (new A (Array (ARTICLES_ARTICLES_URL, FRONTEND_SECTION_URL)),
+                new A (Array ($v[Articles::$objArticleTableFSEO], FRONTEND_ARTICLE_URL))); ?>">
+                    <?php echo $objTt; ?>
+                </a>
+            </h1>
+            
+            <div id="div_ArticlesListItemExcerpt-Id-<?php echo $objId; ?>" class="div_ArticlesListItemExcerpt">
+                <?php echo $v[Articles::$objArticleTableFExcerpt]; ?>
+            </div>
+        </div>
+    <?php endforeach; ?>
+</div>
+
+<div class="div_ArticlesListContainer">
+    <?php foreach ($objArt as $k => $v): ?>
+		<?php
+			/* Get some requirements ... */
+			$objId = $v[Articles::$objArticleTableFId];
+			$objTt = $v[Articles::$objArticleTableFTitle];
+		?>
+        <div id="div_ArticlesListItem-Id-<?php echo $v[Articles::$objArticleTableFId]; ?>" class="div_ArticlesListContainerItem">
+            <h1 title="<?php echo $objTt; ?>" id="h1_ArticlesListItem-Id-<?php echo $objId; ?>" class="h1_ArticlesListArticleItemTitle">
+                <a title="<?php echo FRONTEND_PERMALINK, $v[Articles::$objArticleTableFTitle]; ?>"
+                href="<?php echo URL::staticURL (new A (Array (ARTICLES_ARTICLES_URL, FRONTEND_SECTION_URL)),
+                new A (Array ($v[Articles::$objArticleTableFSEO], FRONTEND_ARTICLE_URL))); ?>"
+				id="a_ArticlesListItem-Id-<?php echo $objId; ?>">
+                    <?php echo $v[Articles::$objArticleTableFTitle]; ?>
+                </a>
+            </h1>
+            
+            <div id="div_ArticlesListItemExcerpt-Id-<?php echo $objId; ?>" class="div_ArticlesListItemExcerpt">
+                <?php echo $v[Articles::$objArticleTableFExcerpt]; ?>
+            </div>
+        </div>
+    <?php endforeach; ?>
+</div>

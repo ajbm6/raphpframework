@@ -1,0 +1,41 @@
+<?php $objI = 0; ?>
+<div class="div_AudioRandomN">
+    <div class="div_AudioRandomNAutoCentered">
+		<?php /* FOREACH ... on each ... */ ?>
+        <?php foreach ($objRandomN as $k => $v): ?>
+            <?php if ($objI % 3 == 0): ?>
+                <div class="div_CLEAR"></div>
+            <?php endif; ?>
+            <div class="div_AudioRandomNItem" id="div_AudioRandomNItem-Id-<?php echo $v[Audio::$objAudioTableFId]; ?>">
+                <div class="div_AudioRandomNItemImageContainer">
+                    <?php if ($v[Audio::$objAudioTableFArtwork]->toLength ()->toInt () != 0): ?>
+                    <a title="<?php echo $v[Audio::$objAudioTableFTitle], $v[Audio::$objAudioTableFArtist]; ?>" 
+                    href="<?php echo URL::staticURL (new A (Array (AUDIO_ITEM_URL,FRONTEND_SECTION_URL)),
+                    new A (Array ($v[Audio::$objAudioTableFSEO], FRONTEND_AUDIO_URL))); ?>">
+                        <img src="upd/audio/mp3/<?php echo date ('Y/m/d/', (int) $v[Audio::$objAudioTableFUploadedDate]
+                        ->toString ()); ?>128_128_<?php echo $v[Audio::$objAudioTableFArtwork]; ?>"
+                        class="img_AudioItemArticleTitleArtworkRandomN" alt="<?php echo $v[Audio::$objAudioTableFArtist]; ?>" />
+                    </a>
+                    <?php endif; ?>
+                    <?php if ($v[Audio::$objAudioTableFArtwork]->toLength ()->toInt () == 0): ?>
+                        <div class="div_AudioItemArticleTitleArtworkRandomN" /></div>
+                    <?php endif; ?>
+                </div>
+                <div class="div_AudioRandomNItemInfoContainer">
+                	<a title="<?php echo $v[Audio::$objAudioTableFTitle], $v[Audio::$objAudioTableFArtist]; ?>" 
+                	href="<?php echo URL::staticURL (new A (Array (AUDIO_ITEM_URL,FRONTEND_SECTION_URL)),
+                	new A (Array ($v[Audio::$objAudioTableFSEO], FRONTEND_AUDIO_URL))); ?>">
+                    	<?php echo $objWidgetArray['audio_song_title'], 
+						$v[Audio::$objAudioTableFTitle]; ?>,<br />
+                    	<?php echo $objWidgetArray['audio_song_artist'], 
+						$v[Audio::$objAudioTableFArtist]; ?>,<br />
+                    	<?php echo $objWidgetArray['audio_song_album'], 
+						$v[Audio::$objAudioTableFAlbum]; ?>
+                	</a>
+                </div>
+            </div>
+            <?php $objI++; ?>
+        <?php endforeach; ?>
+        <div class="div_CLEAR"></div>
+    </div>
+</div>

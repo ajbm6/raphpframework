@@ -1,0 +1,48 @@
+<?php
+    $objId = $objWidgetArray['user_id'];
+?>
+<div class="div_AuthenticationProfileBoxImage">
+    <?php if ($ATH->getUserInfoById ($objId, Authentication::$objAuthUsersTableFAvatar)->toLength ()->toInt () != 0): ?>
+        <div style="width: 75px; height: 75px; float: left;">
+            <img src="upd/users/avatars/128_128_<?php echo $ATH
+            ->getUserInfoById ($objId, Authentication::$objAuthUsersTableFAvatar); ?>"
+            style="float: left; border: 2px solid #444444; 
+            margin: 10px; margin-top: 3px; margin-bottom: 0px; width: 75px; height: 75px;" 
+            alt="User AVATAR" />
+        </div>
+    <?php endif; ?>
+    <?php if ($ATH->getUserInfoById ($objId, Authentication::$objAuthUsersTableFAvatar)->toLength ()->toInt () == 0): ?>
+            <img src="upd/users/avatars/no_avatar.png"
+            style="float; left; border: 2px solid #444444; 
+            margin: 10px; margin-top: 3px; padding-top: 3px; margin-bottom: 0px; width: 75px; height: 75px;" 
+            alt="User AVATAR" />
+    <?php endif; ?>
+</div>
+
+<div class="div_AuthenticationProfileBoxInfo">
+    <div class="div_AuthenticationProfileBoxUsername">
+        <?php echo $ATH->getUserInfoById ($objId, Authentication::$objAuthUsersTableFUName); ?>
+    </div>
+    
+    <div class="div_AuthenticationProfileBoxRegisteredOn">
+        <?php echo $objWidgetArray['registered_on']; ?><?php echo date ($STG->getConfigKey (new S ('settings_default_date_format')), 
+        (int) $ATH->getUserInfoById ($objId, Authentication::$objAuthUsersTableFRegOn)->toString ()); ?>
+    </div>
+    
+    <div class="div_AuthenticationProfileBoxCountry">
+        <?php echo $objWidgetArray['country']; ?><?php echo $ATH->getUserInfoById ($objId, 
+        Authentication::$objAuthUsersTableFCountry); ?>
+    </div>
+    
+    <div class="div_AuthenticationProfileBoxSignature">
+        <?php echo $objWidgetArray['signature']; ?>
+        <?php if ($ATH->getUserInfoById ($objId, Authentication::$objAuthUsersTableFSignature)->toLength ()->toInt () != 0) { ?>
+            <p><?php echo $ATH->getUserInfoById ($objId, Authentication::$objAuthUsersTableFSignature)
+            ->doSubStr (0, 150)->appendString (' ...'); ?></p>
+        <?php } else { ?>
+            <p>&nbsp;</p>
+        <?php } ?>
+    </div>
+</div>
+
+<div class="div_CLEAR"></div>

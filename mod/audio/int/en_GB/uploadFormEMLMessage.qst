@@ -1,0 +1,10 @@
+<div style="font-family: Tahoma; font-size: 11px; line-height: 11px;">
+A file has been uploaded by %u. You can visit the administration interface to approve or unapprove this file, after checking
+that the lyrics and description have been properly edited and that no offensive material has been posted. The characteristics of the
+upload are:
+<ul style="list-style-type: square;">
+    <li>%t</li>
+    <li>%a</li>
+    <li>%b</li>
+</ul>
+</div>

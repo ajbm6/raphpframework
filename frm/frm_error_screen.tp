@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<style>
+.hrstyle {
+    border: 1px solid #000000;
+}
+
+.hrstyle_two {
+    border: 0.5px solid #EEEEEE;
+}
+
+.hrstyle_three {
+    border: 1px solid #B0D853;
+}
+
+.nodieheader {
+    border: 1px solid #B0D853;
+    font-family: Tahoma, Sans-Serif;
+    font-size: 24px;
+    color: #FEFEFE;
+    margin-top: 150px;
+    width: 70%;
+    padding: 2px;
+    background: url("[%HSIMG%][%ERPXL%]");
+}
+
+.dieheader {
+    border: 1px solid #B0D853;
+    font-family: Tahoma, Sans-Serif;
+    font-size: 24px;
+    color: #FFFFFF;
+    margin-top: 50px;
+    padding: 5px;
+    background: url("[%HSIMG%][%ERPXL%]");
+}
+
+.debugbacktraceout {
+    text-align: right;
+    font-size: 32px;
+    margin: 4px;
+    padding: 2px;
+    padding-right: 10px;
+    background: #000000;
+    border: 1px solid #FFFFFF;
+}
+
+.debugbacktraceout_code {
+    text-align: left;
+    font-size: 24px;
+    margin: 4px;
+    padding: 2px;
+    padding-right: 10px;
+    background: #000000;
+    border: 1px solid #B0D853;
+}
+
+.debugbacktraceoutputspan {
+    font-size: 24px;
+    color: #FFFFFF;
+    text-align: left;
+}
+
+.code_header {
+    font-family: Tahoma, Verdana, Arial, sans-serif;
+    font-size: 11px;
+    color: #FFFFFF;
+    margin: 4px;
+    border: 1px solid #B0D853;
+    padding: 4px;
+    font-size: 14px;
+    padding-left: 25px;
+    background: url("[%HSIMG%][%ERPIX%]");
+    width: 950px;
+}
+
+.mthd_header {
+    font-family: Tahoma, Verdana, Arial, sans-serif;
+    font-size: 11px;
+    color: #FFFFFF;
+    margin: 4px;
+    border: 1px solid #000000;
+    padding: 4px;
+    font-size: 14px;
+    padding-left: 25px;
+    background: url("[%HSIMG%][%ERPIX%]");
+    color: #FFFFFF;
+}
+
+.generic_stat_header {
+    text-align: left;
+    font-size: 32px;
+    margin: 2px;
+    padding: 2px;
+    padding-left: 10px;
+    background: #000000;
+    border: 1px solid #B0D853;
+}
+
+.generic_error {
+    text-align: left;
+    font-size: 32px;
+    margin: 2px;
+    padding: 2px;
+    padding-left: 10px;
+    background: #000000;
+    border: 1px solid #B0D853;
+    color: #00bf00;
+}
+
+body {
+    background: url("[%HSIMG%][%ERBGR%]");
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left !important;
+}
+</style>
+<title>RA PHP Framework :: DEBUG Screen</title>
+</head>
+<body>
+
+    <table class="dieheader"><tr><td>
+        <div class="generic_stat_header">Memory Usage:&nbsp;[%MEMORY%] KB</div>
+        <div class="generic_stat_header">PID:&nbsp;[%PID%]</div>
+        <div class="generic_stat_header">Microtime:&nbsp;[%MICROTIME%]</div>
+        <div class="generic_error">
+            <span style="color: #FF0000;"><b>Error</b></span>&nbsp;FROM<span style="color: #FF0000;">
+                <b>[%ERROR_FROM%]</b>
+            </span> on
+                <b>[%ERROR_DATE%]</b>.
+        </div>
+        <div class="generic_error">
+            <span style="color: #FF0000;">
+                <b>[%ERROR_EMSG%]</b>
+            </span>
+        </div>
+        <div class="generic_error">
+            <span style="color: #FF0000;">
+                <b>[%ERROR_ETIP%]</b>
+            </span>
+        </div>
+        <hr class="hrstyle_two" />
+        <div class="debugbacktraceout">DEBUG ERROR :: BACKTRACE</div>
+        <div class="code_header">[%ERROR_FROM_PHP%]</div>
+        <span class="debugbacktraceoutputspan">[%CODE%]</span>
+        <div class="debugbacktraceout">KRUMO ERROR :: VARIABLE OUTPUT</div>
+        <div class="code_header">[%KRUMO%]</div>
+    </tr></td></table>
+
+</body>
+</html>

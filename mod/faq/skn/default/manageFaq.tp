@@ -1,0 +1,22 @@
+    <div class="divContainer">
+    <div class="tableTreeName" id="tableTreeNameHeader">
+    <a class="sortDesc" href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION_SORT)), 
+    new A (Array ('DescByQuestion'))); ?>">DESC</a>
+    <a class="sortAsc" href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION_SORT)), 
+    new A (Array ('AscByQuestion'))); ?>">ASC</a>
+    Question</div>
+    <div class="tableTreeErase" id="tableTreeEraseHeader"><?php echo ADMIN_ACTION_ERASE; ?></div>
+    <?php $doIndex = 0; ?>
+<?php foreach ($faqTable as $k => $v): ?>
+    <a class="tableTreeName<?php if ($doIndex % 2 != 0): ?> tableTreeOdd<?php endif; ?>" 
+    href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION, ADMIN_ACTION_ID)), 
+    new A (Array (ADMIN_ACTION_EDIT, $v[Faq::$objFaqTableFId]))); ?>">
+    <?php echo $v[Faq::$objFaqTableFQuestion]; ?>
+    </a>
+    <a class="tableTreeErase" 
+    href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION, ADMIN_ACTION_ID)), 
+    new A (Array (ADMIN_ACTION_ERASE, $v[Faq::$objFaqTableFId]))); ?>"><?php echo ADMIN_ACTION_ERASE; ?></a>
+    <div class="clearFloatLeft"></div>
+    <?php $doIndex++; ?>
+<?php endforeach; ?>
+    </div>

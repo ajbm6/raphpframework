@@ -1,0 +1,7 @@
+<div style="font-family: Tahoma; font-size: 11px; line-height: 11px;">
+A search was made using the search form for the 'Audio' module. We're sending you this notification so you're kept up-to-date with
+what your users are searching for, so you can better improve your content. The search term was:
+    <ul style="list-style-type: square;">
+        <li>%s</li>
+    </ul>
+</div>

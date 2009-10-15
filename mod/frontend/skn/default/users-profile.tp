@@ -1,0 +1,41 @@
+<div class="div_MainBackgroundContainer">
+    <div class="div_MainContainerAutoCentered">
+        <div class="div_LeftContent">
+            <?php $ATH->renderWidget (new S ('userProfile'), new A (Array (
+            'error_username_mandatory' => new S ('Nu ai completat numele de utilizator ...'),
+            'error_username_exists' => new S ('Acest nume de utilizator exista ...'),
+            'error_email_exists' => new S ('Acest email exista in baza noastra de date'),
+            'error_passwords_do_not_match' => new S ('Nu ai completat aceeasi parola'),
+            'error_phone_ten_chars' => new S ('Numarul de telefon trebuie sa aiba fix 10 caractere ...'),
+            'default_group_id' => new S ('2'),
+            'form_signup' => new S ('Editeaza-ti profilul ...'),
+            'form_submit' => new S ('Salveaza profilul'),
+            'form_username' => new S ('Utilizator'),
+            'form_password' => new S ('Parola'),
+            'form_password_confirm' => new S ('Confirmare'),
+            'form_regexp_invalid_email' => new S ('Adresa de email este invalida ...'),
+            'form_email' => new S ('Email'),
+            'form_phone' => new S ('Telefon'),
+            'form_last_name' => new S ('Nume'),
+            'form_first_name' => new S ('Prenume'),
+            'form_country' => new S ('Tara'),
+            'form_city' => new S ('Oras'),
+            'form_ym' => new S ('Yahoo ID'),
+            'form_msn' => new S ('MSN'),
+            'form_icq' => new S ('ICQ'),
+            'form_aol' => new S ('AOL'),
+            'form_description' => new S ('Descriere'),
+            'form_signature' => new S ('Semnatura'),
+            'form_activation_subject' => new S ('24up . RO - Reactivate your ACCOUNT ...'),
+            'form_avatar' => new S ('Avatar')))); ?>
+        </div>
+        <div class="div_RightContent">
+            <h1>Genuri</h1>
+            <div class="div_SidebarContainer">
+                <?php $AUD->renderWidget (new S ('widgetCategoryList')); ?>
+            </div>
+        </div>
+        
+        <div class="div_CLEAR"></div>
+    </div>
+</div>

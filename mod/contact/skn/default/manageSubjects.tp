@@ -1,0 +1,21 @@
+    <div class="divContainer">
+    <div class="tableTreeName" id="tableTreeNameHeader">
+    <a class="sortDesc" href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION_SORT)), 
+    new A (Array ('DescByTitle'))); ?>">DESC</a>
+    <a class="sortAsc" href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION_SORT)), 
+    new A (Array ('AscByTitle'))); ?>">ASC</a>
+    Subjects</div>
+    <div class="tableTreeErase" id="tableTreeEraseHeader"><?php echo ADMIN_ACTION_ERASE; ?></div>
+    <?php $doIndex = 0; ?>
+<?php foreach ($articleTable as $k => $v): ?>
+    <a class="tableTreeName<?php if ($doIndex % 2 != 0): ?> tableTreeOdd<?php endif; ?>" 
+    href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION, ADMIN_ACTION_ID)), 
+    new A (Array (ADMIN_ACTION_EDIT, $v[Contact::$objContactSubjectFId]))); ?>">
+    <?php echo $v[Contact::$objContactSubjectFTitle]; ?>
+    </a>
+    <a class="tableTreeErase" href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION, ADMIN_ACTION_ID)), 
+    new A (Array (ADMIN_ACTION_ERASE, $v[Contact::$objContactSubjectFId]))); ?>"><?php echo ADMIN_ACTION_ERASE; ?></a>
+    <div class="clearFloatLeft"></div>
+    <?php $doIndex++; ?>
+<?php endforeach; ?>
+    </div>

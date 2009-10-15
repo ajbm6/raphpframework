@@ -1,0 +1,53 @@
+<div class="divContainerSecond divPagination">
+    <?php if ($objArticleTableCount->toInt () < 10): ?>
+        <?php for ($i = 0; $i < ($objArticleTableCount->toInt () / 10); ++$i): ?>
+        <a class="paginationLink<?php if (isset ($_GET[ADMIN_PAGINATION])): ?>
+        <?php if ((int) $_GET[ADMIN_PAGINATION]->toString () == $i + 1): ?> currentPage<?php endif; ?><?php endif; ?>" 
+        href="<?php echo URL::rewriteLink (new A (Array (ADMIN_PAGINATION)), new A (Array ($i + 1))); ?>">
+            <?php echo $i + 1; ?>
+        </a>
+        <?php endfor; ?>
+    <?php else: ?>
+        <a class="paginationLink" href="<?php echo URL::rewriteLink (new A (Array (ADMIN_PAGINATION)), 
+        new A (Array (1))); ?>">First</a>
+        <div class="paginationLink">...</div><?php 
+        if (isset ($_GET[ADMIN_PAGINATION])) {
+            $OffSet = (int) $_GET[ADMIN_PAGINATION]->toString ();
+            if ($OffSet > 3) {
+                $LowSet = $OffSet - 4;
+            } else {
+                $LowSet = 0;
+            }
+            $OffSetPlus = 2;
+            if ($OffSet == ceil ($objArticleTableCount->toInt () / 10)) {
+                $OffSetPlus = -1;
+            }
+            if ($OffSet + 1 == ceil ($objArticleTableCount->toInt () / 10)) {
+                $OffSetPlus = 0;
+            }
+            if ($OffSet + 2 == ceil ($objArticleTableCount->toInt () / 10)) {
+                $OffSetPlus = 1;
+            }
+        } else {
+            $OffSet = 0;
+            $LowSet = 0;
+            if (ceil ($objArticleTableCount->toInt () / 10) < 4) {
+                $OffSetPlus = ceil ($objArticleTableCount->toInt () / 10) - 1;
+            } else {
+                $OffSetPlus = 3;
+            }
+        } 
+        ?>
+        <?php for ($i = $LowSet; $i <= $OffSet + $OffSetPlus ; ++$i): ?>
+        <a class="paginationLink<?php if (isset ($_GET[ADMIN_PAGINATION])): ?>
+        <?php if ((int) $_GET[ADMIN_PAGINATION]->toString () == $i + 1): ?> currentPage<?php endif; ?><?php endif; ?>" 
+        href="<?php echo URL::rewriteLink (new A (Array (ADMIN_PAGINATION)), new A (Array ($i + 1))); ?>">
+            <?php echo $i + 1; ?>
+        </a>
+        <?php endfor; ?>
+        <div class="paginationLink">...</div>
+        <a class="paginationLink" href="<?php echo URL::rewriteLink (new A (Array (ADMIN_PAGINATION)), 
+        new A (Array (ceil ($objArticleTableCount->toInt () / 10)))); ?>">Last</a>
+    <?php endif; ?>
+    <div class="clearFloatLeft"></div>
+</div>

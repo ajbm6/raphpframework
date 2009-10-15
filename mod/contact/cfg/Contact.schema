@@ -1,0 +1,23 @@
+CREATE TABLE IF NOT EXISTS `%objContactSubjectTable` (
+	`%objContactSubjectFId` bigint(20) unsigned NOT NULL auto_increment,
+	`%objContactSubjectFTitle` varchar(255) NOT NULL,
+  		PRIMARY KEY  (`%objContactSubjectFId`)) 
+  		ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC AUTO_INCREMENT=1;
+
+___RA_SCHEMA_HASH_TAG_
+  		
+CREATE TABLE IF NOT EXISTS `%objContactTable` (
+	`%objContactTableFId` bigint(20) unsigned NOT NULL auto_increment,
+	`%objContactTableFMessage` longtext NOT NULL,
+	`%objContactTableFEMAIL` varchar(255) NOT NULL,
+	`%objContactTableFResolved` enum('Y','N') NOT NULL default 'N',
+	`%objContactTableFComment` longtext NOT NULL,
+	`%objContactTableFReceived` bigint(20) unsigned NOT NULL,
+	`%objContactTableFLastEdited` bigint(20) unsigned NOT NULL,
+	`%objContactTableFSubjectId` bigint(20) unsigned NOT NULL,
+  		PRIMARY KEY  (`%objContactTableFId`),
+  		INDEX (%objContactTableFSubjectId),
+    		FOREIGN KEY (%objContactTableFSubjectId) 
+    		REFERENCES %objContactSubjectTable(%objContactSubjectFId)
+    		ON UPDATE CASCADE ON DELETE CASCADE) 
+  		ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC AUTO_INCREMENT=1;

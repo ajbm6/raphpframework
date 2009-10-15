@@ -1,0 +1,4 @@
+Comments are added by users of your application, either registered or not. You will receive a notification when a comment is added,
+and usually, you will come to this editing interface to either approve or deny a comment. To keep things straight, we only give
+you the possibility to edit the comment text, approve or deny the comment, nothing more, keeping things as simple as we can possibly
+make'em for you and your users ...

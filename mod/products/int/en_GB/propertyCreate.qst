@@ -1,0 +1,4 @@
+You can set individual properties for your products. These properties can be used in many forms, but by default they will be shown
+as a table of properties for the current product, only as information to the user. Sometimes, specific properties can be used to
+either search for specific products in your database table. You should be careful to set the property key the same to identical
+products as we don't provide such a mechanism but relly on human editing ...

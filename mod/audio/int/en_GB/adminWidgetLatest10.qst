@@ -1,0 +1,18 @@
+?><div class="widget-header">Audio :: Latest 10 files</div>
+<div class="widget-content">
+    Bellow, we give you the recent 10 (ten) audio files that have been uploaded. Clicking on any of the links will redirect you to 
+    the editing interface for that article ...
+    <?php
+        $AUD = MOD::activateModule (new FilePath ('mod/audio'), new B (TRUE));
+        $objKV = $AUD->getAudioFiles (new S ('ORDER BY %objAudioTableFId DESC LIMIT 0, 10'));
+        $objK = new A (Array (ADMIN_PAGE, ADMIN_SUBPAGE, ADMIN_ACTION, ADMIN_ACTION_ID));
+    ?>
+    
+    <ul>
+    <?php foreach ($objKV as $k => $v): ?>
+        <?php  $objV = new A (Array (AUDIO_MANAGE_AUDIO, AUDIO_MANAGE_AUDIO, ADMIN_ACTION_EDIT, 
+        $v[Audio::$objAudioTableFId])); ?>
+        <li><a href="<?php echo URL::staticURL ($objK, $objV); ?>"><?php echo $v[Audio::$objAudioTableFTitle]; ?></a></li>
+    <?php endforeach; ?>
+    </ul>
+</div>

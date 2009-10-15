@@ -1,0 +1,19 @@
+?><div class="widget-header">Users :: Latest 10 users</div>
+<div class="widget-content">
+    Bellow, we give you the recent 10 (ten) users that have signed-up. Clicking on any of the links will redirect you to the
+    profile editing interface for that user ...
+    <?php
+        $ATH = MOD::activateModule (new FilePath ('mod/authentication'), new B (TRUE));
+        $objKV = $ATH->getUsers (new S ('ORDER BY %objAuthUsersTableFId DESC LIMIT 0, 10'));
+        $objK = new A (Array (ADMIN_PAGE, ADMIN_SUBPAGE, ADMIN_ACTION, ADMIN_ACTION_ID));
+    ?>
+    
+    <ul>
+    <?php foreach ($objKV as $k => $v): ?>
+        <?php  $objV = new A (Array (AUTHENTICATION_MANAGE_USERS, AUTHENTICATION_MANAGE_USERS, ADMIN_ACTION_EDIT, 
+        $v[Authentication::$objAuthUsersTableFId])); ?>
+        <li><a href="<?php echo URL::staticURL ($objK, $objV); ?>"><?php echo $v[Authentication::$objAuthUsersTableFUName]; ?>
+        </a></li>
+    <?php endforeach; ?>
+    </ul>
+</div>

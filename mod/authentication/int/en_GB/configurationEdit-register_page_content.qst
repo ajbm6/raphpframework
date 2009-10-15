@@ -1,0 +1,4 @@
+The page where the "Register" form is invoked, needs to have some kind of message that explains the advantages that are given to 
+registered users, or how the form is used. This has become a standard in time, and we allow you to edit that message here, by an 
+WYSIWYG editor ... the message here will be used in the register widget we invoke on the registration page, above the registration
+form built for your application ...

@@ -1,0 +1,4 @@
+Once you create a group, what you can actually do is just to rename it. Changing the hierarchy isn't allowed due to changes in the
+tree which cause weird things to happen if the users isn't prepared to deal with some weird permission inheritances ... In the future
+we will add more properties for groups that you can edit, but for the moment this is enough, as groups are actually concepts of
+users that share the same properties ...

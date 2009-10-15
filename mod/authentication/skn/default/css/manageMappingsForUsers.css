@@ -1,0 +1,16 @@
+#administrationHead {
+    background: #888888 URL(../img/mapping_background.png) no-repeat 15% 5px;
+}
+
+.tableTreeName {
+    width: 27.7%;
+    padding: 4px;
+    display: block;
+    margin: 2px;
+    float: left;
+}
+
+#tableTreeNameHeader {
+    text-align: left;
+    float: left;
+}

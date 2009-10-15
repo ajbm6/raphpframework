@@ -1,0 +1,96 @@
+    <div class="divContainer">
+    <div class="tableTreeName" id="tableTreeNameHeader">
+    <a class="sortDesc" href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION_SORT)), 
+    new A (Array ('DescByCode'))); ?>">DESC</a>
+    <a class="sortAsc" href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION_SORT)), 
+    new A (Array ('AscByCode'))); ?>">ASC</a>
+    Cd.</div>
+    
+    <div class="tableTreeName" id="tableTreeNameHeader">
+    <a class="sortDesc" href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION_SORT)), 
+    new A (Array ('DescByName'))); ?>">DESC</a>
+    <a class="sortAsc" href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION_SORT)), 
+    new A (Array ('AscByName'))); ?>">ASC</a>
+    Nm.</div>
+    
+    <div class="tableTreeName" id="tableTreeNameHeader">
+    <a class="sortDesc" href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION_SORT)), 
+    new A (Array ('DescByStoc'))); ?>">DESC</a>
+    <a class="sortAsc" href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION_SORT)), 
+    new A (Array ('AscByStoc'))); ?>">ASC</a>
+    St.</div>
+    
+    <div class="tableTreeName" id="tableTreeNameHeader">
+    <a class="sortDesc" href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION_SORT)), 
+    new A (Array ('DescByPrice'))); ?>">DESC</a>
+    <a class="sortAsc" href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION_SORT)), 
+    new A (Array ('AscByPrice'))); ?>">ASC</a>
+    Pr.</div>
+    
+    <div class="tableTreeName" id="tableTreeNameHeader">
+    <a class="sortDesc" href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION_SORT)), 
+    new A (Array ('DescByCategory'))); ?>">DESC</a>
+    <a class="sortAsc" href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION_SORT)), 
+    new A (Array ('AscByCategory'))); ?>">ASC</a>
+    Ct.</div>
+    <div class="tableTreeErase" id="tableTreeEraseHeader"><?php echo ADMIN_ACTION_ERASE; ?></div>
+    <?php $doIndex = 0; ?>
+<?php foreach ($productTable as $k => $v): ?>
+    <a class="tableTreeName<?php if ($doIndex % 2 != 0): ?> tableTreeOdd<?php endif; ?>" 
+    href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION, ADMIN_ACTION_ID)), 
+    new A (Array (ADMIN_ACTION_EDIT, $v[Products::$objProductsTableFId]))); ?>"
+    manageImages="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION, ADMIN_ACTION_ID)), 
+    new A (Array (ADMIN_ACTION_IMAGES, $v[Products::$objProductsTableFId]))); ?>"
+    manageProperties="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION, ADMIN_ACTION_ID)), 
+    new A (Array (ADMIN_ACTION_PROPERTIES, $v[Products::$objProductsTableFId]))); ?>">
+        <?php echo $v[Products::$objProductsTableFCode]; ?>
+    </a>
+    
+    <a class="tableTreeName<?php if ($doIndex % 2 != 0): ?> tableTreeOdd<?php endif; ?>" 
+    href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION, ADMIN_ACTION_ID)), 
+    new A (Array (ADMIN_ACTION_EDIT, $v[Products::$objProductsTableFId]))); ?>"
+    manageImages="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION, ADMIN_ACTION_ID)), 
+    new A (Array (ADMIN_ACTION_IMAGES, $v[Products::$objProductsTableFId]))); ?>"
+    manageProperties="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION, ADMIN_ACTION_ID)), 
+    new A (Array (ADMIN_ACTION_PROPERTIES, $v[Products::$objProductsTableFId]))); ?>">
+        <?php echo $v[Products::$objProductsTableFName]; ?>
+    </a>
+    
+    <a class="tableTreeName<?php if ($doIndex % 2 != 0): ?> tableTreeOdd<?php endif; ?>" 
+    href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION, ADMIN_ACTION_ID)), 
+    new A (Array (ADMIN_ACTION_EDIT, $v[Products::$objProductsTableFId]))); ?>"
+    manageImages="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION, ADMIN_ACTION_ID)), 
+    new A (Array (ADMIN_ACTION_IMAGES, $v[Products::$objProductsTableFId]))); ?>"
+    manageProperties="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION, ADMIN_ACTION_ID)), 
+    new A (Array (ADMIN_ACTION_PROPERTIES, $v[Products::$objProductsTableFId]))); ?>">
+        <?php echo $v[Products::$objProductsTableFStoc]; ?>
+    </a>
+    
+    <a class="tableTreeName<?php if ($doIndex % 2 != 0): ?> tableTreeOdd<?php endif; ?>" 
+    href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION, ADMIN_ACTION_ID)), 
+    new A (Array (ADMIN_ACTION_EDIT, $v[Products::$objProductsTableFId]))); ?>"
+    manageImages="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION, ADMIN_ACTION_ID)), 
+    new A (Array (ADMIN_ACTION_IMAGES, $v[Products::$objProductsTableFId]))); ?>"
+    manageProperties="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION, ADMIN_ACTION_ID)), 
+    new A (Array (ADMIN_ACTION_PROPERTIES, $v[Products::$objProductsTableFId]))); ?>">
+        <?php echo $v[Products::$objProductsTableFPrice]; ?>
+    </a>
+    
+    <a class="tableTreeName<?php if ($doIndex % 2 != 0): ?> tableTreeOdd<?php endif; ?>" 
+    href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION, ADMIN_ACTION_ID)), 
+    new A (Array (ADMIN_ACTION_EDIT, $v[Products::$objProductsTableFId]))); ?>"
+    manageImages="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION, ADMIN_ACTION_ID)), 
+    new A (Array (ADMIN_ACTION_IMAGES, $v[Products::$objProductsTableFId]))); ?>"
+    manageProperties="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION, ADMIN_ACTION_ID)), 
+    new A (Array (ADMIN_ACTION_PROPERTIES, $v[Products::$objProductsTableFId]))); ?>">
+        <?php echo MPTT::mpttRemoveUnique ($thisObj->getCategoryInfoById ($v[Products::$objProductsTableFCategoryId], 
+        Products::$objCategoryTableFName)); ?>
+    </a>
+    
+    <a class="tableTreeErase" 
+    href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION, ADMIN_ACTION_ID)), 
+    new A (Array (ADMIN_ACTION_ERASE, $v[Products::$objProductsTableFId]))); ?>"><?php echo ADMIN_ACTION_ERASE; ?></a>
+    <div class="clearFloatLeft"></div>
+    <?php $doIndex++; ?>
+<?php endforeach; ?>
+    </div>

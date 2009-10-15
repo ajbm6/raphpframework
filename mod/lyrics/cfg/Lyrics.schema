@@ -1,0 +1,11 @@
+CREATE TABLE IF NOT EXISTS `%objLyricsTable` (
+	`%objLyricsTableFId` bigint(20) unsigned NOT NULL auto_increment,
+	`%objLyricsTableFSEO` varchar(255) NOT NULL,
+	`%objLyricsTableFTitle` varchar(250) NOT NULL,
+	`%objLyricsTableFArtist` varchar(250) NOT NULL,
+	`%objLyricsTableFAlbum` varchar(250) NOT NULL,
+	`%objLyricsTableFDateAdded` bigint(20) unsigned NOT NULL,
+	`%objLyricsTableFLyrics` text NOT NULL,
+		PRIMARY KEY  (`%objLyricsTableFId`),
+		UNIQUE KEY `seo` (`%objLyricsTableFSEO`)) 
+		ENGINE=InnoDB  DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC AUTO_INCREMENT=1;

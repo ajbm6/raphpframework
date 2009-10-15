@@ -1,0 +1,15 @@
+#administrationHead {
+    background: #888888 URL(../img/article_background.png) no-repeat 15% 5px;
+}
+
+.tableTreeName {
+    width: 14.5%;
+}
+
+.articleTableStatus {
+    width: 7%;
+}
+
+.sortAsc, .sortDesc {
+    width: 44px !important;
+}

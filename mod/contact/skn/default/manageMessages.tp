@@ -1,0 +1,53 @@
+    <div class="divContainer">
+    <div class="tableTreeName" id="tableTreeNameHeader">Messages</div>
+    <div class="tableTreeName" id="tableTreeNameHeader">
+    <a class="sortDesc" href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION_SORT)), 
+    new A (Array ('DescByReceived'))); ?>">DESC</a>
+    <a class="sortAsc" href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION_SORT)), 
+    new A (Array ('AscByReceived'))); ?>">ASC</a>
+    Date</div>
+    <div class="tableTreeName" id="tableTreeNameHeader">
+    <a class="sortDesc" href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION_SORT)), 
+    new A (Array ('DescBySubject'))); ?>">DESC</a>
+    <a class="sortAsc" href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION_SORT)), 
+    new A (Array ('AscBySubject'))); ?>">ASC</a>
+    Subject</div>
+    <div class="tableTreeName" id="tableTreeNameHeader">
+    <a class="sortDesc" href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION_SORT)), 
+    new A (Array ('AscByLastEdited'))); ?>">DESC</a>
+    <a class="sortAsc" href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION_SORT)), 
+    new A (Array ('AscByLastEdited'))); ?>">ASC</a>
+    Edited</div>
+    <div class="tableTreeErase" id="tableTreeEraseHeader"><?php echo ADMIN_ACTION_ERASE; ?></div>
+    <?php $doIndex = 0; ?>
+<?php foreach ($articleTable as $k => $v): ?>
+    <a class="tableTreeName<?php if ($doIndex % 2 != 0): ?> tableTreeOdd<?php endif; ?>" 
+    href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION, ADMIN_ACTION_ID)), 
+    new A (Array (ADMIN_ACTION_VIEW, $v[Contact::$objContactTableFId]))); ?>">
+    <?php echo $v[Contact::$objContactTableFMessage]->entityDecode (ENT_QUOTES)->stripTags ()->doSubStr (0, 40) . _SP . '...'; ?>
+    </a>
+    <a class="tableTreeName<?php if ($doIndex % 2 != 0): ?> tableTreeOdd<?php endif; ?>" 
+    href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION, ADMIN_ACTION_ID)), 
+    new A (Array (ADMIN_ACTION_VIEW, $v[Contact::$objContactTableFId]))); ?>">
+    <?php echo date ($STG->getConfigKey (new S ('settings_default_date_format')),
+    (int) $v[Contact::$objContactTableFReceived]->toString ()); ?>
+    </a>
+    <a class="tableTreeName<?php if ($doIndex % 2 != 0): ?> tableTreeOdd<?php endif; ?>" 
+    href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION, ADMIN_ACTION_ID)), 
+    new A (Array (ADMIN_ACTION_VIEW, $v[Contact::$objContactTableFId]))); ?>">
+    <?php echo $CNT->getSubjectInfoById ($v[Contact::$objContactTableFSubjectId], Contact::$objContactSubjectFTitle); ?>
+    </a>
+    <a class="tableTreeName<?php if ($doIndex % 2 != 0): ?> tableTreeOdd<?php endif; ?>" 
+    href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION, ADMIN_ACTION_ID)), 
+    new A (Array (ADMIN_ACTION_VIEW, $v[Contact::$objContactTableFId]))); ?>">
+    <?php echo date ($STG->getConfigKey (new S ('settings_default_date_format')), 
+    (int) $v[Contact::$objContactTableFLastEdited]->toString ()); ?>
+    </a>
+    
+    <a class="tableTreeErase" 
+    href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION, ADMIN_ACTION_ID)), 
+    new A (Array (ADMIN_ACTION_ERASE, $v[Contact::$objContactTableFId]))); ?>"><?php echo ADMIN_ACTION_ERASE; ?></a>
+    <div class="clearFloatLeft"></div>
+    <?php $doIndex++; ?>
+<?php endforeach; ?>
+    </div>

@@ -1,0 +1,1 @@
+javascript: return checkKey (event, "[%REPLACE_VALUE_EVENT%]");

@@ -1,0 +1,6 @@
+<div class="div_contactWidget"><?php echo $objContactText; ?></div>
+<?php if ($objShowForm->toBoolean () == TRUE): ?>
+    <div class="div_contactWidgetForm">
+        <?php $CNT->renderForm (new S ('contactForm'), $objWidgetArray); ?>
+    </div>
+<?php endif; ?>

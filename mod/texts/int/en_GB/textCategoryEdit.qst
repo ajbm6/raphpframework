@@ -1,0 +1,4 @@
+Categories (or sections as we like to call'em) are closelly bound to executed PHP code, SO BE VERY careful when you edit category
+names as they result in errors in your application (website or other). Make sure you know what you are doing here before trying to
+do anything that you think you don't know the full implications to it. You're made totally responsible for what you do here as we
+don't provide any warranty if you make changes that aren't compatible ...

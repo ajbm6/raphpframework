@@ -1,0 +1,3 @@
+<hr class="hrstyle_three" /><div class="debugbacktraceout_code">Debug FILE #[%ID%]:&nbsp;[%FILE%]&nbsp;@
+<br />LINE:&nbsp;[%LINE%]&nbsp;in class:&nbsp;[%CLASS%]
+&nbsp;in func/mthd:&nbsp;[%METHOD%]</div><div class="code_header">[%CODE%]</div>

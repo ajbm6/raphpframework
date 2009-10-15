@@ -1,0 +1,8 @@
+User-agent: *
+Disallow: /upd/
+Disallow: /frm/
+Disallow: /log/
+Disallow: /img/
+Disallow: /cch/
+
+Sitemap: http://24up.ro/Section/XMLSitemap

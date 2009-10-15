@@ -1,0 +1,26 @@
+<div class="div_MainBackgroundContainer">
+    <div class="div_MainContainerAutoCentered">
+        <div class="div_LeftContent">
+            <?php $AUD->renderWidget (new S ('widgetUploadForm'), new A (Array ('upload_audio_file' => 'Incarca fisier audio',
+            'audio_file_title' => new S ('Denumirea piesei'),
+            'audio_file_category' => new S ('Genul'),
+            'audio_file_file' => new S ('Fisier MP3'),
+            'audio_file_artwork' => new S ('Imagine'),
+            'audio_file_artist' => new S ('Artist'),
+            'audio_file_album' => new S ('Album'),
+            'audio_file_lyrics' => new S ('Versuri'),
+            'audio_file_description' => new S ('Descriere'),
+            'error_title_empty' => new S ('Denumirea piesei nu a fost completata ...'),
+            'error_artist_empty' => new S ('Artistul piesei nu a fost completat ...'),
+            'error_album_empty' => new S ('Albumul piesei nu a fost completat ...')))); ?>
+        </div>
+        <div class="div_RightContent">
+            <h1>Genuri</h1>
+            <div class="div_SidebarContainer" id="div_MusicGenre">
+                <?php $AUD->renderWidget (new S ('widgetCategoryList')); ?>
+            </div>
+        </div>
+        
+        <div class="div_CLEAR"></div>
+    </div>
+</div>

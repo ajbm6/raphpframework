@@ -1,0 +1,51 @@
+<div id="footer"><p><?php echo $objFooterText; ?> ## HH:MM:SS @ <span class="jQueryClock"></span>.
+<?php if (isset ($objExeTime)): ?>Executed in: <?php echo $objExeTime; ?><?php endif; ?></p></div>
+<div id="administrationWrap">
+    <div id="administrationContent">
+        <div id="administrationHead">
+            <h1><?php echo $objHeaderText; ?><?php if ($objSwitcherLink->toLength ()->toInt () != 0): ?>
+            <a href="<?php echo $objSwitcherLink; ?>" id="doSwitcherLink"><?php echo ADMIN_SWITCH_THEME; ?></a><?php endif; ?>
+            <a id="doHomepageLink" href="<?php echo DOCUMENT_HOST; ?>">Home</a>
+            <?php if ($objLogOutLink->toLength ()->toInt () != 0): ?>
+            <a href="<?php echo $objLogOutLink; ?>" id="doLogOutLink"><?php echo AUTHENTICATION_LOG_OUT_TEXT; ?></a><?php endif; ?>
+            </h1>
+            
+            <ul id="administrationMenu">   
+            <?php $i = 0; ?>         
+            <?php foreach ($objMenuArray as $k => $v): ?>
+                <li <?php if ($i % 2 != 0): ?>class="odd"<?php endif; ?>>
+                <a <?php if (isset ($_GET[ADMIN_PAGE])): ?>
+                <?php if ($_GET[ADMIN_PAGE] == $k): ?>class="current typeface-js"<?php endif; ?>
+                <?php endif; ?> href="adm/index.php/<?php echo ADMIN_PAGE . _S . $k; ?>" title="<?php echo $v['text']; ?>">
+                <?php echo $k; ?></a></li>
+                <?php $i++; ?>
+            <?php endforeach; ?>
+            </ul>
+            
+            <ul id="administrationSubMenu">
+                <?php if (isset ($_GET[ADMIN_PAGE])): ?>
+                <?php foreach ($objSubMArray[$_GET[ADMIN_PAGE]] as $k => $v): ?>
+                <li><a <?php if ((isset ($_GET[ADMIN_SUBPAGE])) && ($_GET[ADMIN_SUBPAGE] == $k)): ?>class="current"<?php endif; ?> 
+                href="adm/index.php/<?php echo ADMIN_PAGE . _S . $_GET[ADMIN_PAGE] . _S . ADMIN_SUBPAGE . _S . $k; ?>"
+                title="<?php echo $v['text']; ?>">
+                <?php echo $k; ?></a></li>
+                <?php endforeach; ?>
+                <?php endif; ?>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div id="administrationBody">
+    <?php if (!isset ($_GET[ADMIN_SUBPAGE]) && isset ($_GET[ADMIN_PAGE])): ?>
+        <?php require_once $objMenuArray[$_GET[ADMIN_PAGE]]['path']; ?>
+    <?php endif; ?>
+    
+    <?php if (isset ($_GET[ADMIN_SUBPAGE])): ?>
+        <?php if ($_GET[ADMIN_SUBPAGE] instanceof S): ?>
+            <?php if ($objSubMArray[$_GET[ADMIN_PAGE]][$_GET[ADMIN_SUBPAGE]]['path'] instanceof FilePath): ?>
+                <?php require_once $objSubMArray[$_GET[ADMIN_PAGE]][$_GET[ADMIN_SUBPAGE]]['path']; ?>
+            <?php endif; ?>
+        <?php endif; ?>
+    <?php endif; ?>
+</div>

@@ -1,0 +1,12 @@
+#administrationHead {
+    background: #888888 URL(../img/welcome_background.png) no-repeat 15% 5px;
+}
+
+FIELDSET {
+    margin-left: 13.7%;
+    margin-top: 80px;
+}
+
+INPUT[type=submit] {
+    font-size: 32px;
+}

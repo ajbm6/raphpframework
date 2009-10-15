@@ -1,0 +1,27 @@
+<?php $objI = 0; ?>
+<div class="div_LyricsRandomN">
+    <div class="div_LyricsRandomNAutoCentered">
+        <?php /* FOREACH ... on each ... */ ?>
+        <?php foreach ($objRandomN as $k => $v): ?>
+            <?php if ($objI % 3 == 0): ?>
+                <div class="div_CLEAR"></div>
+            <?php endif; ?>
+            <div class="div_LyricsRandomNItem" id="div_LyricsRandomNItem-Id-<?php echo $v[Lyrics::$objLyricsTableFId]; ?>">
+                <div class="div_LyricsRandomNItemInfoContainer">
+                    <a title="<?php echo $v[Lyrics::$objLyricsTableFTitle], $v[Lyrics::$objLyricsTableFArtist]; ?>" 
+                    href="<?php echo URL::staticURL (new A (Array (LYRICS_ITEM_URL,FRONTEND_SECTION_URL)),
+                    new A (Array ($v[Lyrics::$objLyricsTableFSEO], FRONTEND_LYRICS_URL))); ?>">
+                        <?php echo $objWidgetArray['lyric_title'], 
+                        $v[Lyrics::$objLyricsTableFTitle]; ?>,<br />
+                        <?php echo $objWidgetArray['lyric_artist'], 
+                        $v[Lyrics::$objLyricsTableFArtist]; ?>,<br />
+                        <?php echo $objWidgetArray['lyric_album'], 
+                        $v[Lyrics::$objLyricsTableFAlbum]; ?>
+                    </a>
+                </div>
+            </div>
+            <?php $objI++; ?>
+        <?php endforeach; ?>
+        <div class="div_CLEAR"></div>
+    </div>
+</div>

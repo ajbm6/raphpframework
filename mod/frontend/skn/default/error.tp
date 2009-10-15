@@ -1,0 +1,20 @@
+<div class="div_MainBackgroundContainer">
+    <div class="div_MainContainerAutoCentered">
+        <div class="div_LeftContent">
+            <h1><?php echo $objCDE, _DCSP, $objTTL; ?></h1>
+            <?php echo $objCNT->entityDecode (ENT_QUOTES); ?>
+        </div>
+        <div class="div_RightContent">
+            <h1>Genuri</h1>
+            <div class="div_SidebarContainer">
+                <?php $AUD->renderWidget (new S ('widgetCategoryList')); ?>
+            </div>
+            <h1>Categorii</h1>
+            <div class="div_SidebarContainer" id="div_NewsCategory">
+                <?php $ART->renderWidget (new S ('widgetCategoryList')); ?>
+            </div>
+        </div>
+        
+        <div class="div_CLEAR"></div>
+    </div>
+</div>

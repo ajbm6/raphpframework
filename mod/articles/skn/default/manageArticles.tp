@@ -1,0 +1,126 @@
+    <div class="divContainer">
+
+    	<div class="tableTreeName" id="tableTreeNameHeader">
+        	<a class="sortDesc" href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION_SORT)), 
+        	new A (Array ('DescByTitle'))); ?>">DESC</a>
+        	<a class="sortAsc" href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION_SORT)), 
+        	new A (Array ('AscByTitle'))); ?>">ASC</a>
+        	Ttl
+    	</div>
+    
+    	<div class="tableTreeName" id="tableTreeNameHeader">
+        	<a class="sortDesc" href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION_SORT)), 
+        	new A (Array ('DescByCategory'))); ?>">DESC</a>
+        	<a class="sortAsc" href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION_SORT)), 
+        	new A (Array ('AscByCategory'))); ?>">ASC</a>
+        	Ctg
+    	</div>
+    
+    	<div class="tableTreeName" id="tableTreeNameHeader">
+        	<a class="sortDesc" href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION_SORT)), 
+        	new A (Array ('DescByPublished'))); ?>">DESC</a>
+        	<a class="sortAsc" href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION_SORT)), 
+        	new A (Array ('AscByPublished'))); ?>">ASC</a>
+        	Pbl
+    	</div>
+    
+    	<div class="tableTreeName" id="tableTreeNameHeader">
+       		<a class="sortDesc" href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION_SORT)), 
+        	new A (Array ('DescByUpdated'))); ?>">DESC</a>
+        	<a class="sortAsc" href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION_SORT)), 
+        	new A (Array ('AscByUpdated'))); ?>">ASC</a>
+        	Edt
+    	</div>
+    
+    	<div class="tableTreeName" id="tableTreeNameHeader">
+        	<a class="sortDesc" href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION_SORT)), 
+        	new A (Array ('DescByViews'))); ?>">DESC</a>
+        	<a class="sortAsc" href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION_SORT)), 
+        	new A (Array ('AscByViews'))); ?>">ASC</a>
+        	Vws
+    	</div>
+    
+    <div class="tableTreeName articleTableStatus" 
+	id="tableTreeNameHeader">
+        Status
+    </div>
+    
+    <div class="tableTreeErase" id="tableTreeEraseHeader">
+        <?php echo ADMIN_ACTION_ERASE; ?>
+    </div>
+    
+    <div class="clearFloatLeft"></div>
+    
+    <?php $doIndex = 0; ?>
+<?php foreach ($articleTable as $k => $v): ?>
+    <a class="tableTreeName<?php if ($doIndex % 2 != 0): ?> tableTreeOdd<?php endif; ?>" 
+    href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION, ADMIN_ACTION_ID)), 
+    new A (Array (ADMIN_ACTION_EDIT, $v[Articles::$objArticleTableFId]))); ?>">
+        <?php echo $v[Articles::$objArticleTableFTitle]
+		->doSubStr (0, 24), _SP, _DTE; ?>
+    </a>
+    
+    <a class="tableTreeName<?php if ($doIndex % 2 != 0): ?> tableTreeOdd<?php endif; ?>" 
+    href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION, ADMIN_ACTION_ID)), 
+    new A (Array (ADMIN_ACTION_EDIT, $v[Articles::$objArticleTableFId]))); ?>">
+        <?php echo MPTT::mpttRemoveUnique ($ART->getCategoryInfoById ($v[Articles::$objArticleTableFCategoryId], 
+        Articles::$objCategoryTableFName))->doSubStr (0, 25), _SP, _DTE; ?>
+    </a>
+    
+    <a class="tableTreeName<?php if ($doIndex % 2 != 0): ?> tableTreeOdd<?php endif; ?>" 
+    href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION, ADMIN_ACTION_ID)), 
+    new A (Array (ADMIN_ACTION_EDIT, $v[Articles::$objArticleTableFId]))); ?>">
+        <?php echo date ($STG->getConfigKey (new S ('settings_default_date_format')), 
+        $v[Articles::$objArticleTableFDatePublished]->toString ()); ?>
+    </a>
+    
+    <a class="tableTreeName<?php if ($doIndex % 2 != 0): ?> tableTreeOdd<?php endif; ?>" 
+    href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION, ADMIN_ACTION_ID)), 
+    new A (Array (ADMIN_ACTION_EDIT, $v[Articles::$objArticleTableFId]))); ?>">
+        <?php echo date ($STG->getConfigKey (new S ('settings_default_date_format')), 
+        $v[Articles::$objArticleTableFDateUpdated]->toString ()); ?>
+    </a>
+    
+    <a class="tableTreeName<?php if ($doIndex % 2 != 0): ?> tableTreeOdd<?php endif; ?>" 
+    href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION, ADMIN_ACTION_ID)), 
+    new A (Array (ADMIN_ACTION_EDIT, $v[Articles::$objArticleTableFId]))); ?>">
+        <?php echo $v[Articles::$objArticleTableFViews]; ?>
+    </a>
+    
+    <a class="tableTreeName articleTableStatus<?php if ($doIndex % 2 != 0): ?> tableTreeOdd<?php endif; ?>" 
+    href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION, ADMIN_ACTION_ID)), 
+    new A (Array (ADMIN_ACTION_EDIT, $v[Articles::$objArticleTableFId]))); ?>">
+        <?php 
+            switch ((int) $v[Articles::$objArticleTableFState]->toString ()) {
+            	case 1:
+					/* DRAFT */
+            		echo ARTICLES_DRAFT;
+            		break;
+            		
+        		case 2:
+					/* PUBLISHED */
+        			echo ARTICLES_PUBLISHED;
+        			break;
+        			
+        		case 3:
+					/* PENDING */
+        			echo ARTICLES_PENDING_REVIEW;
+        			break;
+        			
+        		case 4:
+					/* STICKY */
+        			echo ARTICLES_STICKY;
+        			break;
+        	}
+    	?>
+	</a>
+    
+    <a class="tableTreeErase" href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION, ADMIN_ACTION_ID)), 
+    new A (Array ('Erase', $v[Articles::$objArticleTableFId]))); ?>">
+		<?php echo ADMIN_ACTION_ERASE; ?>
+	</a>
+    
+	<?php $doIndex++; ?>
+    <div class="clearFloatLeft"></div>
+<?php endforeach; ?>
+    </div>

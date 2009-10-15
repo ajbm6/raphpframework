@@ -1,0 +1,33 @@
+<div class="div_MainBackgroundContainer">
+    <div class="div_MainContainerAutoCentered">
+        <div class="div_LeftContent">
+            <h1>Cauta dupa titlu, artist, album</h1>
+            <?php $LRQ->renderWidget (new S ('widgetSearch')); ?>
+            
+            <?php $LRQ->renderWidget (new S ('widgetList'), new A (Array (
+            'lyrics' => new S ('Versuri'),
+            'lyrics_need_correction' => new S ('Atentie! Versurile de mai sus pot fi corecte sau nu. Comunitatea 24up! este o 
+            comunitate in totalitate moderata de utilizatori, de aceea din cand in cand anumite greseli pot fi sesizate. In cazul in 
+            care ai sesizat o greseala in versurile de mai sus si vrei sa-ti aduci contributia 
+            <a href="mailto: office@24up.ro">ne poti trimite chiar tu</a> versurile corectate ...')))); ?>
+        </div>
+        <div class="div_RightContent">
+            <h1>Top 30 artisti</h1>
+            <div class="div_SidebarContainer">
+                <?php $LRQ->renderWidget (new S ('widgetTopN'), new A (Array ('type' => 1))); ?>
+            </div>
+            
+            <h1>Top 30 albume</h1>
+            <div class="div_SidebarContainer">
+                <?php $LRQ->renderWidget (new S ('widgetTopN'), new A (Array ('type' => 2))); ?>
+            </div>
+            
+            <h1>Categorii</h1>
+            <div class="div_SidebarContainer" id="div_NewsCategory">
+                <?php $ART->renderWidget (new S ('widgetCategoryList')); ?>
+            </div>
+        </div>
+        
+        <div class="div_CLEAR"></div>
+    </div>
+</div>

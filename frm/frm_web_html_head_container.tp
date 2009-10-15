@@ -1,0 +1,4 @@
+<html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en' lang='en'>
+<head>
+    <base href='[%BASE_HREF_URL%]' />
+    <link rel='SHORTCUT ICON' href='[%BASE_HREF_URL%]favicon.ico' />

@@ -1,0 +1,80 @@
+    <div class="divContainer">
+    	<div class="tableTreeName" id="tableTreeNameHeader">
+    		<a class="sortDesc" href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION_SORT)), 
+    		new A (Array ('DescByName'))); ?>">DESC</a>
+    		<a class="sortAsc" href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION_SORT)), 
+    		new A (Array ('AscByName'))); ?>">ASC</a>
+			Name
+		</div>
+    
+    	<div class="tableTreeName" id="tableTreeNameHeader">
+    		<a class="sortDesc" href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION_SORT)), 
+    		new A (Array ('DescByTitle'))); ?>">DESC</a>
+    		<a class="sortAsc" href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION_SORT)), 
+    		new A (Array ('AscByTitle'))); ?>">ASC</a>
+			Article
+		</div>
+    
+    	<div class="tableTreeName" id="tableTreeNameHeader">
+    		<a class="sortDesc" href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION_SORT)), 
+    		new A (Array ('DescByApproved'))); ?>">DESC</a>
+    		<a class="sortAsc" href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION_SORT)), 
+    		new A (Array ('AscByApproved'))); ?>">ASC</a>
+			Apprvd.
+		</div>
+    
+    	<div class="tableTreeName" id="tableTreeNameHeader">
+    		<a class="sortDesc" href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION_SORT)), 
+    		new A (Array ('DescByDate'))); ?>">DESC</a>
+    		<a class="sortAsc" href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION_SORT)), 
+    		new A (Array ('AscByDate'))); ?>">ASC</a>
+			Date
+		</div>
+    
+    <div class="tableTreeErase" id="tableTreeEraseHeader">
+		<?php echo ADMIN_ACTION_ERASE; ?>
+	</div>
+    
+	<?php $doIndex = 0; ?>
+
+<?php foreach ($articleTable as $k => $v): ?>
+    <a class="tableTreeName<?php if ($doIndex % 2 != 0): ?> tableTreeOdd<?php endif; ?>" 
+    href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION, ADMIN_ACTION_ID)), 
+    new A (Array (ADMIN_ACTION_EDIT, $v[Articles::$objCommentsTableFId]))); ?>">
+    	<?php echo $v[Articles::$objCommentsTableFName]
+		->doSubStr (0, 25), _SP, _DTE; ?>
+    </a>
+    
+    <a class="tableTreeName<?php if ($doIndex % 2 != 0): ?> tableTreeOdd<?php endif; ?>" 
+    href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION, ADMIN_ACTION_ID)), 
+    new A (Array (ADMIN_ACTION_EDIT, $v[Articles::$objCommentsTableFId]))); ?>">
+    	<?php echo $ART->getArticleInfoById ($v[Articles::$objCommentsTableFArticleId], Articles::$objArticleTableFTitle)
+		->doSubStr (0, 25), _SP, _DTE; ?>
+    </a>
+    
+    <a class="tableTreeName<?php if ($doIndex % 2 != 0): ?> tableTreeOdd<?php endif; ?>" 
+    href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION, ADMIN_ACTION_ID)), 
+    new A (Array (ADMIN_ACTION_EDIT, $v[Articles::$objCommentsTableFId]))); ?>">
+		<?php /* Mod: Texts - is in the platform core, it won't move from here ... */ ?>
+    	<?php echo ($v[Articles::$objCommentsTableFApproved] == 'Y' ? 
+		TEXTS_CAN_COMMENT_YES : TEXTS_CAN_COMMENT_NO); ?>
+    </a>
+    
+	<a class="tableTreeName<?php if ($doIndex % 2 != 0): ?> tableTreeOdd<?php endif; ?>" 
+    href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION, ADMIN_ACTION_ID)), 
+    new A (Array (ADMIN_ACTION_EDIT, $v[Articles::$objCommentsTableFId]))); ?>">
+    	<?php echo date ($STG->getConfigKey (new S ('settings_default_date_format')), 
+    	(int) $v[Articles::$objCommentsTableFDate]->toString ()); ?>
+    </a>
+    
+    <a class="tableTreeErase" 
+    href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION, ADMIN_ACTION_ID)), 
+    new A (Array (ADMIN_ACTION_ERASE, $v[Articles::$objCommentsTableFId]))); ?>">
+    	<?php echo ADMIN_ACTION_ERASE; ?>
+	</a>
+    
+	<div class="clearFloatLeft"></div>
+
+    <?php $doIndex++; ?>
+<?php endforeach; ?>
+    </div>

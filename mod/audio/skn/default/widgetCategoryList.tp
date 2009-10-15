@@ -1,0 +1,38 @@
+<?php // Start at DEPTH = 0 ...; ?>
+<?php $objSavedDepth = 0; ?>
+<ul class="ul_AudioCategoryList">    
+    <?php // Do a FOREACH ... for each; ?>
+    <?php foreach ($objCategoryList as $k => $v): ?>
+        <?php // If the depth > CURRENT, then NEW UL; ?>
+        <?php if ((int) $v['depth']->toString () > $objSavedDepth): ?>
+            <li style="list-style-type: none;"><ul class="ul_AudioCategorySubList">
+        <?php $objSavedDepth = (int) $v['depth']->toString (); endif; ?>
+        <?php // If the depth < CURRENT, then END UL; ?>
+        <?php if ((int) $v['depth']->toString () < $objSavedDepth): ?>
+            </ul></li>
+        <?php $objSavedDepth = (int) $v['depth']->toString (); endif; ?>
+        <?php $objCat = CLONE $v[Audio::$objCategoryTableFName]; ?>
+        <?php $objCat = MPTT::mpttRemoveUnique ($objCat); ?>
+        
+        <li title="<?php echo FRONTEND_PERMALINK, $objCat; ?>" 
+        id="li_AudioCategoryListItem-Id-<?php echo $v[Audio::$objCategoryTableFId]; ?>"
+        class="li_AudioCategoryListItem">
+            <a title="<?php echo FRONTEND_PERMALINK, $objCat; ?>" 
+            href="<?php echo URL::staticURL (new A (Array (AUDIO_CATEGORY_URL, FRONTEND_SECTION_URL)), 
+            new A (Array ($AUD->getCategoryInfoById ($v[Audio::$objCategoryTableFId], 
+            Audio::$objCategoryTableFSEO), FRONTEND_AUDIO_URL))); ?>"
+            id="a_AudioCategoryListItem-Id-<?php echo $v[Audio::$objCategoryTableFId]; ?>"
+			class="a_AudioCategoryListItem">
+                <?php echo $objCat; ?>
+            </a> (<?php echo $AUD
+                  ->getApprovedAudioFileCountForCategoryURL ($AUD
+                  ->getCategoryInfoById ($v[Audio::$objCategoryTableFId],
+                  Audio::$objCategoryTableFSEO)); ?>)
+        </li>
+    <?php endforeach; ?>
+    <?php if ($objSavedDepth > 0): ?>
+        <?php for ($i = $objSavedDepth; $i > 0; --$i): ?>
+            </ul></li>
+        <?php endfor; ?>
+    <?php endif; ?>
+</ul>

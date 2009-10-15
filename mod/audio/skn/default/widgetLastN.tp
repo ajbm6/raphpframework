@@ -1,0 +1,45 @@
+<h1>Ultimele <?php echo $objWidgetArray['audio_n_count']; ?> din <?php echo $AUD->getApprovedAudioFileCount (); ?></h1>
+<?php $objI = 0; ?>
+<div class="div_AudioLast10">
+    <div class="div_AudioLast10AutoCentered">
+		<?php /* FOREACH ... on each */ ?>
+        <?php foreach ($objLastN as $k => $v): ?>
+            <?php if ($objI % 3 == 0): ?>
+                <div class="div_CLEAR"></div>
+            <?php endif; ?>
+            
+            <div class="div_AudioLast10Item" id="div_AudioLast10Item-Id-<?php echo $v[Audio::$objAudioTableFId]; ?>">
+                <div class="div_AudioLast10ItemImageContainer">
+                    <?php if ($v[Audio::$objAudioTableFArtwork]->toLength ()->toInt () != 0): ?>
+                        <a title="<?php echo FRONTEND_PERMALINK, $v[Audio::$objAudioTableFTitle], $v[Audio::$objAudioTableFArtist]; ?>" 
+                        href="<?php echo URL::staticURL (new A (Array (AUDIO_ITEM_URL,FRONTEND_SECTION_URL)),
+                        new A (Array ($v[Audio::$objAudioTableFSEO], FRONTEND_AUDIO_URL))); ?>">
+                            <img src="upd/audio/mp3/<?php echo date ('Y/m/d/', (int) $v[Audio::$objAudioTableFUploadedDate]
+                            ->toString ()); ?>128_128_<?php echo $v[Audio::$objAudioTableFArtwork]; ?>"
+                            class="img_AudioItemArticleTitleArtworkLast10"
+                            alt="<?php echo $v[Audio::$objAudioTableFArtist]; ?>" />
+                        </a>
+                    <?php endif; ?>
+                    <?php if ($v[Audio::$objAudioTableFArtwork]->toLength ()->toInt () == 0): ?>
+                        <div class="div_AudioItemArticleTitleArtworkLast10" /></div>
+                    <?php endif; ?>
+                </div>
+                
+                <div class="div_AudioLast10ItemInfoContainer">
+                    <a title="<?php echo FRONTEND_PERMALINK, $v[Audio::$objAudioTableFTitle], $v[Audio::$objAudioTableFArtist]; ?>"
+                    href="<?php echo URL::staticURL (new A (Array (AUDIO_ITEM_URL,FRONTEND_SECTION_URL)),
+                    new A (Array ($v[Audio::$objAudioTableFSEO], FRONTEND_AUDIO_URL))); ?>">
+                        <?php echo $objWidgetArray['audio_song_title'], 
+						$v[Audio::$objAudioTableFTitle]; ?>,<br />
+                        <?php echo $objWidgetArray['audio_song_artist'], 
+						$v[Audio::$objAudioTableFArtist]; ?>,<br />
+                        <?php echo $objWidgetArray['audio_song_album'], 
+						$v[Audio::$objAudioTableFAlbum]; ?>
+                    </a>
+                </div>
+            </div>
+            <?php $objI++; ?>
+        <?php endforeach; ?>
+        <div class="div_CLEAR"></div>
+    </div>
+</div>

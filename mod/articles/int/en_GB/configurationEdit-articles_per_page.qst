@@ -1,0 +1,4 @@
+When showing category pages, we limit the number of articles to a given number. You can set how many articles should be shown per
+page by editing the below field. After that, the changes will be made instant and paginations will be limited to that number ... We
+actually recommend a value between 10 and 50 items per page to still be SEO friendly (max 100 items per page), but you can go beyond 
+that at your own risk.

@@ -1,0 +1,3 @@
+Zones are that concept you can quickly grasp. They are delimited areas of your
+application that need the current authenticated user to have specific permissions for that area to be able to function, or to
+be able to be shown on the requested page ...

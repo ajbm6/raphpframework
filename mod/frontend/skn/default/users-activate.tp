@@ -1,0 +1,23 @@
+<div class="div_MainBackgroundContainer">
+    <div class="div_MainContainerAutoCentered">
+        <div class="div_LeftContent">
+            <?php $ATH->renderWidget (new S ('userActivateByHash')); ?>
+            <div class="div_LeftContentContainer">
+                <h1>La nimereala</h1>
+                <?php $AUD->renderWidget (new S ('widgetRandomN'), new A (Array (
+                'audio_song_title' => new S ('Piesa: '),
+                'audio_song_artist' => new S ('Artist: '),
+                'audio_song_album' => new S ('Album: '),
+                'audio_n_count' => new S ('6')))); ?>
+            </div>
+        </div>
+        <div class="div_RightContent">
+            <h1>Genuri</h1>
+            <div class="div_SidebarContainer">
+                <?php $AUD->renderWidget (new S ('widgetCategoryList')); ?>
+            </div>
+        </div>
+        
+        <div class="div_CLEAR"></div>
+    </div>
+</div>

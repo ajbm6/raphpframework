@@ -1,0 +1,3 @@
+Because users are mapped to a country, or even other entities can be mapped
+to a geographical location, we allow you to edit the country list used globally in your web application. In time, we will
+provide also a representation of all states (US) or counties (EU) for each country you define.

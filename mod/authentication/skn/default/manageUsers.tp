@@ -1,0 +1,61 @@
+    <div class="divContainer">
+    <div class="tableTreeName" id="tableTreeNameHeader">
+        <a class="sortDesc" href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION_SORT)), 
+        new A (Array ('DescByUsername'))); ?>">DESC</a>
+        <a class="sortAsc" href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION_SORT)), 
+        new A (Array ('AscByUsername'))); ?>">ASC</a>
+        Usr
+    </div>
+    <div class="tableTreeName" id="tableTreeNameHeader">
+        <a class="sortDesc" href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION_SORT)), 
+        new A (Array ('DescByEMail'))); ?>">DESC</a>
+        <a class="sortAsc" href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION_SORT)), 
+        new A (Array ('AscByEMail'))); ?>">ASC</a>
+        Eml
+    </div>
+    <div class="tableTreeName" id="tableTreeNameHeader">
+        <a class="sortDesc" href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION_SORT)), 
+        new A (Array ('DescByGroup'))); ?>">DESC</a>
+        <a class="sortAsc" href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION_SORT)), 
+        new A (Array ('AscByGroup'))); ?>">ASC</a>
+        Grp
+    </div>
+    <div class="tableTreeName" id="tableTreeNameHeader">
+        <a class="sortDesc" href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION_SORT)), 
+        new A (Array ('DescByRegistered'))); ?>">DESC</a>
+        <a class="sortAsc" href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION_SORT)), 
+        new A (Array ('AscByRegistered'))); ?>">ASC</a>
+        Reg
+    </div>    
+    <div class="tableTreeErase" id="tableTreeEraseHeader"><?php echo ADMIN_ACTION_ERASE; ?></div>
+    <?php $doIndex = 0; ?>
+<?php foreach ($usersTable as $k => $v): ?>
+    <a class="tableTreeName<?php if ($doIndex % 2 != 0): ?> tableTreeOdd<?php endif; ?>" 
+    href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION, ADMIN_ACTION_ID)), 
+    new A (Array (ADMIN_ACTION_EDIT, $v[Authentication::$objAuthUsersTableFId]))); ?>">
+    <?php echo $v[Authentication::$objAuthUsersTableFUName]; ?>
+    </a>
+    <a class="tableTreeName<?php if ($doIndex % 2 != 0): ?> tableTreeOdd<?php endif; ?>" 
+    href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION, ADMIN_ACTION_ID)), 
+    new A (Array (ADMIN_ACTION_EDIT, $v[Authentication::$objAuthUsersTableFId]))); ?>">
+    <?php echo $v[Authentication::$objAuthUsersTableFEML]; ?>
+    </a>
+    <a class="tableTreeName<?php if ($doIndex % 2 != 0): ?> tableTreeOdd<?php endif; ?>" 
+    href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION, ADMIN_ACTION_ID)), 
+    new A (Array (ADMIN_ACTION_EDIT, $v[Authentication::$objAuthUsersTableFId]))); ?>">
+    <?php echo $v['group_name']; ?>
+    </a>
+    <a class="tableTreeName<?php if ($doIndex % 2 != 0): ?> tableTreeOdd<?php endif; ?>" 
+    href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION, ADMIN_ACTION_ID)), 
+    new A (Array (ADMIN_ACTION_EDIT, $v[Authentication::$objAuthUsersTableFId]))); ?>">
+    <?php echo date ($STG->getConfigKey (new S ('settings_default_date_format')),
+    (int) $v[Authentication::$objAuthUsersTableFRegOn]->toString ()); ?>
+    </a>
+    <a class="tableTreeErase" 
+    href="<?php echo URL::rewriteLink (new A (Array (ADMIN_ACTION, ADMIN_ACTION_ID)), 
+    new A (Array (ADMIN_ACTION_ERASE, $v[Authentication::$objAuthUsersTableFId]))); ?>">
+    <?php echo ADMIN_ACTION_ERASE; ?></a>
+    <div class="clearFloatLeft"></div>
+    <?php $doIndex++; ?>
+<?php endforeach; ?>
+    </div>

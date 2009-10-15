@@ -1,0 +1,25 @@
+<h1>Ultimele <?php echo Lyrics::$objItemsPerPage; ?> din <?php echo $LRQ->getLyricCount (); ?> versuri</h1>
+<?php if (count ($objAr) == 0): ?>
+<div class="div_LyricsListNoLyricsDefined">
+    <?php echo $objWidgetArray['no_audio']; ?>
+</div>
+<?php endif; ?>
+<div class="div_LyricsListContainer">
+    <?php /* FOREACH ... on each */ ?>
+    <?php foreach ($objAr as $k => $v): ?>
+        <div id="div_LyricsListContainerItem-Id-<?php echo $v[Lyrics::$objLyricsTableFId]; ?>" class="div_LyricsListContainerItem">
+            <a title="<?php echo $v[Lyrics::$objLyricsTableFTitle], $v[Lyrics::$objLyricsTableFArtist]; ?>"
+            href="<?php echo URL::staticURL (new A (Array (LYRICS_ITEM_URL, FRONTEND_SECTION_URL)),
+            new A (Array ($v[Lyrics::$objLyricsTableFSEO], FRONTEND_LYRICS_URL))); ?>"
+            id="a_LyricsListItem-Id-<?php echo $v[Lyrics::$objLyricsTableFId]; ?>" class="a_LyricsListContainerItem">
+                <h1 title="<?php echo $v[Lyrics::$objLyricsTableFTitle], $v[Lyrics::$objLyricsTableFArtist]; ?>" 
+                id="h1_LyricsListItem-Id-<?php echo $v[Lyrics::$objLyricsTableFId]; ?>" class="h1_LyricsListArticleItemTitle">
+                    <?php echo $v[Lyrics::$objLyricsTableFTitle]; ?>,<br />
+                    <?php echo $v[Lyrics::$objLyricsTableFArtist]; ?>,<br />
+                    <?php echo $v[Lyrics::$objLyricsTableFAlbum]; ?>  
+                    <div class="div_CLEAR"></div>
+                </h1>
+            </a>
+        </div>
+    <?php endforeach; ?>
+</div>

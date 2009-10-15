@@ -1,0 +1,168 @@
+/**
+* Krumo "Green" Skin
+*
+* @version $Id: skin.css 6 2007-06-16 06:37:27Z mrasnika $
+* @author Kaloyan K. Tsvetkov <mrasnika@users.sourceforge.net>
+*/
+
+/* -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
+
+ul.krumo-node {
+	margin: 0px;
+	padding: 0px;
+	}
+ul.krumo-node ul {
+	margin-left: 10px;
+	}
+* html ul.krumo-node ul {
+	margin-left: 14px;
+	}
+div.krumo-root {
+	border: solid 1px black;
+	margin: 6px 0em;
+	margin-left: -20px;
+	}
+ul.krumo-first {
+	border: solid 2px white;
+	border-top-width:1px;
+	background: url(%url%bg.gif);
+	}
+
+/* -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
+
+li.krumo-child {
+	display:block;
+	list-style: none;
+	padding: 0px;
+	margin: 0px;
+	overflow:hidden;
+	}
+div.krumo-element {
+	cursor:default;
+
+	line-height: 24px;
+	display:block;
+	
+	clear:both;
+	white-space:nowrap;
+	
+	border-top: solid 1px white;
+	background: #D7F4CA;
+	padding-left: 10px;
+	}
+* html div.krumo-element {
+	padding-bottom: 3px;
+	}
+a.krumo-name {
+	color:#004000;
+	}
+a.krumo-name big {
+	line-height: 14px;
+	position:relative;
+	top:2px;
+	left:-2px;
+	}
+* html a.krumo-name big {
+	top: 5px;
+	left: 0px;
+	line-height: 9px;
+	height: 12px;
+	padding: 0px;
+	margin: 0px;
+	}
+div.krumo-expand {
+	background: #C0EEAC;
+	cursor:pointer;
+	}
+div.krumo-hover {
+	background: gold;
+	}
+
+/* -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
+
+div.krumo-preview {
+	font: normal 13px courier new;
+	color: #000000;
+	padding: 5px 5px 14px 5px;
+	background: #B0D853;
+	border-top: 0px;
+	border-left: 1px solid #FFFFFF;
+	overflow:auto;
+	}
+* html div.krumo-preview {
+	padding-top: 2px;
+	}
+
+/* -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
+
+li.krumo-footnote {
+	background: #C0EEAC;
+	font-family: Tahoma;
+	color: #000000;
+	padding: 2px 5px;
+	list-style:none;
+	border-top: solid 1px #bebebe;
+	margin-top:2px;
+	cursor:default;
+	}
+* html li.krumo-footnote {
+	line-height: 13px;
+	}
+div.krumo-version {
+	float:right;
+    display: none;
+	}
+li.krumo-footnote h6 {
+	font: bold 11px Tahoma;
+	margin: 0px;
+	padding: 0px;
+	color:#008040;
+	display:inline;
+	}
+* html li.krumo-footnote h6 {
+	margin-right: 3px;
+	}
+li.krumo-footnote a {
+	color: #434343;
+	text-decoration:none;
+	}
+li.krumo-footnote a:hover {
+	color:black;
+	}
+
+li.krumo-footnote span.krumo-call {
+	xfont:normal 11px verdana;
+	position: relative;
+	top: 1px;
+	}
+li.krumo-footnote span.krumo-call code {
+	xfont-weight:bold;
+	}
+
+/* -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
+
+div.krumo-title {
+	xfont: normal 11px verdana ;
+	position:relative;
+	top: 5px;
+	display: block;
+	padding: 2px;
+	margin-left: -20px;
+	font-size: 11px;
+	font-family: Tahoma;
+	text-align: right;
+	background: #E6F6AD;
+	xbackground: #000000;
+	color: #000000;
+	border: 1px solid #000000;
+	cursor:default;
+	}
+
+/* -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
+
+strong.krumo-array-length,
+strong.krumo-string-length {
+	font-weight: normal;
+	}
+
+/* -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */

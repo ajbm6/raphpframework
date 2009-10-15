@@ -1,0 +1,23 @@
+?><div class="widget-header">Article :: Latest 10 comments</div>
+<div class="widget-content">
+    Bellow, we give you the recent 10 (ten) comments written by your users. Clicking on either of the links will redirect you the
+    the comment approval form, where you can review the comment and decide if you allow it or not ...
+    <?php
+        $ART = MOD::activateModule (new FilePath ('mod/articles'), new B (TRUE));
+        $STG = MOD::activateModule (new FilePath ('mod/settings'), new B (TRUE));
+        $objKV = $ART->getComments (new S ('ORDER BY %objCommentsTableFId DESC LIMIT 0, 10'));
+        $objK = new A (Array (ADMIN_PAGE, ADMIN_SUBPAGE, ADMIN_ACTION, ADMIN_ACTION_ID));
+    ?>
+    
+    <ul>
+    <?php foreach ($objKV as $k => $v): ?>
+        <?php  $objV = new A (Array (ARTICLES_MANAGE_ARTICLES, ARTICLES_MANAGE_COMMENTS, ADMIN_ACTION_EDIT, 
+        $v[Articles::$objCommentsTableFId])); ?>
+        <li><a href="<?php echo URL::staticURL ($objK, $objV); ?>"><?php echo date ($STG
+        ->getConfigKey (new S ('settings_default_date_format')),
+        (int) $v[Articles::$objCommentsTableFDate]->toString ()); ?>,<br />on: 
+        <?php echo $ART->getArticleInfoById ($v[Articles::$objCommentsTableFArticleId], Articles::$objArticleTableFTitle); ?>
+        </a></li>
+    <?php endforeach; ?>
+    </ul>
+</div>

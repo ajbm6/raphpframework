@@ -1,0 +1,5 @@
+<div class="widget-header">Users :: Statistics</div>
+<div class="widget-content">
+    You have %u registered user with your system and %g groups that are defined
+    for %z zones, to which they may or may not have access to, depending on your configuration.
+</div>

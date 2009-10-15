@@ -1,0 +1,13 @@
+#administrationSubMenu {
+    border: 1px dashed #686868;
+    border-bottom: 0px;
+    border-right: 0px;
+    left: 13.3%;
+    min-height: 27px;
+    margin-top: -105px;
+    position: fixed;
+    width: 86.6%;
+    right: 0%;
+    padding: 0;
+    z-index: 9000;
+}
